@@ -1,0 +1,3063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L&D Nursing Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink-50: #fdf2f5;
+    --pink-100: #fce7ee;
+    --pink-200: #f9d0dc;
+    --pink-300: #f4a8be;
+    --pink-500: #e879a0;
+    --pink-700: #b8456e;
+    --lavender-100: #ece9f7;
+    --lavender-200: #d8d2ef;
+    --lavender-500: #9b8cd4;
+    --lavender-700: #6b5ca3;
+    --mint-100: #dff5ec;
+    --mint-200: #bce8d4;
+    --mint-500: #6cc9a0;
+    --mint-700: #3d8a68;
+    --peach-100: #ffe8d9;
+    --peach-200: #ffd2b5;
+    --peach-500: #f0a878;
+    --peach-700: #b56f3d;
+    --butter-100: #fdf5d4;
+    --butter-200: #faeaa8;
+    --butter-500: #e6c850;
+    --sky-100: #dcecf7;
+    --sky-200: #b8d6ed;
+    --sky-500: #6ca3d4;
+    --sky-700: #3a6f9d;
+
+    --ink: #4a3a4f;
+    --ink-soft: #7d6e84;
+    --paper: #fffafc;
+    --paper-warm: #fff6f0;
+    --line: #f0dfe6;
+
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Nunito', system-ui, sans-serif;
+
+    --shadow-sm: 0 2px 6px rgba(184, 69, 110, 0.06);
+    --shadow-md: 0 6px 20px rgba(184, 69, 110, 0.08);
+    --shadow-lg: 0 12px 36px rgba(184, 69, 110, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--paper-warm);
+    background-image:
+      radial-gradient(at 8% 8%, rgba(249, 208, 220, 0.5) 0px, transparent 50%),
+      radial-gradient(at 92% 12%, rgba(216, 210, 239, 0.45) 0px, transparent 50%),
+      radial-gradient(at 50% 95%, rgba(188, 232, 212, 0.35) 0px, transparent 55%),
+      radial-gradient(at 95% 85%, rgba(255, 210, 181, 0.3) 0px, transparent 50%);
+    background-attachment: fixed;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ============ STICKY TOP BAR ============ */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 246, 240, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 0.85rem;
+  }
+
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  /* ============ ROOM PICKER ============ */
+  .room-bar {
+    max-width: 1100px;
+    margin: 0.4rem auto 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding: 0.15rem 0.05rem;
+    scrollbar-width: none;
+  }
+  .room-bar::-webkit-scrollbar { display: none; }
+
+  .room-bar-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--lavender-700);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    margin-right: 0.15rem;
+  }
+
+  .room-pill {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: white;
+    cursor: pointer;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s ease;
+    position: relative;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .room-pill:hover {
+    border-color: var(--lavender-200);
+    transform: translateY(-1px);
+  }
+
+  .room-pill.active {
+    background: linear-gradient(135deg, var(--lavender-100), var(--pink-100));
+    border-color: var(--lavender-500);
+    border-width: 2px;
+    box-shadow: 0 2px 8px rgba(155, 140, 212, 0.25);
+    transform: translateY(-1px);
+  }
+
+  /* Activity dot — shows when a room has any progress */
+  .room-pill .dot {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pink-500);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .room-pill.has-data .dot { opacity: 1; }
+
+  .topbar-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--pink-700);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+
+  .topbar-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--lavender-700);
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .progress-box {
+    background: white;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    font-weight: 700;
+    color: var(--pink-700);
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .progress-bar-mini {
+    width: 60px;
+    height: 5px;
+    background: var(--pink-100);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-bar-mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  /* ============ TOOLBAR ============ */
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem 0.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ============ TOOLBAR ACTION BUTTONS ============ */
+  .btn {
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.55rem 0.9rem;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: white;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+    max-width: 200px;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-primary {
+    background: var(--pink-500);
+    color: white;
+    border-color: var(--pink-500);
+  }
+
+  .btn-primary:hover { background: var(--pink-700); border-color: var(--pink-700); }
+
+  .btn-secondary {
+    background: var(--lavender-100);
+    color: var(--lavender-700);
+    border-color: var(--lavender-200);
+  }
+
+  .btn-secondary:hover { background: var(--lavender-200); }
+
+  .btn-ghost {
+    background: white;
+    color: var(--ink-soft);
+    border-color: var(--line);
+  }
+
+  .btn-ghost:hover { background: var(--paper-warm); color: var(--ink); }
+
+  .progress-box {
+    background: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    font-weight: 700;
+    color: var(--pink-700);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .progress-bar-mini {
+    width: 80px;
+    height: 6px;
+    background: var(--pink-100);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-bar-mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  /* ============ TAB NAV ============ */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .tab {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.5rem 0.5rem;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex: 1 1 auto;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tab:hover {
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .tab.active {
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Tab color variants */
+  .tab[data-color="pink"].active { background: var(--pink-500); }
+  .tab[data-color="lavender"].active { background: var(--lavender-500); }
+  .tab[data-color="mint"].active { background: var(--mint-500); }
+  .tab[data-color="peach"].active { background: var(--peach-500); }
+  .tab[data-color="sky"].active { background: var(--sky-500); }
+  .tab[data-color="butter"].active { background: var(--butter-500); color: var(--ink); }
+
+  /* ============ MAIN CONTENT ============ */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem 4rem;
+  }
+
+  .section {
+    display: none;
+  }
+
+  .section.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+    margin-top: 0.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--pink-500);
+  }
+
+  .section-desc {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ============ CARDS ============ */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--pink-300);
+    position: relative;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .card:hover { box-shadow: var(--shadow-md); }
+
+  .card[data-accent="lavender"] { border-top-color: var(--lavender-300, var(--lavender-500)); }
+  .card[data-accent="mint"] { border-top-color: var(--mint-500); }
+  .card[data-accent="peach"] { border-top-color: var(--peach-500); }
+  .card[data-accent="sky"] { border-top-color: var(--sky-500); }
+  .card[data-accent="butter"] { border-top-color: var(--butter-500); }
+
+  .card-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-icon {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .card-sub {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+  }
+
+  /* ============ CHECKLIST ITEMS ============ */
+  .check-list { list-style: none; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--line);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--pink-300);
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    margin-top: 2px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .check-item input[type="checkbox"]:hover {
+    border-color: var(--pink-500);
+    box-shadow: 0 0 0 4px var(--pink-100);
+  }
+
+  .check-item input[type="checkbox"]:checked {
+    background: var(--pink-500);
+    border-color: var(--pink-500);
+  }
+
+  .check-item input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .check-item label {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    cursor: pointer;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .check-item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+    opacity: 0.6;
+  }
+
+  /* Per-accent checkbox colors */
+  .card[data-accent="lavender"] .check-item input:checked { background: var(--lavender-500); border-color: var(--lavender-500); }
+  .card[data-accent="lavender"] .check-item input { border-color: var(--lavender-200); }
+  .card[data-accent="lavender"] .check-item input:hover { border-color: var(--lavender-500); box-shadow: 0 0 0 4px var(--lavender-100); }
+
+  .card[data-accent="mint"] .check-item input:checked { background: var(--mint-500); border-color: var(--mint-500); }
+  .card[data-accent="mint"] .check-item input { border-color: var(--mint-200); }
+  .card[data-accent="mint"] .check-item input:hover { border-color: var(--mint-500); box-shadow: 0 0 0 4px var(--mint-100); }
+
+  .card[data-accent="peach"] .check-item input:checked { background: var(--peach-500); border-color: var(--peach-500); }
+  .card[data-accent="peach"] .check-item input { border-color: var(--peach-200); }
+  .card[data-accent="peach"] .check-item input:hover { border-color: var(--peach-500); box-shadow: 0 0 0 4px var(--peach-100); }
+
+  .card[data-accent="sky"] .check-item input:checked { background: var(--sky-500); border-color: var(--sky-500); }
+  .card[data-accent="sky"] .check-item input { border-color: var(--sky-200); }
+  .card[data-accent="sky"] .check-item input:hover { border-color: var(--sky-500); box-shadow: 0 0 0 4px var(--sky-100); }
+
+  .card[data-accent="butter"] .check-item input:checked { background: var(--butter-500); border-color: var(--butter-500); }
+  .card[data-accent="butter"] .check-item input { border-color: var(--butter-200); }
+
+  /* Sub bullets (nested) */
+  .check-list ul {
+    list-style: none;
+    margin-left: 1.85rem;
+    margin-top: 0.25rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--line);
+  }
+
+  .check-list ul .check-item {
+    padding: 0.35rem 0;
+  }
+
+  .check-list ul .check-item label {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* Inline fillable blanks */
+  .blank {
+    display: inline-block;
+    border: none;
+    border-bottom: 1.5px dotted var(--pink-300);
+    background: transparent;
+    font-family: var(--body);
+    font-size: 0.92rem;
+    color: var(--pink-700);
+    padding: 0 0.3rem;
+    width: 90px;
+    margin: 0 0.15rem;
+  }
+
+  .blank:focus {
+    outline: none;
+    border-bottom-color: var(--pink-500);
+    border-bottom-style: solid;
+  }
+
+  /* ============ TIME COLUMNS ============ */
+  .time-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+  }
+
+  .time-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    background: var(--mint-100);
+    border-radius: 10px;
+    border: 1px solid rgba(108, 201, 160, 0.18);
+  }
+
+  .time-row.checked {
+    background: rgba(108, 201, 160, 0.18);
+    opacity: 0.75;
+  }
+
+  .time-row input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 2px solid var(--mint-200);
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+  }
+
+  .time-row input[type="checkbox"]:checked {
+    background: var(--mint-500);
+    border-color: var(--mint-500);
+  }
+
+  .time-row input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .time-label {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    color: var(--mint-700);
+    font-size: 0.92rem;
+    min-width: 48px;
+    letter-spacing: 0.02em;
+  }
+
+  .time-note {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font-family: var(--body);
+    font-size: 0.85rem;
+    color: var(--ink);
+    padding: 0.2rem 0.3rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    text-overflow: clip;
+  }
+
+  .time-note::-webkit-scrollbar { height: 0; display: none; }
+  .time-note { scrollbar-width: none; }
+
+  .time-note:focus {
+    outline: none;
+    background: white;
+    border-radius: 6px;
+  }
+
+  .time-note::placeholder {
+    color: var(--mint-700);
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  /* ============ SETTINGS UI (distinct from checklist) ============ */
+  .setting-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.6rem 0;
+    flex-wrap: wrap;
+  }
+
+  .setting-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--lavender-700);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .setting-toggle {
+    display: inline-flex;
+    background: var(--lavender-100);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .setting-pill {
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    padding: 0.35rem 0.85rem;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--lavender-700);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .setting-pill.active {
+    background: white;
+    color: var(--lavender-700);
+    box-shadow: 0 1px 4px rgba(107, 92, 163, 0.15);
+  }
+
+  .setting-pill:hover:not(.active) {
+    color: var(--lavender-700);
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .setting-input {
+    font-family: var(--body);
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border: 1.5px dashed var(--lavender-200);
+    border-radius: 8px;
+    background: var(--lavender-100);
+    color: var(--lavender-700);
+    font-weight: 600;
+  }
+
+  .setting-input:focus {
+    outline: none;
+    border-style: solid;
+    border-color: var(--lavender-500);
+    background: white;
+  }
+
+  /* ============ CUSTOM ITEM ADDER ============ */
+  .custom-add {
+    margin-top: 1.5rem;
+    padding: 1rem 1.1rem;
+    background: linear-gradient(135deg, var(--lavender-100), var(--pink-100));
+    border-radius: 14px;
+    border: 1.5px dashed var(--lavender-200);
+  }
+
+  .custom-add-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--lavender-700);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .custom-add-row {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .custom-add-input {
+    flex: 1;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    padding: 0.55rem 0.85rem;
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    background: white;
+    color: var(--ink);
+    min-width: 0;
+  }
+
+  .custom-add-input:focus {
+    outline: none;
+    border-color: var(--lavender-500);
+  }
+
+  .custom-add-input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.6;
+  }
+
+  .custom-add-btn {
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.1rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--lavender-500);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .custom-add-btn:hover {
+    background: var(--lavender-700);
+    transform: translateY(-1px);
+  }
+
+  .custom-add-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .custom-list { list-style: none; margin-top: 0.75rem; }
+
+  .custom-list .check-item {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.3rem;
+    border-bottom: none;
+    border: 1px dashed var(--lavender-200);
+    position: relative;
+  }
+
+  .custom-list .check-item input[type="checkbox"] {
+    border-color: var(--lavender-200);
+  }
+
+  .custom-list .check-item input[type="checkbox"]:checked {
+    background: var(--lavender-500);
+    border-color: var(--lavender-500);
+  }
+
+  .custom-list .check-item input[type="checkbox"]:hover {
+    border-color: var(--lavender-500);
+    box-shadow: 0 0 0 4px var(--lavender-100);
+  }
+
+  .custom-remove {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0 0.3rem;
+    opacity: 0.5;
+    transition: opacity 0.15s ease;
+    line-height: 1;
+  }
+
+  .custom-remove:hover { opacity: 1; color: var(--pink-700); }
+
+  /* ============ REFERENCE BLOCKS ============ */
+  .ref-block {
+    background: white;
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.25rem;
+    border-left: 4px solid var(--lavender-500);
+  }
+
+  .ref-block[data-accent="pink"] { border-left-color: var(--pink-500); }
+  .ref-block[data-accent="mint"] { border-left-color: var(--mint-500); }
+  .ref-block[data-accent="peach"] { border-left-color: var(--peach-500); }
+  .ref-block[data-accent="sky"] { border-left-color: var(--sky-500); }
+
+  .ref-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .ref-list {
+    list-style: none;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .ref-list li {
+    padding: 0.2rem 0;
+    color: var(--ink);
+  }
+
+  .ref-list li::before {
+    content: '◇';
+    color: var(--pink-300);
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .ref-list .item-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .ref-list .item-path {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+
+  /* ============ INFO PANEL ============ */
+  .info-panel {
+    background: linear-gradient(135deg, var(--pink-100), var(--lavender-100));
+    border-radius: 18px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: var(--ink);
+    border: 1px solid var(--pink-200);
+  }
+
+  .info-panel strong { color: var(--pink-700); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  footer .heart { color: var(--pink-500); }
+
+  /* ============ PRINT STYLES ============ */
+  @media print {
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
+    body {
+      background: white !important;
+      background-image: none !important;
+      color: black;
+      font-size: 10pt;
+    }
+
+    header, .toolbar, .tabs, footer, .info-panel, .topbar { display: none !important; }
+
+    main { max-width: 100%; padding: 0; }
+
+    .section { display: block !important; page-break-after: always; }
+    .section:last-child { page-break-after: auto; }
+
+    .section-title {
+      font-size: 16pt;
+      color: var(--pink-700) !important;
+      border-bottom: 2px solid var(--pink-300);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .section-desc { font-size: 9pt; margin-bottom: 0.75rem; }
+
+    .card-grid {
+      display: block;
+    }
+
+    .card {
+      box-shadow: none !important;
+      border: 1px solid #e5d2d9;
+      border-top: 3px solid var(--pink-300);
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.6rem;
+      page-break-inside: avoid;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .card[data-accent="lavender"] { border-top-color: var(--lavender-500); }
+    .card[data-accent="mint"] { border-top-color: var(--mint-500); }
+    .card[data-accent="peach"] { border-top-color: var(--peach-500); }
+    .card[data-accent="sky"] { border-top-color: var(--sky-500); }
+    .card[data-accent="butter"] { border-top-color: var(--butter-500); }
+
+    .card-title { font-size: 11pt; }
+    .card-sub { font-size: 7.5pt; }
+
+    .check-item {
+      padding: 0.15rem 0;
+      page-break-inside: avoid;
+      border-bottom: none;
+    }
+
+    .check-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 11px;
+      height: 11px;
+      min-width: 11px;
+      border: 1.2px solid #888;
+      border-radius: 2px;
+      background: white !important;
+      margin-top: 3px;
+    }
+
+    .check-item input[type="checkbox"]:checked::after { display: none; }
+
+    .check-item label {
+      font-size: 9pt;
+      color: black !important;
+      text-decoration: none !important;
+      opacity: 1 !important;
+    }
+
+    .check-list ul .check-item label { font-size: 8.5pt; }
+
+    .blank {
+      border-bottom: 1px solid #888;
+      color: black;
+      width: 75px;
+    }
+
+    .ref-block {
+      box-shadow: none !important;
+      border: 1px solid #e5d2d9;
+      border-left: 3px solid var(--lavender-500);
+      padding: 0.6rem 0.9rem;
+      margin-bottom: 0.4rem;
+      page-break-inside: avoid;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .ref-title { font-size: 10.5pt; margin-bottom: 0.3rem; }
+    .ref-list { font-size: 8.5pt; line-height: 1.4; }
+
+    .time-grid { font-size: 9pt; }
+  }
+
+  /* Print header (only visible when printing) */
+  .print-header {
+    display: none;
+  }
+
+  @media print {
+    .print-header {
+      display: block;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1.5px solid var(--pink-300);
+    }
+
+    .print-header h2 {
+      font-family: var(--display);
+      font-size: 18pt;
+      color: var(--pink-700) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .print-header p {
+      font-size: 8.5pt;
+      color: #666;
+    }
+  }
+
+  /* Small screens */
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .time-grid { grid-template-columns: 1fr; }
+    .topbar { padding: 0.5rem 0.75rem; }
+    .topbar-title { font-size: 0.95rem; }
+    .topbar-title .topbar-subtitle { display: none; }
+    .progress-box { font-size: 0.78rem; padding: 0.4rem 0.75rem; gap: 0.4rem; }
+    .progress-bar-mini { width: 45px; }
+    .room-pill { width: 34px; height: 34px; font-size: 1.05rem; border-radius: 10px; }
+    .room-bar { gap: 0.3rem; }
+    .room-bar-label { font-size: 0.6rem; }
+    .toolbar { padding: 0.6rem 0.75rem 0.4rem; gap: 0.4rem; }
+    .btn { font-size: 0.8rem; padding: 0.5rem 0.85rem; }
+    .tabs { padding: 0.3rem 0.5rem 0.75rem; gap: 0.35rem; }
+    .tab { font-size: 0.78rem; padding: 0.45rem 0.4rem; }
+    main { padding: 0.25rem 0.75rem 4rem; }
+    .section-title { font-size: 1.4rem; }
+    .section-desc { font-size: 0.88rem; margin-bottom: 1.25rem; }
+    .card { padding: 1.1rem 1rem; }
+  }
+
+  @media (max-width: 380px) {
+    .tab { font-size: 0.72rem; padding: 0.4rem 0.3rem; }
+    .btn { font-size: 0.75rem; padding: 0.45rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-header">
+  <h2>L&D Nursing Checklist</h2>
+  <p>Labor &amp; Delivery Workflow Reference</p>
+</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-title">L&amp;D <em>Checklist</em> <span class="topbar-subtitle">✿</span></div>
+    <div class="topbar-actions">
+      <div class="progress-box">
+        <span id="progress-count">0/0</span>
+        <div class="progress-bar-mini"><div class="progress-bar-mini-fill" id="progress-fill"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="room-bar" id="room-bar">
+    <span class="room-bar-label">Room</span>
+    <button type="button" class="room-pill active" data-room="🌸" title="Room 1"><span>🌸</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🌷" title="Room 2"><span>🌷</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🌼" title="Room 3"><span>🌼</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🌺" title="Room 4"><span>🌺</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🌻" title="Room 5"><span>🌻</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🌹" title="Room 6"><span>🌹</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="🪷" title="Room 7"><span>🪷</span><span class="dot"></span></button>
+    <button type="button" class="room-pill" data-room="💐" title="Room 8"><span>💐</span><span class="dot"></span></button>
+  </div>
+</div>
+
+<div class="toolbar">
+  <button class="btn btn-primary" onclick="handlePrint()">🖨 Print Section</button>
+  <button class="btn btn-secondary" onclick="expandAllForPrint()">📄 Print All</button>
+  <button class="btn btn-ghost" onclick="resetAll()">↻ Reset</button>
+</div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-target="triage" data-color="pink">Triage</button>
+  <button class="tab" data-target="nst" data-color="lavender">NST</button>
+  <button class="tab" data-target="induction" data-color="peach">Induction / Labor</button>
+  <button class="tab" data-target="ongoing-labor" data-color="peach">Ongoing Labor</button>
+  <button class="tab" data-target="epidural" data-color="sky">Epidural</button>
+  <button class="tab" data-target="vaginal" data-color="pink">Vaginal Delivery</button>
+  <button class="tab" data-target="newborn" data-color="butter">Newborn</button>
+  <button class="tab" data-target="scheduled-cs" data-color="lavender">Scheduled C/S</button>
+  <button class="tab" data-target="emergency-cs" data-color="pink">Emergency C/S</button>
+  <button class="tab" data-target="pacu" data-color="mint">PACU</button>
+  <button class="tab" data-target="postpartum" data-color="peach">Postpartum</button>
+  <button class="tab" data-target="discharge" data-color="mint">Discharge</button>
+  <button class="tab" data-target="reference" data-color="sky">Reference</button>
+</nav>
+
+<main>
+
+<!-- ============ TRIAGE ============ -->
+<section class="section active" id="triage">
+  <h2 class="section-title">Triage <em>workflow</em></h2>
+  <p class="section-desc">Patient registration, first orders, ongoing charting & discharge</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌸</span>Registration & Setup</h3>
+      <p class="card-sub">First steps when patient arrives</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="t1"><label for="t1">Register patient in Cerner</label></li>
+        <li class="check-item"><input type="checkbox" id="t2"><label for="t2">Call 7574 ED admitting and ask to create account</label></li>
+        <li class="check-item"><input type="checkbox" id="t3"><label for="t3">Move pt to tracking shell from "FHM MCH pre-reg" to room chosen</label></li>
+        <li class="check-item"><input type="checkbox" id="t4"><label for="t4">Print (MSI): 1 wristband (%), 5 stickers (enter), 1 facesheet ($)</label></li>
+        <li class="check-item"><input type="checkbox" id="t5"><label for="t5">Associate fetal link (modify date/time)</label></li>
+        <li class="check-item"><input type="checkbox" id="t6"><label for="t6">Grab specimen printer if need specimens</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">🩺</span>Hands On Care</h3>
+      <p class="card-sub">Initial patient assessment</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="t7"><label for="t7">Urine sample (if HTN s/s)</label></li>
+        <li class="check-item"><input type="checkbox" id="t8"><label for="t8">EFM / toco</label></li>
+        <li class="check-item"><input type="checkbox" id="t9"><label for="t9">VS x1</label></li>
+        <li class="check-item"><input type="checkbox" id="t10"><label for="t10">Focused assessment r/t reason for coming in</label></li>
+        <li class="check-item"><input type="checkbox" id="t11"><label for="t11">Call MD — OB communication (iview)</label></li>
+        <li class="check-item"><input type="checkbox" id="t12"><label for="t12">Call lab to draw labs</label></li>
+        <li class="check-item"><input type="checkbox" id="t13"><label for="t13">SVE, HTN check, labs etc…</label></li>
+        <li class="check-item"><input type="checkbox" id="t14"><label for="t14">Water jug and snacks</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">📋</span>Orders & Documentation</h3>
+      <p class="card-sub">Cerner orders and adhocs</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="t15"><label for="t15">Order: FHMC Triage/outpatient orders</label></li>
+        <li class="check-item"><input type="checkbox" id="t16"><label for="t16">Order: Notification to admitting OB "admit to Obs, room xzy"</label></li>
+        <li class="check-item"><input type="checkbox" id="t17"><label for="t17">D/C or Admit order</label></li>
+        <li class="check-item"><input type="checkbox" id="t18"><label for="t18">Adhoc: OB triage/Obs/status plan</label></li>
+        <li class="check-item"><input type="checkbox" id="t19"><label for="t19">Adhoc: Antenatal testing NST</label></li>
+        <li class="check-item"><input type="checkbox" id="t20"><label for="t20">Check prenatal labs</label></li>
+        <li class="check-item"><input type="checkbox" id="t21"><label for="t21">Med rec</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">⏱</span>Ongoing Charting</h3>
+      <p class="card-sub">While patient is in triage</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="t22"><label for="t22">Chart EFM q30min</label></li>
+        <li class="check-item"><input type="checkbox" id="t23"><label for="t23">VS x1 (or q15 for HTN)</label></li>
+        <li class="check-item"><input type="checkbox" id="t24"><label for="t24">Focused assessment</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">👋</span>Discharge</h3>
+      <p class="card-sub">Wrap up & cleanup</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="t25"><label for="t25">Papers: d/c education paper signed (give yellow page to patient)</label></li>
+        <li class="check-item"><input type="checkbox" id="t26"><label for="t26">Adhoc: OB undelivered</label></li>
+        <li class="check-item"><input type="checkbox" id="t27"><label for="t27">Discharge education: "pt to keep all current appointments"</label></li>
+        <li class="check-item"><input type="checkbox" id="t28"><label for="t28">Order: Notification to admitting OB "Discharged home, undelivered, please create pre-reg account for when she returns"</label></li>
+        <li class="check-item"><input type="checkbox" id="t29"><label for="t29">Charge sheet</label></li>
+        <li class="check-item"><input type="checkbox" id="t30"><label for="t30">Stickered FHR paper to manila and place in storage near SL</label></li>
+        <li class="check-item"><input type="checkbox" id="t31"><label for="t31">Fileclip papers (prenatals, signed documents, facesheet, charges) and place in medical records bin</label></li>
+        <li class="check-item"><input type="checkbox" id="t32"><label for="t32">Disassociate fetalink</label></li>
+        <li class="check-item"><input type="checkbox" id="t33"><label for="t33">Strip room, call EVS or text to clean 805-503-0871</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ NST ============ -->
+<section class="section" id="nst">
+  <h2 class="section-title">Non-Stress <em>Test</em></h2>
+  <p class="section-desc">Outpatient antenatal NST workflow</p>
+
+  <div class="card-grid">
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">📝</span>Setup & Orders</h3>
+      <p class="card-sub">Get the patient registered</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="n1"><label for="n1">Move pt to tracking shell from FHM MCH pre-reg</label></li>
+        <li class="check-item"><input type="checkbox" id="n2"><label for="n2">Call ED admitting if no account</label></li>
+        <li class="check-item"><input type="checkbox" id="n3"><label for="n3">Order: Fetal Nonstress test</label></li>
+        <li class="check-item"><input type="checkbox" id="n4"><label for="n4">Associate monitor</label></li>
+        <li class="check-item"><input type="checkbox" id="n5"><label for="n5">Print facesheet, wristband, stickers if needed</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">💗</span>Patient Care</h3>
+      <p class="card-sub">Monitor and document</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="n6"><label for="n6">OB triage if first visit, otherwise document events: "no changes to OB health, endorses +FM, no LOF, VB, or UC"</label></li>
+        <li class="check-item"><input type="checkbox" id="n7"><label for="n7">Med rec</label></li>
+        <li class="check-item"><input type="checkbox" id="n8"><label for="n8">Doc VS</label></li>
+        <li class="check-item"><input type="checkbox" id="n9"><label for="n9">Doc FHR</label></li>
+        <li class="check-item"><input type="checkbox" id="n10"><label for="n10">Call OB</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">✅</span>Wrap Up</h3>
+      <p class="card-sub">Discharge from NST</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="n11"><label for="n11">Place DC order</label></li>
+        <li class="check-item"><input type="checkbox" id="n12"><label for="n12">Adhoc: antenatal testing & charges</label></li>
+        <li class="check-item"><input type="checkbox" id="n13"><label for="n13">Move off tracker</label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUCTION / LABOR ADMIT ============ -->
+<section class="section" id="induction">
+  <h2 class="section-title">Induction <em>&amp;</em> Labor Admit</h2>
+  <p class="section-desc">Room prep, first hour care & initial documentation</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌷</span>Room Prep — Before</h3>
+      <p class="card-sub">Set up the room</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="i1"><label for="i1">Fill out whiteboard</label></li>
+        <li class="check-item"><input type="checkbox" id="i2"><label for="i2">Robe / vaginal delivery pack / orange bag in crib</label></li>
+        <li class="check-item"><input type="checkbox" id="i3"><label for="i3">Bring linens for support person & organize linen closet</label></li>
+        <li class="check-item"><input type="checkbox" id="i4"><label for="i4">Bring delivery meds & syringe / needles to room (locked box - 6686)</label></li>
+        <li class="check-item"><input type="checkbox" id="i5"><label for="i5">Bring IV supplies</label></li>
+        <li class="check-item"><input type="checkbox" id="i6"><label for="i6">Bring Cooks supplies (if ordered)</label></li>
+        <li class="check-item"><input type="checkbox" id="i7"><label for="i7">Prep warmer</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">⏰</span>First Hour</h3>
+      <p class="card-sub">Hands-on patient care</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="i8"><label for="i8">Gown / Orient to room</label></li>
+        <li class="check-item"><input type="checkbox" id="i9"><label for="i9">FHR / toco</label></li>
+        <li class="check-item"><input type="checkbox" id="i10"><label for="i10">VS per protocol</label></li>
+        <li class="check-item"><input type="checkbox" id="i11"><label for="i11">Head to toe assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="i12"><label for="i12">IV and lab draw</label></li>
+        <li class="check-item"><input type="checkbox" id="i13"><label for="i13">Print, label & scan labs, then send to lab ("specimen collection" to scan)</label></li>
+        <li class="check-item"><input type="checkbox" id="i14"><label for="i14">SVE — confirm vertex</label></li>
+        <li class="check-item"><input type="checkbox" id="i15"><label for="i15">Call MD with update</label></li>
+        <li class="check-item"><input type="checkbox" id="i16"><label for="i16">Review booklet</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">📄</span>Paper Forms</h3>
+      <p class="card-sub">Get these signed early</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="i17"><label for="i17">Blood consent</label></li>
+        <li class="check-item"><input type="checkbox" id="i18"><label for="i18">Car seat form</label></li>
+        <li class="check-item"><input type="checkbox" id="i19"><label for="i19">EDPS</label></li>
+        <li class="check-item"><input type="checkbox" id="i20"><label for="i20">Baby safety form</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & Charting</h3>
+      <p class="card-sub">Initial Cerner work</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="i21"><label for="i21">Orders: Provider favorites</label></li>
+        <li class="check-item"><input type="checkbox" id="i22"><label for="i22">Double check orders</label></li>
+        <li class="check-item"><input type="checkbox" id="i23"><label for="i23">Notification to admitting OB: "Admit to Labor, room xyz, Dr xyz"</label></li>
+        <li class="check-item"><input type="checkbox" id="i24"><label for="i24">Adhoc: OB triage</label></li>
+        <li class="check-item"><input type="checkbox" id="i25"><label for="i25">Adhoc: OB admission form</label></li>
+        <li class="check-item"><input type="checkbox" id="i26"><label for="i26">Confirm pt preferred pharmacy</label></li>
+        <li class="check-item"><input type="checkbox" id="i27"><label for="i27">Med reconciliation</label></li>
+        <li class="check-item"><input type="checkbox" id="i28"><label for="i28">Adhoc: Maternal Shift Screening</label></li>
+        <li class="check-item"><input type="checkbox" id="i29"><label for="i29">Adhoc: Maternal readiness for discharge</label></li>
+        <li class="check-item"><input type="checkbox" id="i30"><label for="i30">POC — initiate and document in plan</label></li>
+        <li class="check-item"><input type="checkbox" id="i31"><label for="i31">OB safety huddle (document — Events)</label></li>
+        <li class="check-item"><input type="checkbox" id="i32"><label for="i32">Document Assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="i33"><label for="i33">Document IV — lines and tubes</label></li>
+        <li class="check-item"><input type="checkbox" id="i34"><label for="i34">Review labs</label></li>
+        <li class="check-item"><input type="checkbox" id="i35"><label for="i35">Document SVE</label></li>
+        <li class="check-item"><input type="checkbox" id="i36"><label for="i36">Document EDPS, iview</label></li>
+        <li class="check-item"><input type="checkbox" id="i37"><label for="i37">Clinician notification, iview under notifications</label></li>
+        <li class="check-item"><input type="checkbox" id="i38"><label for="i38">Adhoc: Oxytocin checklist (if applicable)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">🗂</span>Behind-the-Scenes</h3>
+      <p class="card-sub">Misc setup tasks</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="i39"><label for="i39">Register patient in Cerner</label></li>
+        <li class="check-item"><input type="checkbox" id="i40"><label for="i40">Review MFM binder to see if pt is in it</label></li>
+        <li class="check-item"><input type="checkbox" id="i41"><label for="i41">Print (MSI): wristband (%), stickers (enter), facesheet ($)</label></li>
+        <li class="check-item"><input type="checkbox" id="i42"><label for="i42">Associate fetal link</label></li>
+        <li class="check-item"><input type="checkbox" id="i43"><label for="i43">Grab specimen printer and print labs</label></li>
+        <li class="check-item"><input type="checkbox" id="i44"><label for="i44">Make binder</label></li>
+        <li class="check-item"><input type="checkbox" id="i45"><label for="i45">Print prenatals</label></li>
+        <li class="check-item"><input type="checkbox" id="i46"><label for="i46">Make kardex</label></li>
+        <li class="check-item"><input type="checkbox" id="i47"><label for="i47">Review charge sheet: qualifies for accommodation codes?</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ONGOING LABOR ============ -->
+<section class="section" id="ongoing-labor">
+  <h2 class="section-title">Ongoing <em>Labor Patient</em></h2>
+  <p class="section-desc">Continuing care throughout labor — checks, charting & timing</p>
+
+  <div class="info-panel">
+    <strong>Frequencies:</strong> FHR q30min (q15m pushing) · Pitocin: FHT q15min & Oxy checklist q30min · VS per protocol
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🛏</span>Room Check</h3>
+      <p class="card-sub">Confirm setup is complete</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ol1"><label for="ol1">Update whiteboard</label></li>
+        <li class="check-item"><input type="checkbox" id="ol2"><label for="ol2">Robe / vaginal delivery pack / orange bag in crib?</label></li>
+        <li class="check-item"><input type="checkbox" id="ol3"><label for="ol3">Bring delivery meds & syringe / needles to room (box - 6686)</label></li>
+        <li class="check-item"><input type="checkbox" id="ol4"><label for="ol4">Warmer prepped?</label></li>
+        <li class="check-item"><input type="checkbox" id="ol5"><label for="ol5">Paper forms (Blood, Car seat, EDPS, Baby safety) all signed in chart?</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">📝</span>Charting</h3>
+      <p class="card-sub">Stay current in Cerner</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ol6"><label for="ol6">Review orders</label></li>
+        <li class="check-item"><input type="checkbox" id="ol7"><label for="ol7">Med reconciliation completed?</label></li>
+        <li class="check-item"><input type="checkbox" id="ol8"><label for="ol8">Adhoc: Maternal Shift Screen</label></li>
+        <li class="check-item"><input type="checkbox" id="ol9"><label for="ol9">Adhoc: Maternal readiness for discharge → MCHS – D/C – Modify</label></li>
+        <li class="check-item"><input type="checkbox" id="ol10"><label for="ol10">POC — document in plan</label></li>
+        <li class="check-item"><input type="checkbox" id="ol11"><label for="ol11">Contact MD prior to 9pm to discuss plan for night → OB safety huddle (iview Events)</label></li>
+        <li class="check-item"><input type="checkbox" id="ol12"><label for="ol12">Clinician notification, iview under notifications</label></li>
+        <li class="check-item"><input type="checkbox" id="ol13"><label for="ol13">Adhoc: Oxytocin checklist done?</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">🩺</span>Hands On Care</h3>
+      <p class="card-sub">Patient assessments</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ol14"><label for="ol14">Head to toe assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="ol15"><label for="ol15">IV assessed — lines and tubes</label></li>
+        <li class="check-item"><input type="checkbox" id="ol16"><label for="ol16">Catheter assessed and peri care</label></li>
+        <li class="check-item"><input type="checkbox" id="ol17"><label for="ol17">Epidural assessed (iview: reserve dose & pump med verify with two RN)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">⏱</span>VS Timing Reference</h3>
+      <p class="card-sub">By patient type</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ol18"><label for="ol18"><strong>Cervidil/Cytotec:</strong> Latent q4h · Active q1h · Temp Intact q4h · Ruptured q2h</label></li>
+        <li class="check-item"><input type="checkbox" id="ol19"><label for="ol19"><strong>FHR/Toco:</strong> q30min</label></li>
+        <li class="check-item"><input type="checkbox" id="ol20"><label for="ol20"><strong>Pitocin VS:</strong> q1h + with each increase · Temp Intact q4h, Ruptured q2h</label></li>
+        <li class="check-item"><input type="checkbox" id="ol21"><label for="ol21"><strong>Pitocin FHT:</strong> q15min</label></li>
+        <li class="check-item"><input type="checkbox" id="ol22"><label for="ol22"><strong>Oxy Checklist:</strong> q30min</label></li>
+        <li class="check-item"><input type="checkbox" id="ol23"><label for="ol23"><strong>IUPC:</strong> q30 MVUs</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">🕐</span>Check Times</h3>
+      <p class="card-sub">Mark off the times you completed checks</p>
+      <div class="setting-group">
+        <span class="setting-label">Interval</span>
+        <div class="setting-toggle" data-interval-toggle>
+          <button type="button" class="setting-pill active" data-interval="30">Every 30 min</button>
+          <button type="button" class="setting-pill" data-interval="15">Every 15 min</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <span class="setting-label">Start time</span>
+        <input type="time" class="setting-input" id="time-start" value="18:30">
+      </div>
+      <div class="time-grid" id="time-grid-dynamic"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EPIDURAL ============ -->
+<section class="section" id="epidural">
+  <h2 class="section-title">Epidural <em>placement</em></h2>
+  <p class="section-desc">Before, during & after epidural — hands-on care plus charting</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">📞</span>Pre-Procedure Setup</h3>
+      <p class="card-sub">Call & prep</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="e1"><label for="e1">Call Anesthesiologist</label></li>
+        <li class="check-item"><input type="checkbox" id="e2"><label for="e2">IV fluid bolus</label></li>
+        <li class="check-item"><input type="checkbox" id="e3"><label for="e3">Review CBC — H/H: <input class="blank" type="text" placeholder="___"> / <input class="blank" type="text" placeholder="___"> · PLT: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="e4"><label for="e4">Grab Anesthesia consent form & cart, bring to room (window side of bed)</label></li>
+        <li class="check-item"><input type="checkbox" id="e5"><label for="e5">Epidural kit and consent / ans record on top of cart</label></li>
+        <li class="check-item"><input type="checkbox" id="e6"><label for="e6">Grab anesthesia meds</label></li>
+        <li class="check-item"><input type="checkbox" id="e7"><label for="e7">Prime the epidural tubing</label></li>
+        <li class="check-item"><input type="checkbox" id="e8"><label for="e8">Sign consent form</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">🪷</span>During Procedure</h3>
+      <p class="card-sub">Patient positioning & monitoring</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="e9"><label for="e9">Have pt sit at edge of bed w/ BP cuff and O2 on</label></li>
+        <li class="check-item"><input type="checkbox" id="e10"><label for="e10">Perform time out @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="e11"><label for="e11">BP / O2 / RR q5min during procedure</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌸</span>After Procedure</h3>
+      <p class="card-sub">Post-epidural care</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="e12"><label for="e12">Assist pt to lay back down in bed</label></li>
+        <li class="check-item"><input type="checkbox" id="e13"><label for="e13">VS</label></li>
+        <li class="check-item"><input type="checkbox" id="e14"><label for="e14">Place foley catheter</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & Charting</h3>
+      <p class="card-sub">Cerner documentation</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="e15"><label for="e15">Orders: Tsau, Kang 1 CAMA OB Epidural (level) — most recent</label></li>
+        <li class="check-item"><input type="checkbox" id="e16"><label for="e16">Adhoc: Universal Protocol: Timeout</label></li>
+        <li class="check-item"><input type="checkbox" id="e17"><label for="e17">Section 1 — prior to procedure</label></li>
+        <li class="check-item"><input type="checkbox" id="e18"><label for="e18">Section 2 — just prior to procedure starting</label></li>
+        <li class="check-item"><input type="checkbox" id="e19"><label for="e19">Section 3 — after procedure complete</label></li>
+        <li class="check-item"><input type="checkbox" id="e20"><label for="e20">Scan meds into MAR and sign with anesthesia</label></li>
+        <li class="check-item"><input type="checkbox" id="e21"><label for="e21">Program pump per MD order, have second RN verify setting and witness</label></li>
+        <li class="check-item"><input type="checkbox" id="e22"><label for="e22">Chart Timeout</label></li>
+        <li class="check-item"><input type="checkbox" id="e23"><label for="e23">PCA / Epidural: chart all that applies</label></li>
+        <li class="check-item"><input type="checkbox" id="e24"><label for="e24">Chart foley catheter — lines and tubes</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">⏱</span>VS Frequency Post-Epidural</h3>
+      <p class="card-sub">Strict protocol</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="e25"><label for="e25">q2min x5 (first 15min)</label></li>
+        <li class="check-item"><input type="checkbox" id="e26"><label for="e26">q5min x6 (next 30min)</label></li>
+        <li class="check-item"><input type="checkbox" id="e27"><label for="e27">Then q30min with continuous pulse oximetry</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ VAGINAL DELIVERY ============ -->
+<section class="section" id="vaginal">
+  <h2 class="section-title">Vaginal <em>Delivery</em></h2>
+  <p class="section-desc">Prep, delivery & first 2 hours postpartum</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌷</span>Prior to Delivery</h3>
+      <p class="card-sub">Last-minute setup</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v1"><label for="v1">Grab delivery meds / syringe / needle kit</label></li>
+        <li class="check-item"><input type="checkbox" id="v2"><label for="v2">Call MD when complete @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v3"><label for="v3">Remove foley prior to pushing @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v4"><label for="v4">Table in the room / count with tech</label></li>
+        <li class="check-item"><input type="checkbox" id="v5"><label for="v5">Warmer set up</label></li>
+        <li class="check-item"><input type="checkbox" id="v6"><label for="v6">Pushing @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v7"><label for="v7">Call SL to call MD when ready @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v8"><label for="v8">Call nursery team</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & Charting</h3>
+      <p class="card-sub">Transition labor → PP</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v9"><label for="v9">D/C labor orders</label></li>
+        <li class="check-item"><input type="checkbox" id="v10"><label for="v10">D/C anesthesia orders</label></li>
+        <li class="check-item"><input type="checkbox" id="v11"><label for="v11">Document in plan labor POCs and then discontinue them</label></li>
+        <li class="check-item"><input type="checkbox" id="v12"><label for="v12">Initiate Postpartum orders</label></li>
+        <li class="check-item"><input type="checkbox" id="v13"><label for="v13">Initiate PP POC</label></li>
+        <li class="check-item"><input type="checkbox" id="v14"><label for="v14">QBL: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="v15"><label for="v15">Laceration: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="v16"><label for="v16">Repair: <input class="blank" type="text" placeholder="___"></label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">📦</span>Omnicell</h3>
+      <p class="card-sub">Medications</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v17"><label for="v17">Waste epidural meds</label></li>
+        <li class="check-item"><input type="checkbox" id="v18"><label for="v18">Return any unused meds</label></li>
+        <li class="check-item"><input type="checkbox" id="v19"><label for="v19">Grab peri meds & motrin</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">⏱</span>Fundal Check & VS — q15min x 2hrs</h3>
+      <p class="card-sub">Then q1h once · q4h to 24hr · q shift to d/c</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v20"><label for="v20">15min: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v21"><label for="v21">30min: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v22"><label for="v22">Water / mocktail</label></li>
+        <li class="check-item"><input type="checkbox" id="v23"><label for="v23">45min: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v24"><label for="v24">1hr: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v25"><label for="v25">Motrin / Tylenol</label></li>
+        <li class="check-item"><input type="checkbox" id="v26"><label for="v26">1hr 15m: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v27"><label for="v27">1hr 30m: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v28"><label for="v28">Up to BR & peri meds</label></li>
+        <li class="check-item"><input type="checkbox" id="v29"><label for="v29">Document urine output</label></li>
+        <li class="check-item"><input type="checkbox" id="v30"><label for="v30">Pull out epidural catheter</label></li>
+        <li class="check-item"><input type="checkbox" id="v31"><label for="v31">1hr 45m: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v32"><label for="v32">2hr: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="v33"><label for="v33">Head to toe assessment</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">📝</span>Documentation</h3>
+      <p class="card-sub">Maternal delivery items</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v34"><label for="v34">Maternal Delivery PCM</label></li>
+        <li class="check-item"><input type="checkbox" id="v35"><label for="v35">Delivery — 5 elements</label></li>
+        <li class="check-item"><input type="checkbox" id="v36"><label for="v36">Full line at delivery time</label></li>
+        <li class="check-item"><input type="checkbox" id="v37"><label for="v37">Someone registers baby</label></li>
+        <li class="check-item"><input type="checkbox" id="v38"><label for="v38">Result copy / related records — link baby to mom</label></li>
+        <li class="check-item"><input type="checkbox" id="v39"><label for="v39">Write down the epidural amount administered in the MAR</label></li>
+        <li class="check-item"><input type="checkbox" id="v40"><label for="v40">Removal of epidural + radio tip intact</label></li>
+        <li class="check-item"><input type="checkbox" id="v41"><label for="v41">Adhoc: Sepsis screen</label></li>
+        <li class="check-item"><input type="checkbox" id="v42"><label for="v42">Adhoc: Fall risk / tylenol</label></li>
+        <li class="check-item"><input type="checkbox" id="v43"><label for="v43">Med response in MAR</label></li>
+        <li class="check-item"><input type="checkbox" id="v44"><label for="v44">Placenta save / discard</label></li>
+        <li class="check-item"><input type="checkbox" id="v45"><label for="v45">Rh negative? then order rhogam</label></li>
+        <li class="check-item"><input type="checkbox" id="v46"><label for="v46">Catch up on FHT charting & VS</label></li>
+        <li class="check-item"><input type="checkbox" id="v47"><label for="v47">Delivery book</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">🌟</span>Provider-Specific Prep</h3>
+      <p class="card-sub">Delivery prep notes</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="v48"><label for="v48"><strong>Rasul:</strong> Chlorhexidine in warm water</label></li>
+        <li class="check-item"><input type="checkbox" id="v49"><label for="v49"><strong>Song:</strong> Second cord clamp on table</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ NEWBORN ============ -->
+<section class="section" id="newborn">
+  <h2 class="section-title">Newborn <em>— Birth to 2hrs</em></h2>
+  <p class="section-desc">First two hours of life — assessment, meds & documentation</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">👶</span>At Delivery</h3>
+      <p class="card-sub">Birth time & immediate care</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb1"><label for="nb1">Delivery time @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="nb2"><label for="nb2">APGARS assigned <input class="blank" type="text" placeholder="1m"> / <input class="blank" type="text" placeholder="5m"></label></li>
+        <li class="check-item"><input type="checkbox" id="nb3"><label for="nb3">VS @ birth <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="nb4"><label for="nb4">Apply ID bands</label></li>
+        <li class="check-item"><input type="checkbox" id="nb5"><label for="nb5">Apply security band</label></li>
+        <li class="check-item"><input type="checkbox" id="nb6"><label for="nb6">Med label</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌸</span>Hour 1 & 2</h3>
+      <p class="card-sub">Continued newborn care</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb7"><label for="nb7">VS @ 1hr <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="nb8"><label for="nb8">Breastfeeding</label></li>
+        <li class="check-item"><input type="checkbox" id="nb9"><label for="nb9">VS @ 2hrs <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="nb10"><label for="nb10">BP</label></li>
+        <li class="check-item"><input type="checkbox" id="nb11"><label for="nb11">Head to toe assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="nb12"><label for="nb12">Measurements</label></li>
+        <li class="check-item"><input type="checkbox" id="nb13"><label for="nb13">Give: Hep B, Vit K, erythromycin (refusal form if not)</label></li>
+        <li class="check-item"><input type="checkbox" id="nb14"><label for="nb14">Footprints</label></li>
+        <li class="check-item"><input type="checkbox" id="nb15"><label for="nb15">Bath?</label></li>
+        <li class="check-item"><input type="checkbox" id="nb16"><label for="nb16">Check the ANC paper they fill out (checklist + measurements)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & Adhocs</h3>
+      <p class="card-sub">Newborn Cerner setup</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb17"><label for="nb17">Orders: FHMC newborn — routine care</label></li>
+        <li class="check-item"><input type="checkbox" id="nb18"><label for="nb18">Newborn care plan POC</label></li>
+        <li class="check-item"><input type="checkbox" id="nb19"><label for="nb19">Adhoc: Ballard</label></li>
+        <li class="check-item"><input type="checkbox" id="nb20"><label for="nb20">Adhoc: Kaiser NEOS</label></li>
+        <li class="check-item"><input type="checkbox" id="nb21"><label for="nb21">Adhoc: measurements</label></li>
+        <li class="check-item"><input type="checkbox" id="nb22"><label for="nb22">Interdisciplinary readiness for D/C: MCHS → discharge workflow → int. Readiness</label></li>
+        <li class="check-item"><input type="checkbox" id="nb23"><label for="nb23">Maternal PCM: newborn delivery data</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">📋</span>Verification</h3>
+      <p class="card-sub">Double-check these</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb24"><label for="nb24">Verify correct ped was assigned</label></li>
+        <li class="check-item"><input type="checkbox" id="nb25"><label for="nb25">Verify result copy was completed</label></li>
+        <li class="check-item"><input type="checkbox" id="nb26"><label for="nb26">Verify cord blood was sent</label></li>
+        <li class="check-item"><input type="checkbox" id="nb27"><label for="nb27">Initiate LGA / SGA protocol prn</label></li>
+        <li class="check-item"><input type="checkbox" id="nb28"><label for="nb28">BS needed?</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">📞</span>Call Pediatrician If</h3>
+      <p class="card-sub">Conditions requiring notification</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb29"><label for="nb29">Inadequate tx for GBS</label></li>
+        <li class="check-item"><input type="checkbox" id="nb30"><label for="nb30">Maternal temp or chorio</label></li>
+        <li class="check-item"><input type="checkbox" id="nb31"><label for="nb31">APGARS &lt;6 at 5min</label></li>
+        <li class="check-item"><input type="checkbox" id="nb32"><label for="nb32">Abd BS</label></li>
+        <li class="check-item"><input type="checkbox" id="nb33"><label for="nb33">Urine tox if indicated</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">📝</span>Charting Recap</h3>
+      <p class="card-sub">Don't forget</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="nb34"><label for="nb34">Chart three VS (T / RR / HR)</label></li>
+        <li class="check-item"><input type="checkbox" id="nb35"><label for="nb35">Chart BP</label></li>
+        <li class="check-item"><input type="checkbox" id="nb36"><label for="nb36">Chart assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="nb37"><label for="nb37">Chart skin to skin</label></li>
+        <li class="check-item"><input type="checkbox" id="nb38"><label for="nb38">Chart feeds, void / stools</label></li>
+        <li class="check-item"><input type="checkbox" id="nb39"><label for="nb39">Meds scanned in MAR</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SCHEDULED C/S ============ -->
+<section class="section" id="scheduled-cs">
+  <h2 class="section-title">Scheduled <em>Cesarean</em></h2>
+  <p class="section-desc">Morning prep for scheduled cesarean delivery</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">🛏</span>Room Prep</h3>
+      <p class="card-sub">Get everything ready</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="sc1"><label for="sc1">Register patient in Cerner</label></li>
+        <li class="check-item"><input type="checkbox" id="sc2"><label for="sc2">Check prenatals / make chart</label></li>
+        <li class="check-item"><input type="checkbox" id="sc3"><label for="sc3">Lights on / FHR straps on bed / plugged in</label></li>
+        <li class="check-item"><input type="checkbox" id="sc4"><label for="sc4">Bring robe / delivery / orange bags and place in crib → crib in BR</label></li>
+        <li class="check-item"><input type="checkbox" id="sc5"><label for="sc5">OR outfit for pt partner</label></li>
+        <li class="check-item"><input type="checkbox" id="sc6"><label for="sc6">Print (MSI): wristband (%), stickers (enter), facesheet ($)</label></li>
+        <li class="check-item"><input type="checkbox" id="sc7"><label for="sc7">Grab specimen printer for labs / urine</label></li>
+        <li class="check-item"><input type="checkbox" id="sc8"><label for="sc8">Collect IV supplies / blood band</label></li>
+        <li class="check-item"><input type="checkbox" id="sc9"><label for="sc9">Collect: razor with cartridge, 2nd tape, socks, SCDs, chlorhex wipes, urine sample cup</label></li>
+        <li class="check-item"><input type="checkbox" id="sc10"><label for="sc10">Associate fetal link</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🌸</span>Hands On Care</h3>
+      <p class="card-sub">Patient prep</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="sc11"><label for="sc11">BR: Gown, void, chlorhexidine wipes</label></li>
+        <li class="check-item"><input type="checkbox" id="sc12"><label for="sc12">Remove jewelry</label></li>
+        <li class="check-item"><input type="checkbox" id="sc13"><label for="sc13">Place EFM on (off once you have a reactive NST)</label></li>
+        <li class="check-item"><input type="checkbox" id="sc14"><label for="sc14">VS x1</label></li>
+        <li class="check-item"><input type="checkbox" id="sc15"><label for="sc15">IV placement & lab draw</label></li>
+        <li class="check-item"><input type="checkbox" id="sc16"><label for="sc16">Print, sign, scan! Send to lab</label></li>
+        <li class="check-item"><input type="checkbox" id="sc17"><label for="sc17">Look at lab results: H/H, Plt</label></li>
+        <li class="check-item"><input type="checkbox" id="sc18"><label for="sc18">Start fluid bolus</label></li>
+        <li class="check-item"><input type="checkbox" id="sc19"><label for="sc19">Assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="sc20"><label for="sc20">Clip</label></li>
+        <li class="check-item"><input type="checkbox" id="sc21"><label for="sc21">SCDs on</label></li>
+        <li class="check-item"><input type="checkbox" id="sc22"><label for="sc22">Socks on</label></li>
+        <li class="check-item"><input type="checkbox" id="sc23"><label for="sc23">Pull OR abx and pitocin → prime meds</label></li>
+        <li class="check-item"><input type="checkbox" id="sc24"><label for="sc24">Anesthesia consent ready at bedside</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & Consents</h3>
+      <p class="card-sub">Cerner & paperwork</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="sc25"><label for="sc25">Orders: IntraOp, PACU, Postpartum (search provider favorites)</label></li>
+        <li class="check-item"><input type="checkbox" id="sc26"><label for="sc26">Confirm IV order in Cerner</label></li>
+        <li class="check-item"><input type="checkbox" id="sc27"><label for="sc27">Notification to admitting OB: "admit to inpatient for scheduled C/S"</label></li>
+        <li class="check-item"><input type="checkbox" id="sc28"><label for="sc28">Confirm H&P in Cerner or pink OB short form (within 24hrs)</label></li>
+        <li class="check-item"><input type="checkbox" id="sc29"><label for="sc29">Adhoc: OB Triage form</label></li>
+        <li class="check-item"><input type="checkbox" id="sc30"><label for="sc30">Adhoc: OB Admission form</label></li>
+        <li class="check-item"><input type="checkbox" id="sc31"><label for="sc31">Adhoc: Pre-Op checklist and STOPBANG</label></li>
+        <li class="check-item"><input type="checkbox" id="sc32"><label for="sc32">Adhoc: Maternal shifts screen</label></li>
+        <li class="check-item"><input type="checkbox" id="sc33"><label for="sc33">POC — IntraOp & PP</label></li>
+        <li class="check-item"><input type="checkbox" id="sc34"><label for="sc34">Sign C/S consent</label></li>
+        <li class="check-item"><input type="checkbox" id="sc35"><label for="sc35">Confirm consent matches Cerner order and is witnessed</label></li>
+        <li class="check-item"><input type="checkbox" id="sc36"><label for="sc36">If tubal: tubal consent printed in chart</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">💉</span>Anesthesia</h3>
+      <p class="card-sub">Coordinate with anesthesia</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="sc37"><label for="sc37">Anesthesia at BS @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="sc38"><label for="sc38">Sign anesthesia consent</label></li>
+        <li class="check-item"><input type="checkbox" id="sc39"><label for="sc39">Orders: anesthesia orders in</label></li>
+        <li class="check-item"><input type="checkbox" id="sc40"><label for="sc40">Pull anesthesia meds (bicitra etc.)</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ EMERGENCY C/S ============ -->
+<section class="section" id="emergency-cs">
+  <h2 class="section-title">Emergency <em>Cesarean</em></h2>
+  <p class="section-desc">For patient already admitted — also reference C/S checklist</p>
+
+  <div class="info-panel">
+    <strong>⚡ Time-critical:</strong> Move efficiently. Decision for C/S documented, calls made, prep done in parallel.
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">⚡</span>Decision & Calls</h3>
+      <p class="card-sub">First steps</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec1"><label for="ec1">Decision for C/S: <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec2"><label for="ec2">Call main OR — for RNFA</label></li>
+        <li class="check-item"><input type="checkbox" id="ec3"><label for="ec3">Call Anesthesia</label></li>
+        <li class="check-item"><input type="checkbox" id="ec4"><label for="ec4">Orders: search provider favorites</label></li>
+        <li class="check-item"><input type="checkbox" id="ec5"><label for="ec5">Order: anesthesia orders in</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">📋</span>Documentation</h3>
+      <p class="card-sub">Adhocs & consents</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec6"><label for="ec6">Adhoc: Pre-Op checklist and STOPBANG</label></li>
+        <li class="check-item"><input type="checkbox" id="ec7"><label for="ec7">POC IntraOp & PP</label></li>
+        <li class="check-item"><input type="checkbox" id="ec8"><label for="ec8">Sign C/S consent form</label></li>
+        <li class="check-item"><input type="checkbox" id="ec9"><label for="ec9">NPO since <input class="blank" type="text" placeholder="time"></label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">🩺</span>Pre-Surgery Prep</h3>
+      <p class="card-sub">Patient ready for OR</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec10"><label for="ec10">VS</label></li>
+        <li class="check-item"><input type="checkbox" id="ec11"><label for="ec11">Clip</label></li>
+        <li class="check-item"><input type="checkbox" id="ec12"><label for="ec12">Chlorhexidine wipes</label></li>
+        <li class="check-item"><input type="checkbox" id="ec13"><label for="ec13">SCDs on</label></li>
+        <li class="check-item"><input type="checkbox" id="ec14"><label for="ec14">Socks on</label></li>
+        <li class="check-item"><input type="checkbox" id="ec15"><label for="ec15">Start fluid bolus</label></li>
+        <li class="check-item"><input type="checkbox" id="ec16"><label for="ec16">Pull anesthesia meds</label></li>
+        <li class="check-item"><input type="checkbox" id="ec17"><label for="ec17">Pull OR abx and pitocin → prime</label></li>
+        <li class="check-item"><input type="checkbox" id="ec18"><label for="ec18">Anesthesia orders in?</label></li>
+        <li class="check-item"><input type="checkbox" id="ec19"><label for="ec19">Anesthesia at BS @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec20"><label for="ec20">Sign anesthesia consent</label></li>
+        <li class="check-item"><input type="checkbox" id="ec21"><label for="ec21">Give Bicitra</label></li>
+        <li class="check-item"><input type="checkbox" id="ec22"><label for="ec22">First instrument count (all)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec23"><label for="ec23">Turn on suction machine / prep</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">🏥</span>In OR — Setup</h3>
+      <p class="card-sub">Once in operating room</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec24"><label for="ec24">BP / Pulse Ox / EKG on (pt sitting)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec25"><label for="ec25">Timeout for Spinal @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec26"><label for="ec26">Lay down → wedge right hip!</label></li>
+        <li class="check-item"><input type="checkbox" id="ec27"><label for="ec27">FHT</label></li>
+        <li class="check-item"><input type="checkbox" id="ec28"><label for="ec28">Connect SCDs</label></li>
+        <li class="check-item"><input type="checkbox" id="ec29"><label for="ec29">Place grounding pad (right thigh)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec30"><label for="ec30">Place Foley catheter</label></li>
+        <li class="check-item"><input type="checkbox" id="ec31"><label for="ec31">Blanket & strap</label></li>
+        <li class="check-item"><input type="checkbox" id="ec32"><label for="ec32">Clean abdomen: 1st sponge stick belly (30 sec over incision area) and then go up to just below chest. 2nd sponge over legs and then down perineum</label></li>
+        <li class="check-item"><input type="checkbox" id="ec33"><label for="ec33">Set 3 min timer</label></li>
+        <li class="check-item"><input type="checkbox" id="ec34"><label for="ec34">TIMEOUT at HOB</label></li>
+        <li class="check-item"><input type="checkbox" id="ec35"><label for="ec35">Turn on ESU (bovii) & suction machine & plug in ESU and suction tubing</label></li>
+        <li class="check-item"><input type="checkbox" id="ec36"><label for="ec36">Write info on white board (Surgeon, RNFA, Surgical tech, Nursery RN, NRT)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec37"><label for="ec37">Pour sterile water and sterile NS onto table</label></li>
+        <li class="check-item"><input type="checkbox" id="ec38"><label for="ec38">Do Counts, sponges, and QBL — look at number right before placenta is delivered and make a note</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">⏱</span>Timing & Charting</h3>
+      <p class="card-sub">OR documentation</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec39"><label for="ec39">Initial Count (ALL) @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec40"><label for="ec40">Packaging label: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec41"><label for="ec41">In OR @ <input class="blank" type="text" placeholder="time"> (same as anesthesia start)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec42"><label for="ec42">Jilian Date / sterilizer load #: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec43"><label for="ec43">Grounding pad # (1059030): <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec44"><label for="ec44">Spinal time out @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec45"><label for="ec45">FHT @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec46"><label for="ec46">Foley @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec47"><label for="ec47">C/S TIMEOUT @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec48"><label for="ec48">Skin Incision @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec49"><label for="ec49">Amniotomy @ <input class="blank" type="text" placeholder="time"> — CLR / MEC</label></li>
+        <li class="check-item"><input type="checkbox" id="ec50"><label for="ec50">Delivery time @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec51"><label for="ec51">Placenta @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec52"><label for="ec52">Count 2 (uterine closure - soft): <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec53"><label for="ec53">Count 3 (uterus back in / fascia - ALL): <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec54"><label for="ec54">Final count (skin closure - soft): <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec55"><label for="ec55">Surgery end (dressing on) @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec56"><label for="ec56">Universal protocol debrief — specimens, QBL, counts</label></li>
+        <li class="check-item"><input type="checkbox" id="ec57"><label for="ec57">Urine output: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec58"><label for="ec58">QBL: <input class="blank" type="text" placeholder="___"></label></li>
+        <li class="check-item"><input type="checkbox" id="ec59"><label for="ec59">Out of OR @ <input class="blank" type="text" placeholder="time"> (transfer time)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec60"><label for="ec60">Keep instrument packaging</label></li>
+        <li class="check-item"><input type="checkbox" id="ec61"><label for="ec61">IntraOp flowsheet (in room time to chart at) → 5 elements + rest</label></li>
+        <li class="check-item"><input type="checkbox" id="ec62"><label for="ec62">Result copy to baby record</label></li>
+        <li class="check-item"><input type="checkbox" id="ec63"><label for="ec63">Med responses (MAR)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec64"><label for="ec64">Account for anesthesia meds in MAR</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">📌</span>Reference</h3>
+      <p class="card-sub">Quick facts</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="ec65"><label for="ec65"><strong>OB OR:</strong> 10509030</label></li>
+        <li class="check-item"><input type="checkbox" id="ec66"><label for="ec66"><strong>Dressings:</strong> Primapore (white), Dermabond primeo (clear)</label></li>
+        <li class="check-item"><input type="checkbox" id="ec67"><label for="ec67"><strong>Soft stuff:</strong> Laps, Sutures, Blades, Bovii, Syringe, CBT, Vacutainer, bulb syringe</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PACU ============ -->
+<section class="section" id="pacu">
+  <h2 class="section-title">PACU <em>Recovery</em></h2>
+  <p class="section-desc">Minimum 1hr stay · Post-anesthesia care</p>
+
+  <div class="info-panel">
+    <strong>Discharge criteria:</strong> VS stable x15 · O2 sat &gt;92% RA · Patent airway x30min · Alderete score &gt;8 · Two assessments completed
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">🌿</span>Initial Care</h3>
+      <p class="card-sub">PACU arrival</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p1"><label for="p1">PACU arrival @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p2"><label for="p2">PACU end @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p3"><label for="p3">Anesthesia end @ <input class="blank" type="text" placeholder="time"> (document times in same column for calculation)</label></li>
+        <li class="check-item"><input type="checkbox" id="p4"><label for="p4">Physician immediate post-op note in Cerner (if not, may not d/c from PACU — call MD)</label></li>
+        <li class="check-item"><input type="checkbox" id="p5"><label for="p5">Place EKG / VS (all) + cont pulse Ox</label></li>
+        <li class="check-item"><input type="checkbox" id="p6"><label for="p6">Check dermatome with ice glove</label></li>
+        <li class="check-item"><input type="checkbox" id="p7"><label for="p7">Print EKG strip and tape to pink piece of paper</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">⏱</span>Continued Care Frequencies</h3>
+      <p class="card-sub">Strict timing protocols</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p8"><label for="p8"><strong>BP / pulse / RR / extremity movement:</strong> q5min x4 → q15min for rest of stay</label></li>
+        <li class="check-item"><input type="checkbox" id="p9"><label for="p9"><strong>Pain:</strong> q15min</label></li>
+        <li class="check-item"><input type="checkbox" id="p10"><label for="p10"><strong>Fundal / lochia:</strong> q15min x8 (2hrs), q1h once, q4hrs to 24hr, q shift to d/c</label></li>
+        <li class="check-item"><input type="checkbox" id="p11"><label for="p11"><strong>Check incision:</strong> q15min</label></li>
+        <li class="check-item"><input type="checkbox" id="p12"><label for="p12"><strong>Assess EKG strip:</strong> q15min</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">🕐</span>Assessment Times</h3>
+      <p class="card-sub">Mark off as completed</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p13"><label for="p13">Initial (ALL) @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p14"><label for="p14">5min @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p15"><label for="p15">10min @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p16"><label for="p16">15min (ALL) @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p17"><label for="p17">20min @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p18"><label for="p18">30min + meds (ALL) @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p19"><label for="p19">45min @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p20"><label for="p20">Tylenol & Toradol</label></li>
+        <li class="check-item"><input type="checkbox" id="p21"><label for="p21">1hr @ <input class="blank" type="text" placeholder="time"></label></li>
+        <li class="check-item"><input type="checkbox" id="p22"><label for="p22">D/C assessment</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">📝</span>Assessment Categories</h3>
+      <p class="card-sub">Chart these in PACU</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p23"><label for="p23">Pain (pain assess MCH)</label></li>
+        <li class="check-item"><input type="checkbox" id="p24"><label for="p24">Sedation & dermatome level (epidural neuro assessment)</label></li>
+        <li class="check-item"><input type="checkbox" id="p25"><label for="p25">Neuro assess & neuro s/s (neuro MCH)</label></li>
+        <li class="check-item"><input type="checkbox" id="p26"><label for="p26">Richmond scale & alderete (sedation delirium)</label></li>
+        <li class="check-item"><input type="checkbox" id="p27"><label for="p27">Cardiovascular assess, ECG, alarm parameters</label></li>
+        <li class="check-item"><input type="checkbox" id="p28"><label for="p28">RR rate and sounds (respiratory)</label></li>
+        <li class="check-item"><input type="checkbox" id="p29"><label for="p29">Musculoskeletal, SCD</label></li>
+        <li class="check-item"><input type="checkbox" id="p30"><label for="p30">GI s/s, sounds</label></li>
+        <li class="check-item"><input type="checkbox" id="p31"><label for="p31">GU color description, foley draining to gravity</label></li>
+        <li class="check-item"><input type="checkbox" id="p32"><label for="p32">Postpartum + QBL</label></li>
+        <li class="check-item"><input type="checkbox" id="p33"><label for="p33">Skin color, temp, turgor, incision (skin/wound care MCH)</label></li>
+        <li class="check-item"><input type="checkbox" id="p34"><label for="p34">Support person info (psychological)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">💻</span>Orders & POCs</h3>
+      <p class="card-sub">Cerner management</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p35"><label for="p35">Activate PACU orders</label></li>
+        <li class="check-item"><input type="checkbox" id="p36"><label for="p36">Activate POC</label></li>
+        <li class="check-item"><input type="checkbox" id="p37"><label for="p37">Chart ALL Fundus / lochia (postpartum)</label></li>
+        <li class="check-item"><input type="checkbox" id="p38"><label for="p38">Chart ALL incision, dressing & drainage (wounds)</label></li>
+        <li class="check-item"><input type="checkbox" id="p39"><label for="p39">Chart ALL VS</label></li>
+        <li class="check-item"><input type="checkbox" id="p40"><label for="p40">Chart ALL dermatome (epidural neuro assessment)</label></li>
+        <li class="check-item"><input type="checkbox" id="p41"><label for="p41">Chart ALL pain (pain assessment MCH)</label></li>
+        <li class="check-item"><input type="checkbox" id="p42"><label for="p42">EKG strip q15</label></li>
+        <li class="check-item"><input type="checkbox" id="p43"><label for="p43">Medication response in MAR</label></li>
+        <li class="check-item"><input type="checkbox" id="p44"><label for="p44">Document in plan C/S intra-op POC</label></li>
+        <li class="check-item"><input type="checkbox" id="p45"><label for="p45">Document in plan & d/c PACU POC</label></li>
+        <li class="check-item"><input type="checkbox" id="p46"><label for="p46">D/C Preop orders</label></li>
+        <li class="check-item"><input type="checkbox" id="p47"><label for="p47">D/C PACU orders</label></li>
+        <li class="check-item"><input type="checkbox" id="p48"><label for="p48">Keep neuraxial orders for 24hrs</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">✓</span>Discharge from PACU</h3>
+      <p class="card-sub">Final tasks</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="p49"><label for="p49">Binder: top 4 tasks to do (binder checklist / correct documentation)</label></li>
+        <li class="check-item"><input type="checkbox" id="p50"><label for="p50">Delivery book</label></li>
+        <li class="check-item"><input type="checkbox" id="p51"><label for="p51">ADLs: pericare, bed locked, call light within reach, side rails up, alarms on, emergency equip available, ambu bag available, suction equip</label></li>
+        <li class="check-item"><input type="checkbox" id="p52"><label for="p52">Remember: do two assessments before d/c</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ POSTPARTUM ============ -->
+<section class="section" id="postpartum">
+  <h2 class="section-title">Postpartum <em>care</em></h2>
+  <p class="section-desc">Mom & baby ongoing care</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">💗</span>Mom</h3>
+      <p class="card-sub">Maternal care assumption</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp1"><label for="pp1">Care assumed</label></li>
+        <li class="check-item"><input type="checkbox" id="pp2"><label for="pp2">Review pt pharmacy</label></li>
+        <li class="check-item"><input type="checkbox" id="pp3"><label for="pp3">Check orders → d/c order in, if applicable</label></li>
+        <li class="check-item"><input type="checkbox" id="pp4"><label for="pp4">POC — document in plan (initiate if needed)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp5"><label for="pp5">MAR (due and responses)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp6"><label for="pp6">Result copy</label></li>
+        <li class="check-item"><input type="checkbox" id="pp7"><label for="pp7">Check IV</label></li>
+        <li class="check-item"><input type="checkbox" id="pp8"><label for="pp8">Assessment</label></li>
+        <li class="check-item"><input type="checkbox" id="pp9"><label for="pp9">Adhoc: Maternal shift screen adhoc</label></li>
+        <li class="check-item"><input type="checkbox" id="pp10"><label for="pp10">Education (adhoc: Mat readiness for d/c, maternal)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp11"><label for="pp11">Discharge tab: printout for bulb suction</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">💊</span>Mom — Meds</h3>
+      <p class="card-sub">MAR responses</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp12"><label for="pp12"><input class="blank" type="text" placeholder="med name" style="width:170px"> (MAR response)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp13"><label for="pp13"><input class="blank" type="text" placeholder="med name" style="width:170px"> (MAR response)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp14"><label for="pp14"><input class="blank" type="text" placeholder="med name" style="width:170px"> (MAR response)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp15"><label for="pp15"><input class="blank" type="text" placeholder="med name" style="width:170px"> (MAR response)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">📊</span>Mom — VS & Fundals Q4H</h3>
+      <p class="card-sub">Check orders for after 24hrs</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp16"><label for="pp16"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp17"><label for="pp17"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp18"><label for="pp18"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp19"><label for="pp19"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">📝</span>Mom — Misc</h3>
+      <p class="card-sub">Ongoing tasks</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp20"><label for="pp20">BF / pumping times</label></li>
+        <li class="check-item"><input type="checkbox" id="pp21"><label for="pp21">Stool / void</label></li>
+        <li class="check-item"><input type="checkbox" id="pp22"><label for="pp22">SCDs, Dangle (6-8hrs), Ambulation, Foley (BR independently), pulse ox 24hrs after C/S</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">👶</span>Baby</h3>
+      <p class="card-sub">Newborn care assumption</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp23"><label for="pp23">Care assumed</label></li>
+        <li class="check-item"><input type="checkbox" id="pp24"><label for="pp24">Check orders — d/c order in?</label></li>
+        <li class="check-item"><input type="checkbox" id="pp25"><label for="pp25">POC — document in plan</label></li>
+        <li class="check-item"><input type="checkbox" id="pp26"><label for="pp26">Result copy</label></li>
+        <li class="check-item"><input type="checkbox" id="pp27"><label for="pp27">Weights (2-6am)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp28"><label for="pp28">TCB (2-6am)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp29"><label for="pp29">TCB 4hr prior to d/c</label></li>
+        <li class="check-item"><input type="checkbox" id="pp30"><label for="pp30">Jaundice graph / risk zone</label></li>
+        <li class="check-item"><input type="checkbox" id="pp31"><label for="pp31">Education (adhoc: Mat readiness for d/c, infant / nicu)</label></li>
+        <li class="check-item"><input type="checkbox" id="pp32"><label for="pp32">Facesheet out for ped</label></li>
+        <li class="check-item"><input type="checkbox" id="pp33"><label for="pp33">Newborn assessment</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">🌟</span>Baby — VS</h3>
+      <p class="card-sub">At 4hrs, then Q4H x24hrs, then q shift</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp34"><label for="pp34"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp35"><label for="pp35"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp36"><label for="pp36"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp37"><label for="pp37"><input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">🍼</span>Baby — Feeds & Output</h3>
+      <p class="card-sub">Track all feeds</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp38"><label for="pp38">Feed: <input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp39"><label for="pp39">Feed: <input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp40"><label for="pp40">Feed: <input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp41"><label for="pp41">Feed: <input class="blank" type="text" placeholder="time" style="width:120px"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp42"><label for="pp42">Voids: <input class="blank" type="text" placeholder="count"></label></li>
+        <li class="check-item"><input type="checkbox" id="pp43"><label for="pp43">Stools: <input class="blank" type="text" placeholder="count"></label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">📋</span>24-36hr Care</h3>
+      <p class="card-sub">Brain sheet + check orders</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="pp44"><label for="pp44">PKU newborn screen completed</label></li>
+        <li class="check-item"><input type="checkbox" id="pp45"><label for="pp45">CCHD — R wrist / R foot</label></li>
+        <li class="check-item"><input type="checkbox" id="pp46"><label for="pp46">Hearing screen</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ DISCHARGE ============ -->
+<section class="section" id="discharge">
+  <h2 class="section-title">Discharge <em>workflow</em></h2>
+  <p class="section-desc">Mom & baby discharge, documentation & post-d/c tasks</p>
+
+  <div class="card-grid">
+
+    <div class="card" data-accent="pink">
+      <h3 class="card-title"><span class="card-icon">💗</span>Maternal — Documentation</h3>
+      <p class="card-sub">Cerner items to complete</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d1"><label for="d1">Discharge order (2 wk f/u EDPS ≥10 & 3-7 day f/u for HTN patients)</label></li>
+        <li class="check-item"><input type="checkbox" id="d2"><label for="d2">EPDS score, check it is charted in iview</label></li>
+        <li class="check-item"><input type="checkbox" id="d3"><label for="d3">Interdisciplinary readiness for discharge</label></li>
+        <li class="check-item"><input type="checkbox" id="d4"><label for="d4">Adhoc: Maternal sepsis screen (within 2hrs of d/c)</label></li>
+        <li class="check-item"><input type="checkbox" id="d5"><label for="d5">Discharge workflow</label></li>
+        <li class="check-item"><input type="checkbox" id="d6"><label for="d6">Follow up appt documented (2 wk for EDPS ≥10 & 3-7 day for HTN)</label></li>
+        <li class="check-item"><input type="checkbox" id="d7"><label for="d7">Nursing discharge summary</label></li>
+        <li class="check-item"><input type="checkbox" id="d8"><label for="d8">Discharge teaching (why to call MD / when to go to ED)</label></li>
+        <li class="check-item"><input type="checkbox" id="d9"><label for="d9">Depart forms signed</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="lavender">
+      <h3 class="card-title"><span class="card-icon">🩺</span>Maternal — Patient Care</h3>
+      <p class="card-sub">Before they leave</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d10"><label for="d10">Immunizations (if applicable)</label></li>
+        <li class="check-item"><input type="checkbox" id="d11"><label for="d11">Birth certificate</label></li>
+        <li class="check-item"><input type="checkbox" id="d12"><label for="d12">Teaching videos</label></li>
+        <li class="check-item"><input type="checkbox" id="d13"><label for="d13">Paper booklet for home</label></li>
+        <li class="check-item"><input type="checkbox" id="d14"><label for="d14">VS (within 2hrs of d/c)</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="mint">
+      <h3 class="card-title"><span class="card-icon">✓</span>Maternal — After Discharge</h3>
+      <p class="card-sub">Wrap-up tasks</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d15"><label for="d15">Result copy mom info into baby chart</label></li>
+        <li class="check-item"><input type="checkbox" id="d16"><label for="d16">Close pregnancy: MCHS - triage - close pregnancy</label></li>
+        <li class="check-item"><input type="checkbox" id="d17"><label for="d17">Break relationship: 1. Mom click → 2. two people: WH manage fam relation → 3. Click baby, "okay"</label></li>
+        <li class="check-item"><input type="checkbox" id="d18"><label for="d18">Order notification to Admitting OB, discharge date / time</label></li>
+        <li class="check-item"><input type="checkbox" id="d19"><label for="d19">Papers clipped together and placed in medical records bin</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="butter">
+      <h3 class="card-title"><span class="card-icon">👶</span>Newborn — Documentation</h3>
+      <p class="card-sub">Verify completion</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d20"><label for="d20">Discharge orders</label></li>
+        <li class="check-item"><input type="checkbox" id="d21"><label for="d21">B/P</label></li>
+        <li class="check-item"><input type="checkbox" id="d22"><label for="d22">Hearing Screen</label></li>
+        <li class="check-item"><input type="checkbox" id="d23"><label for="d23">NBS — PKU</label></li>
+        <li class="check-item"><input type="checkbox" id="d24"><label for="d24">CCHD Screen</label></li>
+        <li class="check-item"><input type="checkbox" id="d25"><label for="d25">Car seat challenge as needed</label></li>
+        <li class="check-item"><input type="checkbox" id="d26"><label for="d26">Interdisciplinary readiness for discharge</label></li>
+        <li class="check-item"><input type="checkbox" id="d27"><label for="d27">Topic: jaundice teaching method (printed & verbal)</label></li>
+        <li class="check-item"><input type="checkbox" id="d28"><label for="d28">Newborn screening tracking (date PKU completed)</label></li>
+        <li class="check-item"><input type="checkbox" id="d29"><label for="d29">CCHD screening date & results</label></li>
+        <li class="check-item"><input type="checkbox" id="d30"><label for="d30">Nursing discharge summary</label></li>
+        <li class="check-item"><input type="checkbox" id="d31"><label for="d31">Follow up appt documented</label></li>
+        <li class="check-item"><input type="checkbox" id="d32"><label for="d32">Patient education (bulb syringe, hyperbillirubinemia)</label></li>
+        <li class="check-item"><input type="checkbox" id="d33"><label for="d33">Discharge teaching</label></li>
+        <li class="check-item"><input type="checkbox" id="d34"><label for="d34">Depart forms signed</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="peach">
+      <h3 class="card-title"><span class="card-icon">🌼</span>Newborn — Patient Care</h3>
+      <p class="card-sub">Final hands-on items</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d35"><label for="d35">Cord clamp removed</label></li>
+        <li class="check-item"><input type="checkbox" id="d36"><label for="d36">Security tag (& bands) removed</label></li>
+        <li class="check-item"><input type="checkbox" id="d37"><label for="d37">TCB / TSB with risk zone (within 4hrs of d/c)</label></li>
+        <li class="check-item"><input type="checkbox" id="d38"><label for="d38">After d/c: Order notification to admitting OB with date / time</label></li>
+      </ul>
+    </div>
+
+    <div class="card" data-accent="sky">
+      <h3 class="card-title"><span class="card-icon">📓</span>Every Shift Charting</h3>
+      <p class="card-sub">Ongoing while admitted</p>
+      <ul class="check-list">
+        <li class="check-item"><input type="checkbox" id="d39"><label for="d39">i-View: Assessment (click light grey lines to open sections)</label></li>
+        <li class="check-item"><input type="checkbox" id="d40"><label for="d40">i-View: VS</label></li>
+        <li class="check-item"><input type="checkbox" id="d41"><label for="d41">i-View: EFM</label></li>
+        <li class="check-item"><input type="checkbox" id="d42"><label for="d42">i-View: Lines and tubes (IV / foley)</label></li>
+        <li class="check-item"><input type="checkbox" id="d43"><label for="d43">Adhoc: Maternal shift screen adult</label></li>
+        <li class="check-item"><input type="checkbox" id="d44"><label for="d44">Add discharge education (MCHS → discharge workflow → int. Readiness → maternal general)</label></li>
+        <li class="check-item"><input type="checkbox" id="d45"><label for="d45">"Document in plan" for initiated Careplans, or create new POC</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ REFERENCE ============ -->
+<section class="section" id="reference">
+  <h2 class="section-title">Quick <em>Reference</em></h2>
+  <p class="section-desc">Cerner shortcuts, order sets, and how-tos</p>
+
+  <div class="ref-block" data-accent="pink">
+    <h3 class="ref-title">🖨 MSI Printer Shortcuts</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Print armband:</span> 1 "%"</li>
+      <li><span class="item-name">Print facesheet:</span> 11 "$"</li>
+      <li><span class="item-name">Print patient stickers:</span> pre-reg tab "enter"</li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="mint">
+    <h3 class="ref-title">🧪 Specimen Labs Process</h3>
+    <ul class="ref-list">
+      <li>Handheld printer at the nurse station</li>
+      <li>Click "Specimen collection" in Cerner toolbar</li>
+      <li>Checkmark the lab you are drawing</li>
+      <li>Scan patient wristband</li>
+      <li>Print</li>
+      <li>Place label on drawn specimen and write initials, date, time</li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="lavender">
+    <h3 class="ref-title">🔗 Connecting FetaLink to Patient Bed</h3>
+    <ul class="ref-list">
+      <li>Click the box to the left of room number to open up that strip</li>
+      <li>Click "associate"</li>
+      <li>Scan patient wristband</li>
+      <li>Backtime the start time to when the patient came into the room</li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="peach">
+    <h3 class="ref-title">🧬 Placenta to Pathology</h3>
+    <ul class="ref-list">
+      <li>Label on the side and top of the white container</li>
+      <li>Order: placenta tissue</li>
+      <li>Print order: right click → select print</li>
+      <li>Facesheet and order inside biohazard bag (clear bag w/ red rim) with placenta inside</li>
+      <li>Walk placenta to pathology</li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="sky">
+    <h3 class="ref-title">📂 Placing Orders — Path</h3>
+    <ul class="ref-list">
+      <li>MCHS → Inpatient summary → order entry / new order → shared → Langlais, Beth → green button</li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="pink">
+    <h3 class="ref-title">🌸 Order Sets — Triage</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Triage:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC Triage / Outpatient orders</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="peach">
+    <h3 class="ref-title">🤰 Order Sets — Maternal Admit</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Labor admit:</span> <span class="item-path">search for provider favorites</span></li>
+      <li><span class="item-name">C/S admit:</span> <span class="item-path">search for provider favorites</span></li>
+      <li><span class="item-name">Admit to Obs:</span> <span class="item-path">n/a → keep as triage for up to 24hrs</span></li>
+      <li><span class="item-name">Antepartum admission:</span> <span class="item-path">search for provider favorites</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="mint">
+    <h3 class="ref-title">🩸 Order Sets — Diabetes / Hypoglycemia</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Maternal hypoglycemia:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC Diabetes: OB hypoglycemia treatment</span></li>
+      <li><span class="item-name">Antepartum / Postpartum SQ insulin:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC Diabetes: antepartum/postpartum SQ insulin</span></li>
+      <li><span class="item-name">Labor SQ insulin:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC diabetes: Labor SQ insulin</span></li>
+      <li><span class="item-name">Labor IV insulin:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC diabetes: OB IV insulin</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="lavender">
+    <h3 class="ref-title">⚠️ Order Sets — Preeclampsia</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Preeclampsia / GHTN:</span> <span class="item-path">add order → OB preeclampsia and other hypertensive disorders of pregnancy</span></li>
+      <li><span class="item-name">Additional preeclampsia BP meds:</span> <span class="item-path">suborder → OB preeclampsia anti-hypertensive acute control</span></li>
+      <li><span class="item-name">Eclampsia:</span> <span class="item-path">add order → OB eclamptic seizure orders</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="pink">
+    <h3 class="ref-title">🆘 Order Sets — Maternal Hemorrhage</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">MOH:</span> <span class="item-path">add order → OB hemorrhage multiphase powerplan</span></li>
+      <li><span class="item-name">MOH PP recovery:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC OB modified postpartum care: stage 2 (3)</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="sky">
+    <h3 class="ref-title">🦠 Order Sets — Maternal Infection</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Chorio antibiotics / labs:</span> <span class="item-path">add order → OB chorioamnionitis / endometritis</span></li>
+      <li><span class="item-name">Maternal sepsis:</span> <span class="item-path">Langlais, Beth → Favorites → Sepsis maternal orderset</span></li>
+      <li><span class="item-name">Severe maternal sepsis:</span> <span class="item-path">Langlais, Beth → Favorites → Severe Sepsis maternal orderset</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="peach">
+    <h3 class="ref-title">💉 Order Sets — Maternal Misc</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Amnioinfusion:</span> <span class="item-path">add order → OB amnioinfusion</span></li>
+      <li><span class="item-name">Increase Pit to 30:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC OB increased upper limit oxytocin orders</span></li>
+      <li><span class="item-name">Delivery medication, delivered PTA:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC post delivery medications</span></li>
+      <li><span class="item-name">Epidural:</span> <span class="item-path">Tsau, Kang → 1 cama OB epidural (level) most recent</span></li>
+    </ul>
+  </div>
+
+  <div class="ref-block" data-accent="butter">
+    <h3 class="ref-title">👶 Order Sets — Newborn</h3>
+    <ul class="ref-list">
+      <li><span class="item-name">Newborn admit:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC newborn: routine care</span></li>
+      <li><span class="item-name">Late preterm newborn (35.1-36.6w):</span> <span class="item-path">Langlais, Beth → Favorites → FHMC newborn: late preterm pathway</span></li>
+      <li><span class="item-name">Newborn Hypoglycemia:</span> <span class="item-path">Langlais, Beth → Favorites → FHMC newborn hypoglycemia glucose gel treatment</span></li>
+    </ul>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  Made with <span class="heart">♥</span> for L&D nurses · Each shift, a fresh start
+</footer>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab');
+  const sections = document.querySelectorAll('.section');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      tabs.forEach(t => t.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // ============ MULTI-ROOM STATE ============
+  // Each room is an independent checklist. State lives in memory only — no patient data ever stored.
+  // We snapshot the DOM (checkboxes, text inputs, time-grid rows, custom items) when switching rooms.
+  const roomPills = document.querySelectorAll('.room-pill');
+  const roomStates = {}; // { '🌸': { checks: {id: bool}, texts: {id: string}, timeRows: [...], custom: {sectionId: [text...]}, interval, startTime } }
+  let currentRoom = document.querySelector('.room-pill.active')?.dataset.room || '🌸';
+
+  function snapshotCurrentRoom() {
+    const checks = {};
+    const texts = {};
+    // Capture every checkbox (excluding time-row, which we save separately) by index
+    document.querySelectorAll('.section input[type="checkbox"]').forEach((cb, i) => {
+      // Use a stable key: prefer id, else index path
+      const key = cb.id || `cb-${i}`;
+      checks[key] = cb.checked;
+    });
+    document.querySelectorAll('.section input[type="text"]').forEach((tx, i) => {
+      // Skip time-note (handled in timeRows) and setting-input (preference, shared across rooms)
+      if (tx.classList.contains('time-note')) return;
+      if (tx.classList.contains('setting-input')) return;
+      if (tx.classList.contains('custom-add-input')) return;
+      const key = tx.id || `tx-${i}`;
+      texts[key] = tx.value;
+    });
+    // Time grid rows
+    const timeRows = [];
+    document.querySelectorAll('#time-grid-dynamic .time-row').forEach(row => {
+      timeRows.push({
+        time: row.dataset.time,
+        checked: row.querySelector('input[type="checkbox"]')?.checked || false,
+        note: row.querySelector('.time-note')?.value || ''
+      });
+    });
+    // Custom items: array of {text, checked} per sectionId
+    const custom = {};
+    document.querySelectorAll('.custom-list').forEach(list => {
+      const sectionId = list.dataset.section;
+      custom[sectionId] = Array.from(list.querySelectorAll('.check-item')).map(li => ({
+        text: li.querySelector('label')?.textContent || '',
+        checked: li.querySelector('input[type="checkbox"]')?.checked || false
+      }));
+    });
+    // Time grid settings
+    const intervalPill = document.querySelector('.setting-pill.active[data-interval]');
+    const startInput = document.getElementById('time-start');
+    roomStates[currentRoom] = {
+      checks, texts, timeRows, custom,
+      interval: intervalPill?.dataset.interval || '30',
+      startTime: startInput?.value || '18:30'
+    };
+  }
+
+  function restoreRoom(room) {
+    const state = roomStates[room];
+
+    // Wipe everything first
+    document.querySelectorAll('.section input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.section input[type="text"]').forEach(tx => {
+      if (!tx.classList.contains('setting-input')) tx.value = '';
+    });
+    document.querySelectorAll('.custom-list').forEach(list => list.innerHTML = '');
+
+    if (state) {
+      // Restore interval & start time BEFORE rendering grid
+      document.querySelectorAll('.setting-pill[data-interval]').forEach(p => {
+        p.classList.toggle('active', p.dataset.interval === state.interval);
+      });
+      const startInput = document.getElementById('time-start');
+      if (startInput) startInput.value = state.startTime;
+
+      // Restore checkboxes
+      document.querySelectorAll('.section input[type="checkbox"]').forEach((cb, i) => {
+        const key = cb.id || `cb-${i}`;
+        if (state.checks && state.checks[key]) cb.checked = true;
+      });
+      // Restore text inputs
+      document.querySelectorAll('.section input[type="text"]').forEach((tx, i) => {
+        if (tx.classList.contains('time-note')) return;
+        if (tx.classList.contains('setting-input')) return;
+        if (tx.classList.contains('custom-add-input')) return;
+        const key = tx.id || `tx-${i}`;
+        if (state.texts && state.texts[key] != null) tx.value = state.texts[key];
+      });
+      // Restore custom items
+      Object.keys(state.custom || {}).forEach(sectionId => {
+        const list = document.querySelector(`.custom-list[data-section="${sectionId}"]`);
+        if (!list) return;
+        state.custom[sectionId].forEach(item => {
+          customCounter++;
+          const id = `custom-${sectionId}-${customCounter}`;
+          const li = document.createElement('li');
+          li.className = 'check-item';
+          li.innerHTML = `
+            <input type="checkbox" id="${id}" ${item.checked ? 'checked' : ''}>
+            <label for="${id}">${escapeHTML(item.text)}</label>
+            <button type="button" class="custom-remove" title="Remove item" aria-label="Remove">×</button>
+          `;
+          list.appendChild(li);
+          li.querySelector('.custom-remove').addEventListener('click', () => {
+            li.remove();
+            updateProgress();
+          });
+        });
+      });
+    }
+
+    // Re-render the time grid and apply saved state
+    renderTimeGrid();
+    if (state && state.timeRows) {
+      state.timeRows.forEach(saved => {
+        const row = document.querySelector(`#time-grid-dynamic .time-row[data-time="${saved.time}"]`);
+        if (!row) return;
+        const cb = row.querySelector('input[type="checkbox"]');
+        if (cb) cb.checked = saved.checked;
+        if (saved.checked) row.classList.add('checked');
+        const note = row.querySelector('.time-note');
+        if (note) note.value = saved.note;
+      });
+    }
+  }
+
+  function updateRoomDots() {
+    Object.keys(roomStates).forEach(room => {
+      const pill = document.querySelector(`.room-pill[data-room="${room}"]`);
+      if (!pill) return;
+      const s = roomStates[room];
+      const hasData = s && (
+        Object.values(s.checks || {}).some(v => v) ||
+        Object.values(s.texts || {}).some(v => v) ||
+        (s.timeRows || []).some(r => r.checked || r.note) ||
+        Object.values(s.custom || {}).some(arr => arr.length > 0)
+      );
+      pill.classList.toggle('has-data', !!hasData);
+    });
+    // The currently-displayed room: check live DOM
+    const live = anyLiveProgress();
+    const currentPill = document.querySelector(`.room-pill[data-room="${currentRoom}"]`);
+    if (currentPill) currentPill.classList.toggle('has-data', live);
+  }
+
+  function anyLiveProgress() {
+    const anyChecked = Array.from(document.querySelectorAll('.section input[type="checkbox"]:checked')).length > 0;
+    const anyText = Array.from(document.querySelectorAll('.section input[type="text"]'))
+      .some(tx => !tx.classList.contains('setting-input') && !tx.classList.contains('custom-add-input') && tx.value);
+    return anyChecked || anyText;
+  }
+
+  roomPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const newRoom = pill.dataset.room;
+      if (newRoom === currentRoom) return;
+      snapshotCurrentRoom();
+      currentRoom = newRoom;
+      roomPills.forEach(p => p.classList.toggle('active', p === pill));
+      restoreRoom(newRoom);
+      updateProgress();
+      updateRoomDots();
+    });
+  });
+
+  // ============ DYNAMIC TIME GRID ============
+  // Generates check times based on interval (15 or 30 min) and start time
+  function renderTimeGrid() {
+    const grid = document.getElementById('time-grid-dynamic');
+    if (!grid) return;
+
+    const card = grid.closest('.card');
+    const intervalBtn = card.querySelector('.setting-pill.active');
+    const interval = parseInt(intervalBtn.dataset.interval, 10);
+    const startInput = card.querySelector('#time-start');
+    const [startH, startM] = startInput.value.split(':').map(Number);
+
+    // Preserve existing state before re-render
+    const prevState = {};
+    grid.querySelectorAll('.time-row').forEach(row => {
+      const key = row.dataset.time;
+      const cb = row.querySelector('input[type="checkbox"]');
+      const note = row.querySelector('.time-note');
+      prevState[key] = { checked: cb?.checked, note: note?.value };
+    });
+
+    // Build 12 hours worth (24 entries at 30min, 48 at 15min) — cap at 24 rows for readability
+    const totalRows = interval === 30 ? 24 : 24; // 12 hrs at 30min, 6 hrs at 15min
+    let rowsHTML = '';
+    let mins = startH * 60 + startM;
+
+    for (let i = 0; i < totalRows; i++) {
+      const h = Math.floor(mins / 60) % 24;
+      const m = mins % 60;
+      const label = String(h).padStart(2, '0') + String(m).padStart(2, '0');
+      const id = `tm-${label}-${i}`;
+      const prev = prevState[label] || {};
+      const checkedAttr = prev.checked ? 'checked' : '';
+      const checkedClass = prev.checked ? 'checked' : '';
+      const noteVal = prev.note ? prev.note.replace(/"/g, '&quot;') : '';
+      rowsHTML += `<div class="time-row ${checkedClass}" data-time="${label}">
+        <input type="checkbox" id="${id}" ${checkedAttr}>
+        <label class="time-label" for="${id}">${label}</label>
+        <input type="text" class="time-note" placeholder="Add note…" value="${noteVal}">
+      </div>`;
+      mins += interval;
+    }
+    grid.innerHTML = rowsHTML;
+
+    // Wire checkbox visual state
+    grid.querySelectorAll('.time-row input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', e => {
+        e.target.closest('.time-row').classList.toggle('checked', e.target.checked);
+        updateProgress();
+      });
+    });
+  }
+
+  // Interval toggle wiring
+  document.addEventListener('click', e => {
+    const pill = e.target.closest('.setting-pill[data-interval]');
+    if (!pill) return;
+    const toggle = pill.closest('.setting-toggle');
+    toggle.querySelectorAll('.setting-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    renderTimeGrid();
+    updateProgress();
+  });
+
+  const timeStart = document.getElementById('time-start');
+  if (timeStart) {
+    timeStart.addEventListener('change', () => { renderTimeGrid(); updateProgress(); });
+  }
+  renderTimeGrid();
+
+  // ============ CUSTOM CHECKLIST ITEM ADDER ============
+  // Inject "Add item" UI at the bottom of every section
+  let customCounter = 0;
+  sections.forEach(sec => {
+    const sectionId = sec.id;
+    const addBox = document.createElement('div');
+    addBox.className = 'custom-add';
+    addBox.innerHTML = `
+      <div class="custom-add-title">＋ Add a temporary item to this section</div>
+      <div class="custom-add-row">
+        <input type="text" class="custom-add-input" placeholder="Type a new task…" maxlength="160">
+        <button type="button" class="custom-add-btn">Add</button>
+      </div>
+      <ul class="check-list custom-list" data-section="${sectionId}"></ul>
+    `;
+    sec.appendChild(addBox);
+
+    const input = addBox.querySelector('.custom-add-input');
+    const btn = addBox.querySelector('.custom-add-btn');
+    const list = addBox.querySelector('.custom-list');
+
+    const addItem = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      customCounter++;
+      const id = `custom-${sectionId}-${customCounter}`;
+      const li = document.createElement('li');
+      li.className = 'check-item';
+      li.innerHTML = `
+        <input type="checkbox" id="${id}">
+        <label for="${id}">${escapeHTML(text)}</label>
+        <button type="button" class="custom-remove" title="Remove item" aria-label="Remove">×</button>
+      `;
+      list.appendChild(li);
+      li.querySelector('.custom-remove').addEventListener('click', () => {
+        li.remove();
+        updateProgress();
+      });
+      input.value = '';
+      updateProgress();
+    };
+
+    btn.addEventListener('click', addItem);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); addItem(); }
+    });
+  });
+
+  function escapeHTML(s) {
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function updateProgress() {
+    const activeSection = document.querySelector('.section.active');
+    if (!activeSection) return;
+    const boxes = activeSection.querySelectorAll('input[type="checkbox"]');
+    const checked = activeSection.querySelectorAll('input[type="checkbox"]:checked');
+    document.getElementById('progress-count').textContent = `${checked.length}/${boxes.length}`;
+    const pct = boxes.length ? (checked.length / boxes.length) * 100 : 0;
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  document.addEventListener('change', () => { updateProgress(); updateRoomDots(); });
+  document.addEventListener('input', e => {
+    if (e.target.matches('input[type="text"], input[type="time"]')) updateRoomDots();
+  });
+  tabs.forEach(tab => tab.addEventListener('click', () => setTimeout(updateProgress, 50)));
+  updateProgress();
+  updateRoomDots();
+
+  // Reset CURRENT ROOM only (fresh checklist per patient/room)
+  function resetAll() {
+    if (!confirm(`Reset checklist for room ${currentRoom}?\nThis clears all checkboxes, notes, and temporary items for this room only.`)) return;
+    // Clear all checkboxes & text inputs (except setting-input)
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.querySelectorAll('input[type="text"]').forEach(tx => {
+      if (!tx.classList.contains('setting-input')) tx.value = '';
+    });
+    // Remove all custom items
+    document.querySelectorAll('.custom-list').forEach(list => list.innerHTML = '');
+    // Re-render the time grid to clear its state
+    renderTimeGrid();
+    // Clear this room's saved state too
+    delete roomStates[currentRoom];
+    updateProgress();
+    updateRoomDots();
+  }
+
+  // Print handler - works on mobile by opening a new window with printable content
+  function handlePrint() {
+    openPrintView(false);
+  }
+
+  function expandAllForPrint() {
+    openPrintView(true);
+  }
+
+  function openPrintView(allSections) {
+    const sectionsToShow = allSections
+      ? Array.from(sections)
+      : [document.querySelector('.section.active')];
+
+    // Build a clean printable HTML doc
+    const styles = `
+      @page { size: letter; margin: 0.5in; }
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Nunito', system-ui, sans-serif;
+        color: #2a1f30;
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+      .print-header {
+        text-align: center;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 2px solid #f4a8be;
+      }
+      .print-header h1 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 20pt;
+        color: #b8456e;
+        margin: 0;
+        font-weight: 600;
+      }
+      .print-header p { font-size: 9pt; color: #666; margin: 0.25rem 0 0; }
+      .section {
+        page-break-after: always;
+      }
+      .section:last-child { page-break-after: auto; }
+      .section-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 16pt;
+        color: #b8456e;
+        border-bottom: 1.5px solid #f4a8be;
+        padding-bottom: 0.25rem;
+        margin: 0.5rem 0 0.4rem;
+        font-weight: 600;
+      }
+      .section-title em { font-style: italic; color: #9b8cd4; }
+      .section-desc { font-size: 9pt; color: #666; margin: 0 0 0.75rem; }
+      .info-panel {
+        background: #fce7ee;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        font-size: 8.5pt;
+        margin-bottom: 0.75rem;
+        border-left: 3px solid #e879a0;
+      }
+      .info-panel strong { color: #b8456e; }
+      .card {
+        border: 1px solid #f0dfe6;
+        border-top: 3px solid #f4a8be;
+        border-radius: 8px;
+        padding: 0.6rem 0.9rem;
+        margin-bottom: 0.5rem;
+        page-break-inside: avoid;
+        background: white;
+      }
+      .card[data-accent="lavender"] { border-top-color: #9b8cd4; }
+      .card[data-accent="mint"] { border-top-color: #6cc9a0; }
+      .card[data-accent="peach"] { border-top-color: #f0a878; }
+      .card[data-accent="sky"] { border-top-color: #6ca3d4; }
+      .card[data-accent="butter"] { border-top-color: #e6c850; }
+      .card-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 11pt;
+        font-weight: 600;
+        color: #2a1f30;
+        margin: 0 0 0.15rem;
+      }
+      .card-sub {
+        font-size: 7.5pt;
+        color: #7d6e84;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 0 0 0.4rem;
+        font-weight: 600;
+      }
+      .check-list { list-style: none; padding: 0; margin: 0; }
+      .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.4rem;
+        padding: 0.15rem 0;
+        page-break-inside: avoid;
+        font-size: 9pt;
+        line-height: 1.4;
+      }
+      .check-item::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        border: 1.2px solid #999;
+        border-radius: 2px;
+        margin-top: 3px;
+        background: white;
+      }
+      .check-item.checked::before {
+        background: #e879a0;
+        border-color: #e879a0;
+      }
+      .check-item label { flex: 1; }
+      .blank-print {
+        display: inline-block;
+        border-bottom: 1px solid #888;
+        min-width: 60px;
+        padding: 0 0.2rem;
+        font-size: 9pt;
+      }
+      .time-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem 1rem;
+        font-size: 9pt;
+      }
+      .time-row {
+        padding: 0.2rem 0.3rem;
+        border-bottom: 1px dashed #eee;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .time-row::before {
+        content: '';
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        min-width: 9px;
+        border: 1px solid #999;
+        border-radius: 2px;
+        background: white;
+      }
+      .time-row.checked::before {
+        background: #6cc9a0;
+        border-color: #6cc9a0;
+      }
+      .time-row .time-label {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        font-size: 9pt;
+        color: #3d8a68;
+        min-width: 36px;
+      }
+      .time-note-print {
+        flex: 1;
+        font-size: 8.5pt;
+        color: #2a1f30;
+        border-bottom: 1px dotted #ccc;
+        padding: 0 0.2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .setting-group, .custom-add-title, .custom-add-row { display: none !important; }
+      .custom-list .check-item {
+        border: 1px dashed #d8d2ef;
+        background: #fafafe;
+        padding: 0.2rem 0.4rem;
+        margin-bottom: 0.15rem;
+        border-radius: 4px;
+      }
+      .custom-remove { display: none !important; }
+      .ref-block {
+        border: 1px solid #f0dfe6;
+        border-left: 3px solid #9b8cd4;
+        border-radius: 8px;
+        padding: 0.5rem 0.85rem;
+        margin-bottom: 0.4rem;
+        page-break-inside: avoid;
+      }
+      .ref-block[data-accent="pink"] { border-left-color: #e879a0; }
+      .ref-block[data-accent="mint"] { border-left-color: #6cc9a0; }
+      .ref-block[data-accent="peach"] { border-left-color: #f0a878; }
+      .ref-block[data-accent="sky"] { border-left-color: #6ca3d4; }
+      .ref-block[data-accent="butter"] { border-left-color: #e6c850; }
+      .ref-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 10.5pt;
+        font-weight: 600;
+        margin: 0 0 0.3rem;
+      }
+      .ref-list { list-style: none; padding: 0; margin: 0; font-size: 8.5pt; line-height: 1.5; }
+      .ref-list li { padding: 0.1rem 0; }
+      .ref-list li::before { content: '◇ '; color: #f4a8be; }
+      .item-name { font-weight: 600; }
+      .item-path { color: #7d6e84; font-style: italic; font-size: 8pt; }
+      .print-buttons {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #fff6f0;
+        padding: 0.6rem;
+        text-align: center;
+        border-bottom: 1px solid #f0dfe6;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      }
+      .print-buttons button {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 0.65rem 1.4rem;
+        margin: 0 0.3rem;
+        border: none;
+        border-radius: 999px;
+        background: #e879a0;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(184,69,110,0.2);
+      }
+      .print-buttons button.secondary { background: white; color: #b8456e; border: 2px solid #f4a8be; }
+      .print-content { padding-top: 4rem; }
+      @media print {
+        .print-buttons { display: none; }
+        .print-content { padding-top: 0; }
+      }
+    `;
+
+    // Build content - clone sections and replace inputs with static representations
+    let contentHTML = '';
+    sectionsToShow.forEach(sec => {
+      const clone = sec.cloneNode(true);
+      clone.classList.add('section');
+      clone.style.display = 'block';
+
+      // Hide the custom-add UI but keep the items the user added
+      const addBoxes = clone.querySelectorAll('.custom-add');
+      addBoxes.forEach(box => {
+        const list = box.querySelector('.custom-list');
+        if (list && list.children.length === 0) {
+          box.remove(); // Nothing custom to print
+        } else {
+          // Replace box with just a labeled list
+          const wrapper = document.createElement('div');
+          wrapper.className = 'card';
+          wrapper.dataset.accent = 'lavender';
+          wrapper.innerHTML = `<h3 class="card-title">＋ Additional Items</h3><p class="card-sub">Added this session</p>`;
+          wrapper.appendChild(list.cloneNode(true));
+          box.replaceWith(wrapper);
+        }
+      });
+
+      // Handle time-rows specially: convert note input to inline text
+      clone.querySelectorAll('.time-row').forEach(row => {
+        const cb = row.querySelector('input[type="checkbox"]');
+        if (cb && cb.checked) row.classList.add('checked');
+        if (cb) cb.remove();
+        const note = row.querySelector('.time-note');
+        if (note) {
+          const span = document.createElement('span');
+          span.className = 'time-note-print';
+          span.textContent = note.value || '';
+          note.replaceWith(span);
+        }
+      });
+
+      // Convert remaining checkboxes to printable indicators
+      clone.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        const checkItem = cb.closest('.check-item');
+        if (checkItem && cb.checked) checkItem.classList.add('checked');
+        cb.remove();
+      });
+
+      // Convert remaining text inputs (the blanks) to underlined values
+      clone.querySelectorAll('input[type="text"]').forEach(tx => {
+        const span = document.createElement('span');
+        span.className = 'blank-print';
+        span.textContent = tx.value || '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0';
+        tx.replaceWith(span);
+      });
+
+      contentHTML += clone.outerHTML;
+    });
+
+    // Build the inline overlay (works on all mobile browsers — no pop-up blocker, no in-app browser issues)
+    const overlayId = 'print-overlay';
+    document.getElementById(overlayId)?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = overlayId;
+    overlay.innerHTML = `
+      <style>
+        #${overlayId} {
+          position: fixed;
+          inset: 0;
+          background: white;
+          z-index: 10000;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          font-family: 'Nunito', system-ui, sans-serif;
+        }
+        #${overlayId} .print-toolbar {
+          position: sticky;
+          top: 0;
+          background: #fff6f0;
+          padding: 0.7rem;
+          text-align: center;
+          border-bottom: 1px solid #f0dfe6;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+          z-index: 10;
+          display: flex;
+          gap: 0.5rem;
+          justify-content: center;
+        }
+        #${overlayId} .print-toolbar button {
+          font-family: 'Nunito', sans-serif;
+          font-weight: 700;
+          font-size: 0.9rem;
+          padding: 0.65rem 1.2rem;
+          border: none;
+          border-radius: 999px;
+          background: #e879a0;
+          color: white;
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(184,69,110,0.2);
+        }
+        #${overlayId} .print-toolbar button.secondary {
+          background: white;
+          color: #b8456e;
+          border: 2px solid #f4a8be;
+        }
+        #${overlayId} .print-body { padding: 1.25rem 1rem 3rem; max-width: 820px; margin: 0 auto; }
+        ${styles}
+      </style>
+      <div class="print-toolbar">
+        <button type="button" id="${overlayId}-print">🖨 Print / Save as PDF</button>
+        <button type="button" class="secondary" id="${overlayId}-close">✕ Close</button>
+      </div>
+      <div class="print-body">
+        <div class="print-header">
+          <h1>Labor &amp; Delivery Checklist <span style="font-size: 0.7em;">${currentRoom}</span></h1>
+          <p>${allSections ? 'Complete workflow reference' : 'Section: ' + (sectionsToShow[0]?.querySelector('.section-title')?.textContent || '')}</p>
+        </div>
+        ${contentHTML}
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+
+    // Hide the print toolbar in the print preview itself
+    const hidePrintToolbar = document.createElement('style');
+    hidePrintToolbar.id = overlayId + '-print-rules';
+    hidePrintToolbar.textContent = `
+      @media print {
+        body > *:not(#${overlayId}) { display: none !important; }
+        #${overlayId} { position: static !important; overflow: visible !important; }
+        #${overlayId} .print-toolbar { display: none !important; }
+        #${overlayId} .print-body { padding: 0 !important; max-width: none !important; }
+      }
+    `;
+    document.head.appendChild(hidePrintToolbar);
+
+    document.getElementById(overlayId + '-print').addEventListener('click', () => {
+      window.print();
+    });
+    document.getElementById(overlayId + '-close').addEventListener('click', () => {
+      overlay.remove();
+      hidePrintToolbar.remove();
+      document.body.style.overflow = '';
+    });
+  }
+
+  // Expose to global so onclick="" attributes work
+  window.handlePrint = handlePrint;
+  window.expandAllForPrint = expandAllForPrint;
+  window.resetAll = resetAll;
+</script>
+
+</body>
+</html>
