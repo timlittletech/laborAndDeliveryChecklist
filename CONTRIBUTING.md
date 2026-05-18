@@ -11,7 +11,38 @@ npm run typecheck  # tsc --noEmit
 npm run build      # validates JSON + typechecks + builds dist/
 ```
 
-A failed `npm run validate-content` blocks the build, so bad JSON cannot ship.
+A failed `npm run validate-content` blocks the build, so bad JSON cannot ship. A pre-commit hook (installed automatically by `npm install` via husky) runs the same check before every commit. GitHub Actions runs the full build on every PR — broken JSON or type errors block the merge.
+
+## Every change goes through a branch + PR
+
+Don't edit `main` directly. Even a one-line JSON tweak follows this recipe:
+
+```bash
+git checkout main && git pull         # always start from the latest
+git checkout -b <who>/<short-desc>    # e.g. tim/add-induction-item
+# edit checklists.json, run npm run build to sanity-check
+git add . && git commit -m "<one-line description>"
+git push -u origin HEAD
+gh pr create --fill                   # opens the PR; --fill uses the commit message as the body
+```
+
+When the PR's merged on GitHub:
+
+```bash
+git checkout main && git pull
+npm run deploy                        # builds + pushes dist/ to gh-pages
+```
+
+This avoids the conflicts you'd otherwise get when two people edit the same JSON section in parallel.
+
+### Multi-agent coordination
+
+If multiple Claude Code sessions (or humans) are working at once:
+
+- Each agent works on its own branch. Name the branch with the agent/user owning it: `tim/...`, `emily/...`, `claude/...`.
+- One task per branch. Don't bundle unrelated changes.
+- Pull main before starting. Always.
+- For big changes (schema edits, brand refresh, deleting whole categories), coordinate first — one person at a time.
 
 ## File structure (where each piece of content lives)
 

@@ -1,0 +1,4 @@
+# Block commits that would break the build.
+# To bypass in an emergency: `git commit --no-verify` (the CI on GitHub will still catch it).
+
+npm run validate-content
