@@ -995,8 +995,7 @@
             { "id": "pp7", "label": "Check IV" },
             { "id": "pp8", "label": "Assessment" },
             { "id": "pp9", "label": "Adhoc: Maternal shift screen adhoc" },
-            { "id": "pp10", "label": "Education (adhoc: Mat readiness for d/c, maternal)" },
-            { "id": "pp12", "label": "Discharge tab: printout for bulb suction" }
+            { "id": "pp10", "label": "Education (adhoc: Mat readiness for d/c, maternal)" }
           ]
         },
         {
