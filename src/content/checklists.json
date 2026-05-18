@@ -66,7 +66,8 @@
           "items": [
             { "id": "t22", "label": "Chart EFM q30min" },
             { "id": "t23", "label": "VS x1 (or q15 for HTN)" },
-            { "id": "t24", "label": "Focused assessment" }
+            { "id": "t24", "label": "Focused assessment" },
+            { "id": "t35", "label": "Hi Marie" }
           ]
         },
         {
