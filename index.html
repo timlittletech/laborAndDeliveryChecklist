@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L&D Nursing Checklist</title>
+<title>littleL&amp;D — Labor &amp; Delivery Checklist</title>
+<meta name="theme-color" content="#fff6f0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="littleL&D">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90"><g transform="translate(8 50)"><path d="M 0 0 L 12 0 L 16 -4 L 22 6 L 28 -18 L 34 12 L 40 0 L 52 0" stroke="%23b8456e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(58 0)"><ellipse cx="0" cy="-9" rx="4" ry="9" fill="%23f4a8be"/><ellipse cx="0" cy="-9" rx="4" ry="9" fill="%23f4a8be" transform="rotate(72)"/><ellipse cx="0" cy="-9" rx="4" ry="9" fill="%23f4a8be" transform="rotate(144)"/><ellipse cx="0" cy="-9" rx="4" ry="9" fill="%23f4a8be" transform="rotate(216)"/><ellipse cx="0" cy="-9" rx="4" ry="9" fill="%23f4a8be" transform="rotate(288)"/><circle r="4" fill="%23e6c850"/></g></g></svg>'>
+<link rel="apple-touch-icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180"><rect width="180" height="180" rx="40" fill="%23fff6f0"/><g transform="translate(40 110)"><path d="M 0 0 L 22 0 L 28 -8 L 38 12 L 50 -36 L 62 24 L 72 0 L 90 0" stroke="%23b8456e" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(108 0)"><ellipse cx="0" cy="-18" rx="8" ry="18" fill="%23f4a8be"/><ellipse cx="0" cy="-18" rx="8" ry="18" fill="%23f4a8be" transform="rotate(72)"/><ellipse cx="0" cy="-18" rx="8" ry="18" fill="%23f4a8be" transform="rotate(144)"/><ellipse cx="0" cy="-18" rx="8" ry="18" fill="%23f4a8be" transform="rotate(216)"/><ellipse cx="0" cy="-18" rx="8" ry="18" fill="%23f4a8be" transform="rotate(288)"/><circle r="8" fill="%23e6c850"/></g></g></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --pink-50: #fdf2f5;
@@ -113,13 +119,12 @@
 
   .room-pill {
     flex-shrink: 0;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
     border: 1.5px solid var(--line);
     background: white;
     cursor: pointer;
-    font-size: 1.15rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -127,6 +132,14 @@
     position: relative;
     padding: 0;
     line-height: 1;
+    overflow: hidden;
+  }
+
+  .room-pill svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+    transition: transform 0.18s ease;
   }
 
   .room-pill:hover {
@@ -134,28 +147,62 @@
     transform: translateY(-1px);
   }
 
+  .room-pill:hover svg {
+    transform: scale(1.08);
+  }
+
   .room-pill.active {
-    background: linear-gradient(135deg, var(--lavender-100), var(--pink-100));
-    border-color: var(--lavender-500);
     border-width: 2px;
-    box-shadow: 0 2px 8px rgba(155, 140, 212, 0.25);
+    box-shadow: 0 2px 10px rgba(155, 140, 212, 0.22);
     transform: translateY(-1px);
   }
+
+  .room-pill.active svg {
+    transform: scale(1.12);
+  }
+
+  /* Per-flower background when active */
+  .room-pill.active[data-bg="pink"] { background: var(--pink-100); border-color: var(--pink-500); }
+  .room-pill.active[data-bg="peach"] { background: var(--peach-100); border-color: var(--peach-500); }
+  .room-pill.active[data-bg="lavender"] { background: var(--lavender-100); border-color: var(--lavender-500); }
+  .room-pill.active[data-bg="butter"] { background: var(--butter-100); border-color: var(--butter-500); }
+  .room-pill.active[data-bg="sky"] { background: var(--sky-100); border-color: var(--sky-500); }
+  .room-pill.active[data-bg="mauve"] { background: #f3e8f0; border-color: #b07bac; }
+  .room-pill.active[data-bg="rose"] { background: #fde7eb; border-color: #d96a8c; }
+  .room-pill.active[data-bg="mint"] { background: var(--mint-100); border-color: var(--mint-500); }
 
   /* Activity dot — shows when a room has any progress */
   .room-pill .dot {
     position: absolute;
-    top: 3px;
-    right: 3px;
-    width: 6px;
-    height: 6px;
+    top: 2px;
+    right: 2px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--pink-500);
     opacity: 0;
     transition: opacity 0.2s ease;
+    border: 1.5px solid white;
+    box-sizing: content-box;
   }
   .room-pill.has-data .dot { opacity: 1; }
 
+  /* ============ TOPBAR BRAND ============ */
+  .topbar-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
+
+  /* keep legacy topbar-title rules valid in case anything else references them */
   .topbar-title {
     font-family: var(--display);
     font-weight: 600;
@@ -1057,9 +1104,11 @@
     .topbar-title .topbar-subtitle { display: none; }
     .progress-box { font-size: 0.78rem; padding: 0.4rem 0.75rem; gap: 0.4rem; }
     .progress-bar-mini { width: 45px; }
-    .room-pill { width: 34px; height: 34px; font-size: 1.05rem; border-radius: 10px; }
+    .room-pill { width: 36px; height: 36px; border-radius: 10px; }
+    .room-pill svg { width: 24px; height: 24px; }
     .room-bar { gap: 0.3rem; }
     .room-bar-label { font-size: 0.6rem; }
+    .brand-mark { height: 28px; }
     .toolbar { padding: 0.6rem 0.75rem 0.4rem; gap: 0.4rem; }
     .btn { font-size: 0.8rem; padding: 0.5rem 0.85rem; }
     .tabs { padding: 0.3rem 0.5rem 0.75rem; gap: 0.35rem; }
@@ -1079,13 +1128,29 @@
 <body>
 
 <div class="print-header">
-  <h2>L&D Nursing Checklist</h2>
-  <p>Labor &amp; Delivery Workflow Reference</p>
+  <h2>littleL&amp;D</h2>
+  <p>Labor &amp; Delivery checklist · checklist.littlelnd.com</p>
 </div>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="topbar-title">L&amp;D <em>Checklist</em> <span class="topbar-subtitle">✿</span></div>
+    <a href="#" class="topbar-brand" aria-label="littleL&D">
+      <svg class="brand-mark" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g transform="translate(6, 28)">
+          <path d="M 0 0 L 8 0 L 11 -3 L 14 3 L 17 -10 L 20 8 L 23 0 L 32 0 L 35 -8 L 38 5 L 41 -2 L 48 0 L 54 0" stroke="#b8456e" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(58 0)">
+            <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be"/>
+            <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(288)"/>
+            <circle r="2" fill="#e6c850"/>
+          </g>
+        </g>
+        <text x="90" y="34" font-family="Fraunces, Georgia, serif" font-weight="400" font-style="italic" font-size="20" fill="#4a3a4f">little</text>
+        <text x="133" y="34" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="20" fill="#b8456e">L&amp;D</text>
+      </svg>
+    </a>
     <div class="topbar-actions">
       <div class="progress-box">
         <span id="progress-count">0/0</span>
@@ -1095,14 +1160,127 @@
   </div>
   <div class="room-bar" id="room-bar">
     <span class="room-bar-label">Room</span>
-    <button type="button" class="room-pill active" data-room="🌸" title="Room 1"><span>🌸</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🌷" title="Room 2"><span>🌷</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🌼" title="Room 3"><span>🌼</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🌺" title="Room 4"><span>🌺</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🌻" title="Room 5"><span>🌻</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🌹" title="Room 6"><span>🌹</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="🪷" title="Room 7"><span>🪷</span><span class="dot"></span></button>
-    <button type="button" class="room-pill" data-room="💐" title="Room 8"><span>💐</span><span class="dot"></span></button>
+    <button type="button" class="room-pill active" data-room="cosmos" data-bg="pink" title="Cosmos">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <g transform="translate(25 25)">
+          <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be"/>
+          <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#e879a0" opacity="0.9" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#e879a0" opacity="0.9" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be" transform="rotate(288)"/>
+          <circle r="3.5" fill="#e6c850"/>
+        </g>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="tulip" data-bg="peach" title="Tulip">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <path d="M 25 30 L 25 44" stroke="#3d8a68" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="20" cy="38" rx="4" ry="1.6" fill="#6cc9a0" transform="rotate(-30 20 38)"/>
+        <path d="M 14 28 Q 12 18 18 14 Q 21 22 21 28 Z" fill="#f0a878"/>
+        <path d="M 36 28 Q 38 18 32 14 Q 29 22 29 28 Z" fill="#f0a878"/>
+        <path d="M 18 28 Q 18 12 25 10 Q 32 12 32 28 Z" fill="#ffd2b5"/>
+        <path d="M 18 28 Q 18 12 25 10 Q 32 12 32 28 Z" fill="none" stroke="#b56f3d" stroke-width="0.7"/>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="lavender" data-bg="lavender" title="Lavender">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <path d="M 25 42 L 25 16" stroke="#6cc9a0" stroke-width="1.5" stroke-linecap="round"/>
+        <ellipse cx="25" cy="13" rx="3" ry="4" fill="#9b8cd4"/>
+        <ellipse cx="21" cy="17" rx="2.8" ry="3.5" fill="#9b8cd4"/>
+        <ellipse cx="29" cy="17" rx="2.8" ry="3.5" fill="#9b8cd4"/>
+        <ellipse cx="22" cy="22" rx="2.5" ry="3" fill="#d8d2ef"/>
+        <ellipse cx="28" cy="22" rx="2.5" ry="3" fill="#d8d2ef"/>
+        <ellipse cx="25" cy="26" rx="2.2" ry="2.6" fill="#d8d2ef"/>
+        <ellipse cx="20" cy="36" rx="3.5" ry="1.4" fill="#bce8d4" transform="rotate(-30 20 36)"/>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="daisy" data-bg="butter" title="Daisy">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <g transform="translate(25 25)">
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(45)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(135)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(225)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(270)"/>
+          <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" stroke="#e6c850" stroke-width="0.6" transform="rotate(315)"/>
+          <circle r="5" fill="#e6c850"/>
+        </g>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="forget-me-not" data-bg="sky" title="Forget-me-not">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <g transform="translate(18 18)">
+          <circle r="5" fill="#b8d6ed"/>
+          <circle r="5" fill="#b8d6ed" cx="10" cy="-3"/>
+          <circle r="5" fill="#b8d6ed" cx="14" cy="6"/>
+          <circle r="5" fill="#b8d6ed" cx="6" cy="13"/>
+          <circle r="5" fill="#6ca3d4" cx="-3" cy="6"/>
+          <circle r="1.5" fill="#faeaa8"/>
+          <circle r="1.5" fill="#faeaa8" cx="10" cy="-3"/>
+          <circle r="1.5" fill="#faeaa8" cx="14" cy="6"/>
+          <circle r="1.5" fill="#faeaa8" cx="6" cy="13"/>
+          <circle r="1.5" fill="#faeaa8" cx="-3" cy="6"/>
+        </g>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="sweetpea" data-bg="mauve" title="Sweetpea">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <path d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z" fill="#e3c8de"/>
+        <path d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z" fill="none" stroke="#794476" stroke-width="0.7"/>
+        <ellipse cx="23" cy="20" rx="6" ry="4" fill="#b07bac" opacity="0.45"/>
+        <path d="M 23 30 L 23 42" stroke="#3d8a68" stroke-width="1.2"/>
+        <ellipse cx="19" cy="38" rx="3" ry="1.2" fill="#bce8d4" transform="rotate(-30 19 38)"/>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="camellia" data-bg="rose" title="Camellia">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <g transform="translate(25 25)">
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2"/>
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(60)"/>
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(120)"/>
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(240)"/>
+          <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(300)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(30)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(150)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(210)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(270)"/>
+          <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(330)"/>
+          <circle r="3" fill="#fdf5d4"/>
+          <circle r="1.5" fill="#e6c850"/>
+        </g>
+      </svg>
+      <span class="dot"></span>
+    </button>
+    <button type="button" class="room-pill" data-room="aster" data-bg="mint" title="Aster">
+      <svg viewBox="0 0 50 50" aria-hidden="true">
+        <g transform="translate(25 25)">
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(30)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(60)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(120)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(150)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(180)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(210)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(240)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(270)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(300)"/>
+          <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(330)"/>
+          <circle r="5" fill="#e6c850"/>
+        </g>
+      </svg>
+      <span class="dot"></span>
+    </button>
   </div>
 </div>
 
@@ -2337,7 +2515,7 @@
 </main>
 
 <footer>
-  Made with <span class="heart">♥</span> for L&D nurses · Each shift, a fresh start
+  Made with <span class="heart">♥</span> for L&D nurses · littleL&amp;D · Each shift, a fresh start
 </footer>
 
 <script>
@@ -2360,8 +2538,14 @@
   // Each room is an independent checklist. State lives in memory only — no patient data ever stored.
   // We snapshot the DOM (checkboxes, text inputs, time-grid rows, custom items) when switching rooms.
   const roomPills = document.querySelectorAll('.room-pill');
-  const roomStates = {}; // { '🌸': { checks: {id: bool}, texts: {id: string}, timeRows: [...], custom: {sectionId: [text...]}, interval, startTime } }
-  let currentRoom = document.querySelector('.room-pill.active')?.dataset.room || '🌸';
+  const roomStates = {}; // { 'cosmos': { ... }, 'tulip': { ... } }
+  let currentRoom = document.querySelector('.room-pill.active')?.dataset.room || 'cosmos';
+
+  // Display-friendly room name (capitalize, replace hyphens)
+  function roomDisplayName(id) {
+    if (!id) return '';
+    return id.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+  }
 
   function snapshotCurrentRoom() {
     const checks = {};
@@ -2658,7 +2842,7 @@
 
   // Reset CURRENT ROOM only (fresh checklist per patient/room)
   function resetAll() {
-    if (!confirm(`Reset checklist for room ${currentRoom}?\nThis clears all checkboxes, notes, and temporary items for this room only.`)) return;
+    if (!confirm(`Reset checklist for the ${roomDisplayName(currentRoom)} room?\nThis clears all checkboxes, notes, and temporary items for this room only.`)) return;
     // Clear all checkboxes & text inputs (except setting-input)
     document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
     document.querySelectorAll('input[type="text"]').forEach(tx => {
@@ -3021,7 +3205,7 @@
       </div>
       <div class="print-body">
         <div class="print-header">
-          <h1>Labor &amp; Delivery Checklist <span style="font-size: 0.7em;">${currentRoom}</span></h1>
+          <h1>Labor &amp; Delivery Checklist <span style="font-size: 0.7em; color: #b8456e;">— ${roomDisplayName(currentRoom)} room</span></h1>
           <p>${allSections ? 'Complete workflow reference' : 'Section: ' + (sectionsToShow[0]?.querySelector('.section-title')?.textContent || '')}</p>
         </div>
         ${contentHTML}

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>littleL&D — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ============ BRAND COLOR TOKENS ============ */
+    --pink-50: #fdf2f5;
+    --pink-100: #fce7ee;
+    --pink-200: #f9d0dc;
+    --pink-300: #f4a8be;
+    --pink-500: #e879a0;
+    --pink-700: #b8456e;
+
+    --lavender-100: #ece9f7;
+    --lavender-200: #d8d2ef;
+    --lavender-500: #9b8cd4;
+    --lavender-700: #6b5ca3;
+
+    --mint-100: #dff5ec;
+    --mint-200: #bce8d4;
+    --mint-500: #6cc9a0;
+    --mint-700: #3d8a68;
+
+    --peach-100: #ffe8d9;
+    --peach-200: #ffd2b5;
+    --peach-500: #f0a878;
+    --peach-700: #b56f3d;
+
+    --butter-100: #fdf5d4;
+    --butter-200: #faeaa8;
+    --butter-500: #e6c850;
+    --butter-700: #8a7320;
+
+    --sky-100: #dcecf7;
+    --sky-200: #b8d6ed;
+    --sky-500: #6ca3d4;
+    --sky-700: #3a6f9d;
+
+    --rose-100: #fde7eb;
+    --rose-200: #f7c8d2;
+    --rose-500: #d96a8c;
+    --rose-700: #9c3559;
+
+    --mauve-100: #f3e8f0;
+    --mauve-200: #e3c8de;
+    --mauve-500: #b07bac;
+    --mauve-700: #794476;
+
+    --ink: #4a3a4f;
+    --ink-soft: #7d6e84;
+    --paper: #fffafc;
+    --paper-warm: #fff6f0;
+    --line: #f0dfe6;
+
+    --display: 'Fraunces', Georgia, serif;
+    --body: 'Nunito', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--paper-warm);
+    background-image:
+      radial-gradient(at 5% 5%, rgba(249, 208, 220, 0.4) 0px, transparent 50%),
+      radial-gradient(at 95% 8%, rgba(216, 210, 239, 0.3) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(188, 232, 212, 0.25) 0px, transparent 60%);
+    background-attachment: fixed;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-mark { margin-bottom: 1.5rem; }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    color: var(--pink-700);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--lavender-700);
+    font-weight: 400;
+  }
+
+  .hero p {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    margin-top: 0.75rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .version-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: white;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--lavender-700);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid var(--lavender-200);
+  }
+
+  /* ============ TABLE OF CONTENTS ============ */
+  .toc {
+    max-width: 900px;
+    margin: 2rem auto 4rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-radius: 18px;
+    border: 1px dashed var(--lavender-200);
+  }
+
+  .toc-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--lavender-700);
+    margin-bottom: 1rem;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px dotted transparent;
+    transition: all 0.15s ease;
+  }
+
+  .toc a:hover {
+    color: var(--pink-700);
+    border-bottom-color: var(--pink-300);
+  }
+
+  .toc-num {
+    color: var(--pink-500);
+    font-family: var(--display);
+    font-style: italic;
+    margin-right: 0.4rem;
+  }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--pink-200);
+  }
+
+  .section-num {
+    font-family: var(--display);
+    font-style: italic;
+    color: var(--pink-300);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+
+  .section-title em { font-style: italic; color: var(--pink-500); }
+
+  .section-intro {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    margin-top: 0.75rem;
+    max-width: 700px;
+  }
+
+  /* Sub-section */
+  .sub-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sub-title:first-child { margin-top: 0; }
+
+  /* Body text in sections */
+  .section p {
+    margin: 0.5rem 0;
+    color: var(--ink);
+    font-size: 0.98rem;
+  }
+
+  .section ul {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    color: var(--ink);
+  }
+
+  .section ul li { padding: 0.15rem 0; }
+
+  /* ============ CARDS ============ */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(184, 69, 110, 0.05);
+    margin-bottom: 1rem;
+    border: 1px solid var(--line);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .grid-2up { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 700px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  }
+
+  /* ============ LOGO SHOWCASE ============ */
+  .logo-row {
+    background: white;
+    border-radius: 18px;
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(184, 69, 110, 0.06);
+    min-height: 200px;
+  }
+
+  .logo-row.dark { background: var(--ink); }
+
+  .logo-row.gradient {
+    background: linear-gradient(135deg, var(--pink-100), var(--lavender-100));
+  }
+
+  .logo-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-top: 0.75rem;
+    text-align: center;
+  }
+
+  /* ============ COLOR PALETTE ============ */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .palette-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(184, 69, 110, 0.06);
+  }
+
+  .palette-swatches {
+    display: flex;
+    height: 90px;
+  }
+
+  .palette-swatches > div {
+    flex: 1;
+    position: relative;
+  }
+
+  .palette-info {
+    padding: 0.85rem 1rem;
+  }
+
+  .palette-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  .palette-name em { font-style: italic; color: var(--pink-500); }
+
+  .palette-use {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+  }
+
+  .palette-codes {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ============ TYPOGRAPHY SHOWCASE ============ */
+  .type-spec {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .type-spec-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--lavender-700);
+    margin-bottom: 0.5rem;
+  }
+
+  .type-spec-sample {
+    margin-bottom: 1rem;
+  }
+
+  .type-spec-meta {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ============ DO/DON'T ============ */
+  .rule-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  @media (max-width: 700px) { .rule-row { grid-template-columns: 1fr; } }
+
+  .rule-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.25rem;
+    border-top: 4px solid var(--mint-500);
+  }
+
+  .rule-card.dont { border-top-color: var(--pink-500); }
+
+  .rule-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: var(--mint-100);
+    color: var(--mint-700);
+    margin-bottom: 0.75rem;
+  }
+
+  .rule-card.dont .rule-badge {
+    background: var(--pink-100);
+    color: var(--pink-700);
+  }
+
+  .rule-text {
+    color: var(--ink);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* ============ ROOM MARKERS ============ */
+  .markers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .marker-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(184, 69, 110, 0.05);
+  }
+
+  .marker-vis {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 0.75rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--line);
+  }
+
+  .marker-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+
+  .marker-meta {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+
+  .marker-hex {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+  }
+
+  /* ============ INFO PANEL ============ */
+  .info-panel {
+    background: linear-gradient(135deg, var(--pink-100), var(--lavender-100));
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border: 1px solid var(--pink-200);
+    font-size: 0.92rem;
+  }
+
+  .info-panel strong { color: var(--pink-700); }
+
+  /* ============ CODE BLOCK ============ */
+  .code-block {
+    background: #fdf2f5;
+    border: 1px solid var(--pink-200);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.78rem;
+    color: var(--pink-700);
+    overflow-x: auto;
+    margin: 0.75rem 0;
+    line-height: 1.7;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  footer .heart { color: var(--pink-500); }
+
+  @media (max-width: 700px) {
+    .section { padding: 2rem 1.25rem; }
+    .section-title { font-size: 1.7rem; }
+    .logo-row { padding: 2rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-mark">
+    <!-- Full primary logo -->
+    <svg width="320" viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" aria-label="littleL&D logo">
+      <g transform="translate(20, 60)">
+        <path d="M 0 0 L 12 0 L 16 -3 L 20 4 L 24 -12 L 28 8 L 32 0 L 44 0 L 48 -10 L 52 6 L 56 -2 L 65 0 L 75 0" stroke="#b8456e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(78 0)">
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(288)"/>
+          <circle r="3" fill="#e6c850"/>
+        </g>
+      </g>
+      <text x="125" y="58" font-family="Fraunces, serif" font-weight="400" font-style="italic" font-size="36" fill="#4a3a4f">little</text>
+      <text x="200" y="58" font-family="Fraunces, serif" font-weight="700" font-size="36" fill="#b8456e">L&amp;D</text>
+      <text x="125" y="80" font-family="Nunito, sans-serif" font-size="10" letter-spacing="2.5" fill="#7d6e84" font-weight="500">CHECKLIST · CARE · CALM</text>
+    </svg>
+  </div>
+  <h1>Brand <em>guidelines</em></h1>
+  <p>A reference for keeping littleL&amp;D's visual identity consistent — across the app, documentation, marketing, and anything else we build.</p>
+  <div class="version-tag">Version 1.0 · May 2026</div>
+</section>
+
+<!-- ============ TOC ============ -->
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <div class="toc-grid">
+    <a href="#brand"><span class="toc-num">01</span>The brand</a>
+    <a href="#logo"><span class="toc-num">02</span>Logo system</a>
+    <a href="#color"><span class="toc-num">03</span>Color palette</a>
+    <a href="#typography"><span class="toc-num">04</span>Typography</a>
+    <a href="#markers"><span class="toc-num">05</span>Room markers</a>
+    <a href="#voice"><span class="toc-num">06</span>Voice & tone</a>
+    <a href="#usage"><span class="toc-num">07</span>Do & don't</a>
+    <a href="#tokens"><span class="toc-num">08</span>Design tokens</a>
+  </div>
+</nav>
+
+<!-- ============ 01 BRAND ============ -->
+<section class="section" id="brand">
+  <header class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">The <em>brand</em></h2>
+    <p class="section-intro">littleL&amp;D is a bedside companion for labor &amp; delivery nurses. The brand reflects what good L&amp;D care feels like: warm, attentive, calm, prepared.</p>
+  </header>
+
+  <h3 class="sub-title">What we are</h3>
+  <div class="card">
+    <p>A quiet, well-organized digital checklist that lives on a phone or tablet at the bedside. The brand should feel like a trusted coworker — competent, kind, slightly playful, never alarming. It's clinical enough to belong on the unit, soft enough to ease a 12-hour shift.</p>
+  </div>
+
+  <h3 class="sub-title">Personality traits</h3>
+  <div class="grid-4">
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--pink-700); margin-bottom: 0.4rem;">Warm</div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft);">Soft pastels, rounded shapes, italic flourishes. Nothing sharp or sterile.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--lavender-700); margin-bottom: 0.4rem;">Calm</div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft);">Generous whitespace, restrained typography. Never noisy or flashy.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--mint-700); margin-bottom: 0.4rem;">Capable</div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft);">Editorial serif + clean sans. Precise without being cold.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--peach-500); margin-bottom: 0.4rem;">Quietly playful</div>
+      <p style="font-size: 0.88rem; color: var(--ink-soft);">Flower markers, subtle smile of an italic word. Joy without cute overload.</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">What we're not</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Not corporate.</strong> No grey gradients, no stock-photo professionalism, no acronyms in caps.</li>
+      <li><strong>Not infantilizing.</strong> No bottles, pacifiers, baby blocks. The audience is highly skilled professionals.</li>
+      <li><strong>Not alarming.</strong> No red urgency, no flashing indicators, no clinical iconography.</li>
+      <li><strong>Not generic.</strong> No system fonts, no "wellness app" purple gradients, no rounded blue checkboxes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 02 LOGO ============ -->
+<section class="section" id="logo">
+  <header class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Logo <em>system</em></h2>
+    <p class="section-intro">The mark is a fetal heart-rate trace (FHR) that ends in a small bloom — a visual any L&amp;D nurse recognizes instantly. The wordmark pairs an italic Fraunces "little" with a bold roman "L&amp;D" for tension between flow and precision.</p>
+  </header>
+
+  <h3 class="sub-title">Primary lockup</h3>
+  <div class="logo-row">
+    <div style="text-align: center;">
+      <svg width="320" viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(20, 60)">
+          <path d="M 0 0 L 12 0 L 16 -3 L 20 4 L 24 -12 L 28 8 L 32 0 L 44 0 L 48 -10 L 52 6 L 56 -2 L 65 0 L 75 0" stroke="#b8456e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g transform="translate(78 0)">
+            <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f4a8be" transform="rotate(288)"/>
+            <circle r="3" fill="#e6c850"/>
+          </g>
+        </g>
+        <text x="125" y="58" font-family="Fraunces, serif" font-weight="400" font-style="italic" font-size="36" fill="#4a3a4f">little</text>
+        <text x="200" y="58" font-family="Fraunces, serif" font-weight="700" font-size="36" fill="#b8456e">L&amp;D</text>
+        <text x="125" y="80" font-family="Nunito, sans-serif" font-size="10" letter-spacing="2.5" fill="#7d6e84" font-weight="500">CHECKLIST · CARE · CALM</text>
+      </svg>
+    </div>
+  </div>
+  <p style="text-align: center; margin-top: 0.75rem; font-size: 0.85rem; color: var(--ink-soft);">Use on light backgrounds, marketing materials, the homepage header.</p>
+
+  <h3 class="sub-title">On dark backgrounds</h3>
+  <div class="logo-row dark">
+    <svg width="320" viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(20, 60)">
+        <path d="M 0 0 L 12 0 L 16 -3 L 20 4 L 24 -12 L 28 8 L 32 0 L 44 0 L 48 -10 L 52 6 L 56 -2 L 65 0 L 75 0" stroke="#f4a8be" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(78 0)">
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f9d0dc" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f9d0dc" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f9d0dc" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f9d0dc" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-7" rx="3" ry="7" fill="#f9d0dc" transform="rotate(288)"/>
+          <circle r="3" fill="#faeaa8"/>
+        </g>
+      </g>
+      <text x="125" y="58" font-family="Fraunces, serif" font-weight="400" font-style="italic" font-size="36" fill="#f9d0dc">little</text>
+      <text x="200" y="58" font-family="Fraunces, serif" font-weight="700" font-size="36" fill="white">L&amp;D</text>
+      <text x="125" y="80" font-family="Nunito, sans-serif" font-size="10" letter-spacing="2.5" fill="rgba(255,255,255,0.5)" font-weight="500">CHECKLIST · CARE · CALM</text>
+    </svg>
+  </div>
+
+  <h3 class="sub-title">App icon</h3>
+  <div class="grid-3">
+    <div class="logo-row gradient" style="padding: 2rem; min-height: 160px;">
+      <div>
+        <div style="width: 120px; height: 120px; border-radius: 28px; background: linear-gradient(135deg, #fff6f0 0%, #fce7ee 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+          <svg width="90" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(8, 50)">
+              <path d="M 0 0 L 12 0 L 16 -4 L 22 6 L 28 -18 L 34 12 L 40 0 L 52 0" stroke="#b8456e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <g transform="translate(58 0)">
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(0)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(288)"/>
+                <circle r="4" fill="#e6c850"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-label">Light variant — 120px</div>
+      </div>
+    </div>
+    <div class="logo-row gradient" style="padding: 2rem; min-height: 160px;">
+      <div>
+        <div style="width: 80px; height: 80px; border-radius: 18px; background: linear-gradient(135deg, #fff6f0 0%, #fce7ee 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.08);">
+          <svg width="60" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(8, 50)">
+              <path d="M 0 0 L 12 0 L 16 -4 L 22 6 L 28 -18 L 34 12 L 40 0 L 52 0" stroke="#b8456e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <g transform="translate(58 0)">
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(0)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f4a8be" transform="rotate(288)"/>
+                <circle r="4" fill="#e6c850"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-label">Standard — 80px</div>
+      </div>
+    </div>
+    <div class="logo-row dark" style="padding: 2rem; min-height: 160px;">
+      <div>
+        <div style="width: 80px; height: 80px; border-radius: 18px; background: linear-gradient(135deg, #4a3a4f 0%, #6b5ca3 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
+          <svg width="60" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(8, 50)">
+              <path d="M 0 0 L 12 0 L 16 -4 L 22 6 L 28 -18 L 34 12 L 40 0 L 52 0" stroke="#f4a8be" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <g transform="translate(58 0)">
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f9d0dc" transform="rotate(0)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f9d0dc" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f9d0dc" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f9d0dc" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-9" rx="4" ry="9" fill="#f9d0dc" transform="rotate(288)"/>
+                <circle r="4" fill="#faeaa8"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="logo-label" style="color: rgba(255,255,255,0.6);">Dark variant — 80px</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Compact mark</h3>
+  <div class="logo-row">
+    <svg width="200" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(8, 32)">
+        <path d="M 0 0 L 8 0 L 11 -3 L 14 3 L 17 -10 L 20 8 L 23 0 L 32 0 L 35 -8 L 38 5 L 41 -2 L 48 0 L 54 0" stroke="#b8456e" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(58 0)">
+          <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(288)"/>
+          <circle r="2" fill="#e6c850"/>
+        </g>
+      </g>
+      <text x="92" y="38" font-family="Fraunces, serif" font-weight="400" font-style="italic" font-size="22" fill="#4a3a4f">little</text>
+      <text x="138" y="38" font-family="Fraunces, serif" font-weight="700" font-size="22" fill="#b8456e">L&amp;D</text>
+    </svg>
+  </div>
+  <p style="text-align: center; margin-top: 0.75rem; font-size: 0.85rem; color: var(--ink-soft);">Use in app headers, narrow spaces, browser tab favicons.</p>
+
+  <h3 class="sub-title">Clear space &amp; minimum size</h3>
+  <div class="info-panel">
+    <strong>Clear space:</strong> Maintain padding equal to the height of the bloom around all sides of the lockup. <strong>Minimum size:</strong> 120px wide on screen, 0.75" wide in print. Below that, use the compact mark or the icon alone.
+  </div>
+</section>
+
+<!-- ============ 03 COLOR ============ -->
+<section class="section" id="color">
+  <header class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Color <em>palette</em></h2>
+    <p class="section-intro">Eight soft pastel families plus warm ink. Each family has a 100 (background tint), 200 (surface), 500 (accent), and 700 (text-safe deep) shade. Pink is the brand primary; lavender is the secondary.</p>
+  </header>
+
+  <h3 class="sub-title">Primary &amp; secondary</h3>
+  <div class="palette-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #fdf2f5;"></div>
+        <div style="background: #fce7ee;"></div>
+        <div style="background: #f9d0dc;"></div>
+        <div style="background: #f4a8be;"></div>
+        <div style="background: #e879a0;"></div>
+        <div style="background: #b8456e;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Pink <em>— Primary</em></div>
+        <div class="palette-use">Brand color. Logo, primary buttons, key accents.</div>
+        <div class="palette-codes">50 #fdf2f5 · 100 #fce7ee · 200 #f9d0dc · 300 #f4a8be · 500 #e879a0 · 700 #b8456e</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div></div>
+        <div style="background: #ece9f7;"></div>
+        <div style="background: #d8d2ef;"></div>
+        <div></div>
+        <div style="background: #9b8cd4;"></div>
+        <div style="background: #6b5ca3;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Lavender <em>— Secondary</em></div>
+        <div class="palette-use">Settings UI, secondary buttons, meta text.</div>
+        <div class="palette-codes">100 #ece9f7 · 200 #d8d2ef · 500 #9b8cd4 · 700 #6b5ca3</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Accent families</h3>
+  <div class="palette-grid">
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #dff5ec;"></div>
+        <div style="background: #bce8d4;"></div>
+        <div style="background: #6cc9a0;"></div>
+        <div style="background: #3d8a68;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Mint</div>
+        <div class="palette-use">Success, "fresh"</div>
+        <div class="palette-codes">100 #dff5ec · 200 #bce8d4 · 500 #6cc9a0 · 700 #3d8a68</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #ffe8d9;"></div>
+        <div style="background: #ffd2b5;"></div>
+        <div style="background: #f0a878;"></div>
+        <div style="background: #b56f3d;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Peach</div>
+        <div class="palette-use">Warmth, organic</div>
+        <div class="palette-codes">100 #ffe8d9 · 200 #ffd2b5 · 500 #f0a878 · 700 #b56f3d</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #dcecf7;"></div>
+        <div style="background: #b8d6ed;"></div>
+        <div style="background: #6ca3d4;"></div>
+        <div style="background: #3a6f9d;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Sky</div>
+        <div class="palette-use">Cool, informational</div>
+        <div class="palette-codes">100 #dcecf7 · 200 #b8d6ed · 500 #6ca3d4 · 700 #3a6f9d</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #fdf5d4;"></div>
+        <div style="background: #faeaa8;"></div>
+        <div style="background: #e6c850;"></div>
+        <div style="background: #8a7320;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Butter</div>
+        <div class="palette-use">Sunny, highlight</div>
+        <div class="palette-codes">100 #fdf5d4 · 200 #faeaa8 · 500 #e6c850 · 700 #8a7320</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #fde7eb;"></div>
+        <div style="background: #f7c8d2;"></div>
+        <div style="background: #d96a8c;"></div>
+        <div style="background: #9c3559;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Rose</div>
+        <div class="palette-use">Deep romantic</div>
+        <div class="palette-codes">100 #fde7eb · 200 #f7c8d2 · 500 #d96a8c · 700 #9c3559</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches">
+        <div style="background: #f3e8f0;"></div>
+        <div style="background: #e3c8de;"></div>
+        <div style="background: #b07bac;"></div>
+        <div style="background: #794476;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Mauve</div>
+        <div class="palette-use">Vintage, dusty</div>
+        <div class="palette-codes">100 #f3e8f0 · 200 #e3c8de · 500 #b07bac · 700 #794476</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Neutrals</h3>
+  <div class="palette-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+    <div class="palette-card">
+      <div class="palette-swatches" style="height: 60px;">
+        <div style="background: #fffafc;"></div>
+        <div style="background: #fff6f0;"></div>
+        <div style="background: #f0dfe6;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Surface</div>
+        <div class="palette-codes">Paper #fffafc · Warm #fff6f0 · Line #f0dfe6</div>
+      </div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatches" style="height: 60px;">
+        <div style="background: #4a3a4f;"></div>
+        <div style="background: #7d6e84;"></div>
+      </div>
+      <div class="palette-info">
+        <div class="palette-name">Ink</div>
+        <div class="palette-codes">Ink #4a3a4f · Soft #7d6e84</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <strong>Never use:</strong> pure black, pure white text on color (always use warm ink #4a3a4f for body), saturated reds, fluorescent greens, or pure neon. The palette is intentionally muted.
+  </div>
+</section>
+
+<!-- ============ 04 TYPOGRAPHY ============ -->
+<section class="section" id="typography">
+  <header class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Typography <em>system</em></h2>
+    <p class="section-intro">Two typefaces — both free on Google Fonts. Fraunces brings warmth and personality through its italic curves; Nunito brings clarity and reliability through its rounded sans-serif geometry.</p>
+  </header>
+
+  <div class="type-spec">
+    <div class="type-spec-label">Display · Headlines · Section titles</div>
+    <div class="type-spec-sample" style="font-family: var(--display); font-weight: 600; font-size: 3rem; color: var(--pink-700); line-height: 1.05; letter-spacing: -0.02em;">Fraunces <em style="font-style: italic; color: var(--lavender-700); font-weight: 400;">italic</em></div>
+    <div class="type-spec-meta">
+      Family: Fraunces · Weights used: 400 (italic), 500, 600, 700<br>
+      Tracking: -0.02em on display, -0.01em on subheadings<br>
+      Italics: always paired with romans for tonal contrast<br>
+      Google Fonts: <strong>fonts.google.com/specimen/Fraunces</strong>
+    </div>
+  </div>
+
+  <div class="type-spec">
+    <div class="type-spec-label">Body · UI · Buttons · Captions</div>
+    <div class="type-spec-sample" style="font-family: var(--body); font-size: 1.5rem; color: var(--ink); font-weight: 500;">Nunito carries the everyday — labels, buttons, body copy. Soft, rounded, kind.</div>
+    <div class="type-spec-meta">
+      Family: Nunito · Weights used: 400, 500, 600, 700<br>
+      Body size: 16px / 1rem · Line height: 1.6<br>
+      UI elements: 0.85–0.92rem<br>
+      Uppercase labels: tracking 0.08–0.12em<br>
+      Google Fonts: <strong>fonts.google.com/specimen/Nunito</strong>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Hierarchy</h3>
+  <div class="card">
+    <div style="font-family: var(--display); font-weight: 600; font-size: 2.2rem; color: var(--ink); letter-spacing: -0.015em; margin: 0.4rem 0;">Section title <em style="color: var(--pink-500); font-style: italic;">— Fraunces 36px</em></div>
+    <div style="font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--ink); margin: 0.4rem 0;">Sub title — Fraunces 21px</div>
+    <div style="font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--ink); margin: 0.4rem 0;">Card title 🌸 Fraunces 18px</div>
+    <div style="font-family: var(--body); font-size: 1rem; color: var(--ink); margin: 0.4rem 0;">Body text — Nunito 16px regular, line-height 1.6, for paragraphs and checklist items.</div>
+    <div style="font-family: var(--body); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender-700); margin: 0.4rem 0;">UPPERCASE LABEL — NUNITO 12PX, TRACKING 0.12EM</div>
+  </div>
+
+  <div class="info-panel">
+    <strong>The italic flourish:</strong> The signature move is pairing italic Fraunces with roman Fraunces in the same heading — "Brand <em style="font-family:var(--display);font-style:italic;color:var(--pink-500)">guidelines</em>". The italic word is the warm/personal one; the roman is the firm one. Use sparingly — once per major heading is enough.
+  </div>
+</section>
+
+<!-- ============ 05 ROOM MARKERS ============ -->
+<section class="section" id="markers">
+  <header class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Room <em>markers</em></h2>
+    <p class="section-intro">Eight distinct flowers — each with its own silhouette and color story. Used in the app as visual room labels in place of patient names (HIPAA-safe by design). Pictograms are 38–42px in product, scalable to any size.</p>
+  </header>
+
+  <div class="markers-grid">
+
+    <!-- 1. Cosmos -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--pink-100); border-color: var(--pink-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <g transform="translate(25 25)">
+            <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be"/>
+            <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#e879a0" opacity="0.9" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#e879a0" opacity="0.9" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-12" rx="6" ry="11" fill="#f4a8be" transform="rotate(288)"/>
+            <circle r="3.5" fill="#e6c850"/>
+          </g>
+        </svg>
+      </div>
+      <div class="marker-name">Cosmos</div>
+      <div class="marker-meta">Room 1 · Pink</div>
+      <div class="marker-hex">#e879a0 · #f4a8be</div>
+    </div>
+
+    <!-- 2. Tulip -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--peach-100); border-color: var(--peach-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <!-- stem -->
+          <path d="M 25 30 L 25 44" stroke="#3d8a68" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- leaf -->
+          <ellipse cx="20" cy="38" rx="4" ry="1.6" fill="#6cc9a0" transform="rotate(-30 20 38)"/>
+          <!-- 3-petal cup -->
+          <path d="M 14 28 Q 12 18 18 14 Q 21 22 21 28 Z" fill="#f0a878"/>
+          <path d="M 36 28 Q 38 18 32 14 Q 29 22 29 28 Z" fill="#f0a878"/>
+          <path d="M 18 28 Q 18 12 25 10 Q 32 12 32 28 Z" fill="#ffd2b5"/>
+          <path d="M 18 28 Q 18 12 25 10 Q 32 12 32 28 Z" fill="none" stroke="#b56f3d" stroke-width="0.7"/>
+        </svg>
+      </div>
+      <div class="marker-name">Tulip</div>
+      <div class="marker-meta">Room 2 · Peach</div>
+      <div class="marker-hex">#f0a878 · #ffd2b5</div>
+    </div>
+
+    <!-- 3. Lavender sprig -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--lavender-100); border-color: var(--lavender-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <!-- stem -->
+          <path d="M 25 42 L 25 16" stroke="#6cc9a0" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- bud cluster -->
+          <ellipse cx="25" cy="13" rx="3" ry="4" fill="#9b8cd4"/>
+          <ellipse cx="21" cy="17" rx="2.8" ry="3.5" fill="#9b8cd4"/>
+          <ellipse cx="29" cy="17" rx="2.8" ry="3.5" fill="#9b8cd4"/>
+          <ellipse cx="22" cy="22" rx="2.5" ry="3" fill="#d8d2ef"/>
+          <ellipse cx="28" cy="22" rx="2.5" ry="3" fill="#d8d2ef"/>
+          <ellipse cx="25" cy="26" rx="2.2" ry="2.6" fill="#d8d2ef"/>
+          <!-- side leaf -->
+          <ellipse cx="20" cy="36" rx="3.5" ry="1.4" fill="#bce8d4" transform="rotate(-30 20 36)"/>
+        </svg>
+      </div>
+      <div class="marker-name">Lavender</div>
+      <div class="marker-meta">Room 3 · Lavender</div>
+      <div class="marker-hex">#9b8cd4 · #d8d2ef</div>
+    </div>
+
+    <!-- 4. Daisy -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--butter-100); border-color: var(--butter-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <g transform="translate(25 25)">
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="#fffafc" transform="rotate(315)"/>
+            <!-- petal outlines -->
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="none" stroke="#e6c850" stroke-width="0.6"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="none" stroke="#e6c850" stroke-width="0.6" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="none" stroke="#e6c850" stroke-width="0.6" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-13" rx="3" ry="11" fill="none" stroke="#e6c850" stroke-width="0.6" transform="rotate(135)"/>
+            <circle r="5" fill="#e6c850"/>
+          </g>
+        </svg>
+      </div>
+      <div class="marker-name">Daisy</div>
+      <div class="marker-meta">Room 4 · Butter</div>
+      <div class="marker-hex">#e6c850 · #fffafc</div>
+    </div>
+
+    <!-- 5. Forget-me-not -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--sky-100); border-color: var(--sky-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <!-- five small circle blooms in a cluster -->
+          <g transform="translate(18 18)">
+            <circle r="5" fill="#b8d6ed"/>
+            <circle r="5" fill="#b8d6ed" cx="10" cy="-3"/>
+            <circle r="5" fill="#b8d6ed" cx="14" cy="6"/>
+            <circle r="5" fill="#b8d6ed" cx="6" cy="13"/>
+            <circle r="5" fill="#6ca3d4" cx="-3" cy="6"/>
+            <!-- yellow centers -->
+            <circle r="1.5" fill="#faeaa8"/>
+            <circle r="1.5" fill="#faeaa8" cx="10" cy="-3"/>
+            <circle r="1.5" fill="#faeaa8" cx="14" cy="6"/>
+            <circle r="1.5" fill="#faeaa8" cx="6" cy="13"/>
+            <circle r="1.5" fill="#faeaa8" cx="-3" cy="6"/>
+          </g>
+        </svg>
+      </div>
+      <div class="marker-name">Forget-me-not</div>
+      <div class="marker-meta">Room 5 · Sky</div>
+      <div class="marker-hex">#6ca3d4 · #b8d6ed</div>
+    </div>
+
+    <!-- 6. Sweetpea -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--mauve-100); border-color: var(--mauve-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <!-- ruffled cluster -->
+          <path d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z" fill="#e3c8de"/>
+          <path d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z" fill="none" stroke="#794476" stroke-width="0.7"/>
+          <!-- inner highlight -->
+          <ellipse cx="23" cy="20" rx="6" ry="4" fill="#b07bac" opacity="0.45"/>
+          <!-- stem -->
+          <path d="M 23 30 L 23 42" stroke="#3d8a68" stroke-width="1.2"/>
+          <ellipse cx="19" cy="38" rx="3" ry="1.2" fill="#bce8d4" transform="rotate(-30 19 38)"/>
+        </svg>
+      </div>
+      <div class="marker-name">Sweetpea</div>
+      <div class="marker-meta">Room 6 · Mauve</div>
+      <div class="marker-hex">#b07bac · #e3c8de</div>
+    </div>
+
+    <!-- 7. Camellia -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--rose-100); border-color: var(--rose-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <!-- layered circular petals -->
+          <g transform="translate(25 25)">
+            <!-- outer layer -->
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2"/>
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform="rotate(300)"/>
+            <!-- inner layer offset -->
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(30)"/>
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(150)"/>
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(210)"/>
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform="rotate(330)"/>
+            <!-- center -->
+            <circle r="3" fill="#fdf5d4"/>
+            <circle r="1.5" fill="#e6c850"/>
+          </g>
+        </svg>
+      </div>
+      <div class="marker-name">Camellia</div>
+      <div class="marker-meta">Room 7 · Rose</div>
+      <div class="marker-hex">#d96a8c · #f7c8d2</div>
+    </div>
+
+    <!-- 8. Aster (wildflower) -->
+    <div class="marker-card">
+      <div class="marker-vis" style="background: var(--mint-100); border-color: var(--mint-200);">
+        <svg width="44" height="44" viewBox="0 0 50 50">
+          <g transform="translate(25 25)">
+            <!-- thin spiky petals -->
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(30)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(150)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(210)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(300)"/>
+            <ellipse cx="0" cy="-13" rx="1.6" ry="11" fill="#6cc9a0" transform="rotate(330)"/>
+            <circle r="5" fill="#e6c850"/>
+          </g>
+        </svg>
+      </div>
+      <div class="marker-name">Aster</div>
+      <div class="marker-meta">Room 8 · Mint</div>
+      <div class="marker-hex">#6cc9a0 · #bce8d4</div>
+    </div>
+
+  </div>
+
+  <div class="info-panel" style="margin-top: 2rem;">
+    <strong>Why these:</strong> each flower has a distinct silhouette at 38px (round vs cup vs cluster vs spiky), uses its own color family, and avoids overlap with the others. A nurse glancing at the room bar can instantly distinguish one from another even without looking carefully.
+  </div>
+</section>
+
+<!-- ============ 06 VOICE ============ -->
+<section class="section" id="voice">
+  <header class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Voice <em>&amp; tone</em></h2>
+    <p class="section-intro">How we talk to nurses across the app, marketing, documentation, and any future communications.</p>
+  </header>
+
+  <h3 class="sub-title">Principles</h3>
+  <div class="grid-2up">
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--pink-700); margin-bottom: 0.4rem;">Clear, not curt</div>
+      <p style="color: var(--ink-soft); font-size: 0.92rem;">A checklist item should land in a single glance. Cut filler words but keep human warmth.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--lavender-700); margin-bottom: 0.4rem;">Trusting, not handholding</div>
+      <p style="color: var(--ink-soft); font-size: 0.92rem;">Nurses are experts. Never explain clinical concepts. Reference workflows by their working names.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--mint-700); margin-bottom: 0.4rem;">Calm, not chirpy</div>
+      <p style="color: var(--ink-soft); font-size: 0.92rem;">No exclamation marks in UI. Save the warmth for tiny moments — a "✿" in the header, an italic flourish in a title.</p>
+    </div>
+    <div class="card">
+      <div style="font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--peach-500); margin-bottom: 0.4rem;">Imperative, not pleading</div>
+      <p style="color: var(--ink-soft); font-size: 0.92rem;">"Check prenatal labs" not "Don't forget to check prenatal labs." Direct verbs, no "please."</p>
+    </div>
+  </div>
+
+  <h3 class="sub-title">Examples</h3>
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">In our voice</div>
+      <p class="rule-text">"Each shift, a fresh start."</p>
+      <p class="rule-text">"Mark off the times you completed checks."</p>
+      <p class="rule-text">"A bedside companion for every shift."</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Off-brand</div>
+      <p class="rule-text">"Get ready to crush your shift! 💪"</p>
+      <p class="rule-text">"Please remember to mark all the times!!"</p>
+      <p class="rule-text">"Your ultimate L&amp;D productivity solution."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 USAGE RULES ============ -->
+<section class="section" id="usage">
+  <header class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Do <em>&amp;</em> don't</h2>
+    <p class="section-intro">Quick rules to keep everything looking like littleL&amp;D — across screenshots, marketing pages, social posts, and documentation.</p>
+  </header>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Use the italic-roman pairing for headers ("Brand <em>guidelines</em>").</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Italicize everything or make every heading the same.</p>
+    </div>
+  </div>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Keep backgrounds soft pastel or warm paper.</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Use pure white, pure black, or saturated brand colors as full backgrounds.</p>
+    </div>
+  </div>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Use room markers as pictograms — small, contained, decorative.</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Blow markers up to hero size or use them as primary brand symbols.</p>
+    </div>
+  </div>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Use the FHR-bloom mark as the consistent brand symbol everywhere.</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Recolor, redraw, or substitute the FHR-bloom mark with another flower.</p>
+    </div>
+  </div>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Use generous padding inside cards — 1.5rem minimum.</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Cram content edge-to-edge. Whitespace is part of the brand.</p>
+    </div>
+  </div>
+
+  <div class="rule-row">
+    <div class="rule-card">
+      <div class="rule-badge">Do</div>
+      <p class="rule-text">Use emoji "✿" or "＋" as tiny accents in titles/labels.</p>
+    </div>
+    <div class="rule-card dont">
+      <div class="rule-badge">Don't</div>
+      <p class="rule-text">Use generic emoji (🎉 🚀 💯 ⭐) in product or marketing copy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 DESIGN TOKENS ============ -->
+<section class="section" id="tokens">
+  <header class="section-header">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Design <em>tokens</em></h2>
+    <p class="section-intro">Copy-paste ready CSS custom properties. Drop this into any future component, landing page, or doc to get instant brand consistency.</p>
+  </header>
+
+  <h3 class="sub-title">CSS variables</h3>
+  <div class="code-block">:root {
+  /* Pink — Primary */
+  --pink-50: #fdf2f5;  --pink-100: #fce7ee;  --pink-200: #f9d0dc;
+  --pink-300: #f4a8be; --pink-500: #e879a0;  --pink-700: #b8456e;
+
+  /* Lavender — Secondary */
+  --lavender-100: #ece9f7;  --lavender-200: #d8d2ef;
+  --lavender-500: #9b8cd4;  --lavender-700: #6b5ca3;
+
+  /* Mint */
+  --mint-100: #dff5ec;  --mint-200: #bce8d4;
+  --mint-500: #6cc9a0;  --mint-700: #3d8a68;
+
+  /* Peach */
+  --peach-100: #ffe8d9;  --peach-200: #ffd2b5;
+  --peach-500: #f0a878;  --peach-700: #b56f3d;
+
+  /* Butter */
+  --butter-100: #fdf5d4;  --butter-200: #faeaa8;
+  --butter-500: #e6c850;  --butter-700: #8a7320;
+
+  /* Sky */
+  --sky-100: #dcecf7;  --sky-200: #b8d6ed;
+  --sky-500: #6ca3d4;  --sky-700: #3a6f9d;
+
+  /* Rose */
+  --rose-100: #fde7eb;  --rose-200: #f7c8d2;
+  --rose-500: #d96a8c;  --rose-700: #9c3559;
+
+  /* Mauve */
+  --mauve-100: #f3e8f0;  --mauve-200: #e3c8de;
+  --mauve-500: #b07bac;  --mauve-700: #794476;
+
+  /* Neutrals */
+  --ink: #4a3a4f;
+  --ink-soft: #7d6e84;
+  --paper: #fffafc;
+  --paper-warm: #fff6f0;
+  --line: #f0dfe6;
+
+  /* Typography */
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Nunito', system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(184, 69, 110, 0.06);
+  --shadow-md: 0 6px 20px rgba(184, 69, 110, 0.08);
+  --shadow-lg: 0 12px 36px rgba(184, 69, 110, 0.12);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+}</div>
+
+  <h3 class="sub-title">Google Fonts embed</h3>
+  <div class="code-block">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Nunito:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</div>
+
+  <h3 class="sub-title">FHR-bloom logo SVG (compact)</h3>
+  <div class="code-block">&lt;svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;g transform="translate(8, 32)"&gt;
+    &lt;path d="M 0 0 L 8 0 L 11 -3 L 14 3 L 17 -10 L 20 8 L 23 0 L 32 0 L 35 -8 L 38 5 L 41 -2 L 48 0 L 54 0"
+      stroke="#b8456e" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/&gt;
+    &lt;g transform="translate(58 0)"&gt;
+      &lt;ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be"/&gt;
+      &lt;ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(72)"/&gt;
+      &lt;ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(144)"/&gt;
+      &lt;ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(216)"/&gt;
+      &lt;ellipse cx="0" cy="-5" rx="2" ry="5" fill="#f4a8be" transform="rotate(288)"/&gt;
+      &lt;circle r="2" fill="#e6c850"/&gt;
+    &lt;/g&gt;
+  &lt;/g&gt;
+  &lt;text x="92" y="38" font-family="Fraunces" font-style="italic" font-size="22" fill="#4a3a4f"&gt;little&lt;/text&gt;
+  &lt;text x="138" y="38" font-family="Fraunces" font-weight="700" font-size="22" fill="#b8456e"&gt;L&amp;amp;D&lt;/text&gt;
+&lt;/svg&gt;</div>
+</section>
+
+<footer>
+  Made with <span class="heart">♥</span> for L&amp;D nurses · littleL&amp;D Brand Guidelines v1.0
+</footer>
+
+</body>
+</html>
