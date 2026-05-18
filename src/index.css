@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-ink bg-paper-warm min-h-screen;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(at 8% 8%, rgba(249, 208, 220, 0.5) 0px, transparent 50%),
+      radial-gradient(at 92% 12%, rgba(216, 210, 239, 0.45) 0px, transparent 50%),
+      radial-gradient(at 50% 95%, rgba(188, 232, 212, 0.35) 0px, transparent 55%),
+      radial-gradient(at 95% 85%, rgba(255, 210, 181, 0.3) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  /* Custom checkbox styling matching the original look */
+  .ll-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid theme('colors.pink.300');
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    margin-top: 2px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .ll-checkbox:hover {
+    border-color: theme('colors.pink.500');
+    box-shadow: 0 0 0 4px theme('colors.pink.100');
+  }
+
+  .ll-checkbox:checked {
+    background: theme('colors.pink.500');
+    border-color: theme('colors.pink.500');
+  }
+
+  .ll-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  /* Accent variants — applied via parent data-accent attribute */
+  [data-accent='lavender'] .ll-checkbox { border-color: theme('colors.lavender.200'); }
+  [data-accent='lavender'] .ll-checkbox:hover { border-color: theme('colors.lavender.500'); box-shadow: 0 0 0 4px theme('colors.lavender.100'); }
+  [data-accent='lavender'] .ll-checkbox:checked { background: theme('colors.lavender.500'); border-color: theme('colors.lavender.500'); }
+
+  [data-accent='mint'] .ll-checkbox { border-color: theme('colors.mint.200'); }
+  [data-accent='mint'] .ll-checkbox:hover { border-color: theme('colors.mint.500'); box-shadow: 0 0 0 4px theme('colors.mint.100'); }
+  [data-accent='mint'] .ll-checkbox:checked { background: theme('colors.mint.500'); border-color: theme('colors.mint.500'); }
+
+  [data-accent='peach'] .ll-checkbox { border-color: theme('colors.peach.200'); }
+  [data-accent='peach'] .ll-checkbox:hover { border-color: theme('colors.peach.500'); box-shadow: 0 0 0 4px theme('colors.peach.100'); }
+  [data-accent='peach'] .ll-checkbox:checked { background: theme('colors.peach.500'); border-color: theme('colors.peach.500'); }
+
+  [data-accent='sky'] .ll-checkbox { border-color: theme('colors.sky.200'); }
+  [data-accent='sky'] .ll-checkbox:hover { border-color: theme('colors.sky.500'); box-shadow: 0 0 0 4px theme('colors.sky.100'); }
+  [data-accent='sky'] .ll-checkbox:checked { background: theme('colors.sky.500'); border-color: theme('colors.sky.500'); }
+
+  [data-accent='butter'] .ll-checkbox { border-color: theme('colors.butter.200'); }
+  [data-accent='butter'] .ll-checkbox:checked { background: theme('colors.butter.500'); border-color: theme('colors.butter.500'); }
+
+  /* Inline blank input */
+  .ll-blank {
+    display: inline-block;
+    border: none;
+    border-bottom: 1.5px dotted theme('colors.pink.300');
+    background: transparent;
+    font-family: theme('fontFamily.body');
+    font-size: 0.92rem;
+    color: theme('colors.pink.700');
+    padding: 0 0.3rem;
+    margin: 0 0.15rem;
+  }
+
+  .ll-blank:focus {
+    outline: none;
+    border-bottom-color: theme('colors.pink.500');
+    border-bottom-style: solid;
+  }
+
+  /* Time-row checkbox (mint variant, smaller) */
+  .ll-time-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 2px solid theme('colors.mint.200');
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s ease;
+  }
+
+  .ll-time-checkbox:checked {
+    background: theme('colors.mint.500');
+    border-color: theme('colors.mint.500');
+  }
+
+  .ll-time-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  /* Print rules: hide chrome, show only the print overlay */
+  @media print {
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+    body > *:not(#print-overlay) {
+      display: none !important;
+    }
+    #print-overlay {
+      position: static !important;
+      overflow: visible !important;
+    }
+  }
+}

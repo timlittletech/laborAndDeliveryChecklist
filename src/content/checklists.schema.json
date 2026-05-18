@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LittleL&D Checklists",
+  "description": "All checklist content for the app. Edit this file to add/edit/remove categories, subcategories, and items.",
+  "type": "object",
+  "required": ["categories"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/Category" }
+    }
+  },
+  "definitions": {
+    "TabColor": {
+      "type": "string",
+      "enum": ["pink", "lavender", "mint", "peach", "sky", "butter"]
+    },
+    "Accent": {
+      "type": "string",
+      "enum": ["pink", "lavender", "mint", "peach", "sky", "butter"]
+    },
+    "Category": {
+      "type": "object",
+      "required": ["id", "label", "tabColor", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "URL-safe id; appears in the hash route."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Short text shown in the tab bar."
+        },
+        "tabColor": { "$ref": "#/definitions/TabColor" },
+        "kind": { "type": "string", "enum": ["checklist", "reference"] },
+        "sectionLabel": {
+          "type": "string",
+          "description": "First part of the section title. Defaults to `label`."
+        },
+        "titleEmphasis": {
+          "type": "string",
+          "description": "Trailing italic word(s) in the section title (e.g. 'workflow' renders as 'Triage workflow' with 'workflow' italic)."
+        },
+        "description": { "type": "string" },
+        "infoPanel": {
+          "type": "string",
+          "description": "Optional info banner shown below the section title (supports **bold**)."
+        },
+        "subcategories": {
+          "type": "array",
+          "description": "Required when kind === 'checklist'.",
+          "items": { "$ref": "#/definitions/Subcategory" }
+        },
+        "refBlocks": {
+          "type": "array",
+          "description": "Required when kind === 'reference'.",
+          "items": { "$ref": "#/definitions/RefBlock" }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "checklist" } } },
+          "then": { "required": ["subcategories"] }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "reference" } } },
+          "then": { "required": ["refBlocks"] }
+        }
+      ]
+    },
+    "Subcategory": {
+      "type": "object",
+      "required": ["id", "title", "accent", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "icon": {
+          "type": "string",
+          "description": "Emoji or short text rendered as the card icon."
+        },
+        "subtitle": { "type": "string" },
+        "accent": { "$ref": "#/definitions/Accent" },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/Item" }
+        },
+        "widget": {
+          "type": "string",
+          "enum": ["time-grid"],
+          "description": "Optional widget rendered after the items."
+        }
+      }
+    },
+    "Item": {
+      "type": "object",
+      "required": ["id", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique within the file. Used for per-room state keys."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Item text. Supports inline **bold** and {{blank:label}} or {{blank:label:widthPx}} placeholders."
+        },
+        "subItems": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Item" }
+        }
+      }
+    },
+    "RefBlock": {
+      "type": "object",
+      "required": ["id", "title", "accent", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "accent": { "$ref": "#/definitions/Accent" },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/RefItem" }
+        }
+      }
+    },
+    "RefItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [{ "required": ["text"] }, { "required": ["name"] }, { "required": ["path"] }],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "Plain bullet text (used when name/path are not set)."
+        },
+        "name": { "type": "string" },
+        "path": { "type": "string" }
+      }
+    }
+  }
+}
