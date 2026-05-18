@@ -240,14 +240,6 @@
             { "id": "i46", "label": "Make kardex" },
             { "id": "i47", "label": "Review charge sheet: qualifies for accommodation codes?" }
           ]
-        },
-        {
-          "id": "test",
-          "title": "Test",
-          "icon": "🧪",
-          "subtitle": "Test category for triage",
-          "accent": "butter",
-          "items": [{ "id": "t34", "label": "new checklist item" }]
         }
       ]
     },
