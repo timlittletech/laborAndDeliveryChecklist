@@ -57,12 +57,23 @@ const Daisy = () => (
     <g transform="translate(25 25)">
       {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
         <ellipse
-          key={deg}
+          key={`fill-${deg}`}
           cx="0"
           cy="-13"
           rx="3"
           ry="11"
           fill="#fffafc"
+          transform={`rotate(${deg})`}
+        />
+      ))}
+      {[0, 45, 90, 135].map((deg) => (
+        <ellipse
+          key={`stroke-${deg}`}
+          cx="0"
+          cy="-13"
+          rx="3"
+          ry="11"
+          fill="none"
           stroke="#e6c850"
           strokeWidth="0.6"
           transform={`rotate(${deg})`}

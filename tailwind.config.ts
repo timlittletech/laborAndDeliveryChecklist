@@ -35,6 +35,7 @@ const config: Config = {
           100: '#fdf5d4',
           200: '#faeaa8',
           500: '#e6c850',
+          700: '#8a7320',
         },
         sky: {
           100: '#dcecf7',
@@ -44,12 +45,15 @@ const config: Config = {
         },
         mauve: {
           100: '#f3e8f0',
+          200: '#e3c8de',
           500: '#b07bac',
           700: '#794476',
         },
         rose: {
           100: '#fde7eb',
+          200: '#f7c8d2',
           500: '#d96a8c',
+          700: '#9c3559',
         },
         ink: {
           DEFAULT: '#4a3a4f',
