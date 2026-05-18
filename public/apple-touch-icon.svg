@@ -1,14 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <rect width="180" height="180" rx="40" fill="#fff6f0"/>
-  <g transform="translate(40 110)">
-    <path d="M 0 0 L 22 0 L 28 -8 L 38 12 L 50 -36 L 62 24 L 72 0 L 90 0" stroke="#b8456e" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <g transform="translate(108 0)">
-      <ellipse cx="0" cy="-18" rx="8" ry="18" fill="#f4a8be"/>
-      <ellipse cx="0" cy="-18" rx="8" ry="18" fill="#f4a8be" transform="rotate(72)"/>
-      <ellipse cx="0" cy="-18" rx="8" ry="18" fill="#f4a8be" transform="rotate(144)"/>
-      <ellipse cx="0" cy="-18" rx="8" ry="18" fill="#f4a8be" transform="rotate(216)"/>
-      <ellipse cx="0" cy="-18" rx="8" ry="18" fill="#f4a8be" transform="rotate(288)"/>
-      <circle r="8" fill="#e6c850"/>
-    </g>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff6f0"/>
+      <stop offset="100%" stop-color="#fce7ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+  <g transform="translate(90 96) scale(2)">
+    <path d="M 0 0 Q -18 -32 -7 -38 Q 8 -36 11 -18 Z" fill="#d63864"/>
+    <path d="M 0 0 Q 22 -27 31 -16 Q 28 1 13 9 Z" fill="#e84d6f"/>
+    <path d="M 0 0 Q 31 1 30 22 Q 16 31 4 21 Z" fill="#ff8fa3"/>
+    <path d="M 0 0 Q 11 30 -5 36 Q -22 28 -17 10 Z" fill="#ff8fa3"/>
+    <path d="M 0 0 Q -26 11 -29 -6 Q -24 -22 -9 -19 Z" fill="#d63864"/>
+    <circle r="6" fill="#a01b5a"/>
+    <circle r="3" fill="#5e0e35"/>
+    <path d="M 0 0 Q 8 -13 13 -19" stroke="#e6c850" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="9" cy="-14" r="1.5" fill="#e6c850"/>
+    <circle cx="13" cy="-19" r="3.4" fill="#e6c850"/>
+    <circle cx="13" cy="-19" r="1.7" fill="#b8923a"/>
   </g>
 </svg>
