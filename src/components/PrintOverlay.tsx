@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import type { Category, Item, RefBlock, Subcategory } from '../types/checklist';
 import { blankKey, useRoom } from '../context/RoomContext';
 import { parseLabel } from '../lib/parseLabel';
@@ -159,7 +160,7 @@ export function PrintOverlay({ categories, mode, currentCategoryId, onClose }: P
   const sectionsToPrint = mode === 'all' ? categories : categories.filter((c) => c.id === currentCategoryId);
   const roomName = ROOMS.find((r) => r.id === currentRoomId)?.name ?? currentRoomId;
 
-  return (
+  return createPortal(
     <div
       id="print-overlay"
       className="fixed inset-0 bg-white z-[10000] overflow-y-auto font-body print:static print:overflow-visible"
@@ -203,6 +204,7 @@ export function PrintOverlay({ categories, mode, currentCategoryId, onClose }: P
           />
         ))}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
