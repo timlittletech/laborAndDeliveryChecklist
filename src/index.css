@@ -142,6 +142,8 @@
     #print-overlay {
       position: static !important;
       overflow: visible !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
   }
 }
