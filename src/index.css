@@ -130,18 +130,31 @@
     transform: rotate(45deg);
   }
 
-  /* Print rules: hide chrome, show only the print overlay */
+  /* Print rules: hide chrome, show only the print overlay.
+     The html/body reset, dropping the fixed-attachment background, and clearing
+     -webkit-overflow-scrolling are all to stop iOS WebKit from printing a blank
+     page — it fails to capture composited/fixed scroll layers during print. */
   @media print {
     @page {
       size: letter;
       margin: 0.5in;
+    }
+    html,
+    body {
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+      background: #fff !important;
+      background-image: none !important;
     }
     body > *:not(#print-overlay) {
       display: none !important;
     }
     #print-overlay {
       position: static !important;
+      height: auto !important;
       overflow: visible !important;
+      -webkit-overflow-scrolling: auto !important;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
