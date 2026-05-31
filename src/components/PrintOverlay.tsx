@@ -1,5 +1,6 @@
 import { Fragment, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { Icon } from '@iconify/react';
 import type { Category, Item, RefBlock, Subcategory } from '../types/checklist';
 import { blankKey, useRoom } from '../context/RoomContext';
 import { parseLabel } from '../lib/parseLabel';
@@ -170,16 +171,18 @@ export function PrintOverlay({ categories, mode, currentCategoryId, onClose }: P
         <button
           type="button"
           onClick={() => window.print()}
-          className="font-body font-bold text-[0.9rem] px-5 py-2.5 border-none rounded-full bg-pink-500 text-white cursor-pointer shadow-[0_2px_6px_rgba(184,69,110,0.2)]"
+          className="font-body font-bold text-[0.9rem] px-5 py-2.5 border-none rounded-full bg-pink-500 text-white cursor-pointer shadow-[0_2px_6px_rgba(184,69,110,0.2)] inline-flex items-center gap-2"
         >
-          🖨 Print / Save as PDF
+          <Icon icon="solar:printer-bold-duotone" width={20} aria-hidden="true" />
+          Print / Save as PDF
         </button>
         <button
           type="button"
           onClick={onClose}
-          className="font-body font-bold text-[0.9rem] px-5 py-2.5 border-2 border-pink-300 rounded-full bg-white text-pink-700 cursor-pointer"
+          className="font-body font-bold text-[0.9rem] px-5 py-2.5 border-2 border-pink-300 rounded-full bg-white text-pink-700 cursor-pointer inline-flex items-center gap-2"
         >
-          ✕ Close
+          <Icon icon="solar:close-circle-bold-duotone" width={20} aria-hidden="true" />
+          Close
         </button>
       </div>
       <div className="px-4 py-5 pb-12 max-w-[820px] mx-auto print:px-0 print:py-0 print:max-w-none">

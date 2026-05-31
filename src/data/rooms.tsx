@@ -1,9 +1,10 @@
-// 8 flower-themed room markers — in-memory patient tracking, no patient data persisted.
+// 4 flower-themed room markers — in-memory patient tracking, no patient data persisted.
 // Each room is its own independent checklist state (see RoomContext).
+// Trimmed from 8 → 4 on 2026-05-30.
 
 import type { ReactNode } from 'react';
 
-export type RoomBgKey = 'pink' | 'peach' | 'lavender' | 'butter' | 'sky' | 'mauve' | 'rose' | 'mint';
+export type RoomBgKey = 'pink' | 'peach' | 'lavender' | 'butter';
 
 export type RoomDef = {
   id: string;          // url-safe; also used as the room state key
@@ -84,84 +85,11 @@ const Daisy = () => (
   </svg>
 );
 
-const ForgetMeNot = () => (
-  <svg viewBox="0 0 50 50" aria-hidden="true">
-    <g transform="translate(18 18)">
-      <circle r="5" fill="#b8d6ed" />
-      <circle r="5" fill="#b8d6ed" cx="10" cy="-3" />
-      <circle r="5" fill="#b8d6ed" cx="14" cy="6" />
-      <circle r="5" fill="#b8d6ed" cx="6" cy="13" />
-      <circle r="5" fill="#6ca3d4" cx="-3" cy="6" />
-      <circle r="1.5" fill="#faeaa8" />
-      <circle r="1.5" fill="#faeaa8" cx="10" cy="-3" />
-      <circle r="1.5" fill="#faeaa8" cx="14" cy="6" />
-      <circle r="1.5" fill="#faeaa8" cx="6" cy="13" />
-      <circle r="1.5" fill="#faeaa8" cx="-3" cy="6" />
-    </g>
-  </svg>
-);
-
-const Sweetpea = () => (
-  <svg viewBox="0 0 50 50" aria-hidden="true">
-    <path
-      d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z"
-      fill="#e3c8de"
-    />
-    <path
-      d="M 12 22 Q 8 15 14 12 Q 19 9 23 14 Q 27 9 32 12 Q 38 15 34 22 Q 38 28 32 30 Q 27 33 23 28 Q 19 33 14 30 Q 8 28 12 22 Z"
-      fill="none"
-      stroke="#794476"
-      strokeWidth="0.7"
-    />
-    <ellipse cx="23" cy="20" rx="6" ry="4" fill="#b07bac" opacity="0.45" />
-    <path d="M 23 30 L 23 42" stroke="#3d8a68" strokeWidth="1.2" />
-    <ellipse cx="19" cy="38" rx="3" ry="1.2" fill="#bce8d4" transform="rotate(-30 19 38)" />
-  </svg>
-);
-
-const Camellia = () => (
-  <svg viewBox="0 0 50 50" aria-hidden="true">
-    <g transform="translate(25 25)">
-      {[0, 60, 120, 180, 240, 300].map((deg) => (
-        <ellipse key={`outer-${deg}`} cx="0" cy="-9" rx="7" ry="10" fill="#f7c8d2" transform={`rotate(${deg})`} />
-      ))}
-      {[30, 90, 150, 210, 270, 330].map((deg) => (
-        <ellipse key={`inner-${deg}`} cx="0" cy="-5" rx="5" ry="7" fill="#d96a8c" transform={`rotate(${deg})`} />
-      ))}
-      <circle r="3" fill="#fdf5d4" />
-      <circle r="1.5" fill="#e6c850" />
-    </g>
-  </svg>
-);
-
-const Aster = () => (
-  <svg viewBox="0 0 50 50" aria-hidden="true">
-    <g transform="translate(25 25)">
-      {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
-        <ellipse
-          key={deg}
-          cx="0"
-          cy="-13"
-          rx="1.6"
-          ry="11"
-          fill="#6cc9a0"
-          transform={`rotate(${deg})`}
-        />
-      ))}
-      <circle r="5" fill="#e6c850" />
-    </g>
-  </svg>
-);
-
 export const ROOMS: RoomDef[] = [
   { id: 'cosmos', name: 'Cosmos', bg: 'pink', Svg: Cosmos },
   { id: 'tulip', name: 'Tulip', bg: 'peach', Svg: Tulip },
   { id: 'lavender', name: 'Lavender', bg: 'lavender', Svg: Lavender },
   { id: 'daisy', name: 'Daisy', bg: 'butter', Svg: Daisy },
-  { id: 'forget-me-not', name: 'Forget-me-not', bg: 'sky', Svg: ForgetMeNot },
-  { id: 'sweetpea', name: 'Sweetpea', bg: 'mauve', Svg: Sweetpea },
-  { id: 'camellia', name: 'Camellia', bg: 'rose', Svg: Camellia },
-  { id: 'aster', name: 'Aster', bg: 'mint', Svg: Aster },
 ];
 
 // Tailwind classes applied to the active room pill, per bg key.
@@ -171,8 +99,4 @@ export const ACTIVE_PILL_CLASSES: Record<RoomBgKey, string> = {
   peach: 'bg-peach-100 border-peach-500',
   lavender: 'bg-lavender-100 border-lavender-500',
   butter: 'bg-butter-100 border-butter-500',
-  sky: 'bg-sky-100 border-sky-500',
-  mauve: 'bg-mauve-100 border-mauve-500',
-  rose: 'bg-rose-100 border-rose-500',
-  mint: 'bg-mint-100 border-mint-500',
 };
