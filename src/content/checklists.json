@@ -16,57 +16,129 @@
           "subtitle": "First steps when patient arrives",
           "accent": "pink",
           "items": [
-            { "id": "t1", "label": "Register patient in Cerner" },
-            { "id": "t2", "label": "Call 7574 ED admitting and ask to create account" },
-            { "id": "t3", "label": "Move pt to tracking shell from \"FHM MCH pre-reg\" to room chosen" },
-            { "id": "t4", "label": "Print (MSI): 1 wristband (%), 5 stickers (enter), 1 facesheet ($)" },
-            { "id": "t5", "label": "Associate fetal link (modify date/time)" },
-            { "id": "t6", "label": "Grab specimen printer if need specimens" }
+            {
+              "id": "t1",
+              "label": "Register patient in Cerner"
+            },
+            {
+              "id": "t2",
+              "label": "Call 7574 ED admitting and ask to create account"
+            },
+            {
+              "id": "t3",
+              "label": "Move pt to tracking shell from \"FHM MCH pre-reg\" to room chosen"
+            },
+            {
+              "id": "t4",
+              "label": "Print (MSI): 1 wristband (%), 5 stickers (enter), 1 facesheet ($)"
+            },
+            {
+              "id": "t5",
+              "label": "Associate fetal link (modify date/time)"
+            },
+            {
+              "id": "t6",
+              "label": "Grab specimen printer if need specimens"
+            }
           ]
         },
         {
           "id": "hands-on-care",
           "title": "Hands On Care",
-          "icon": "🩺",
+          "icon": "solar:stethoscope-bold-duotone",
           "subtitle": "Initial patient assessment",
           "accent": "lavender",
           "items": [
-            { "id": "t7", "label": "Urine sample (if HTN s/s)" },
-            { "id": "t8", "label": "EFM / toco" },
-            { "id": "t9", "label": "VS x1" },
-            { "id": "t10", "label": "Focused assessment r/t reason for coming in" },
-            { "id": "t11", "label": "Call MD — OB communication (iview)" },
-            { "id": "t12", "label": "Call lab to draw labs" },
-            { "id": "t13", "label": "SVE, HTN check, labs etc…" },
-            { "id": "t14", "label": "Water jug and snacks" }
+            {
+              "id": "t7",
+              "label": "Urine sample (if HTN s/s)"
+            },
+            {
+              "id": "t8",
+              "label": "EFM / toco"
+            },
+            {
+              "id": "t9",
+              "label": "VS x1"
+            },
+            {
+              "id": "t10",
+              "label": "Focused assessment r/t reason for coming in"
+            },
+            {
+              "id": "t11",
+              "label": "Call MD — OB communication (iview)"
+            },
+            {
+              "id": "t12",
+              "label": "Call lab to draw labs"
+            },
+            {
+              "id": "t13",
+              "label": "SVE, HTN check, labs etc…"
+            },
+            {
+              "id": "t14",
+              "label": "Water jug and snacks"
+            }
           ]
         },
         {
           "id": "orders-documentation",
           "title": "Orders & Documentation",
-          "icon": "📋",
+          "icon": "solar:clipboard-list-bold-duotone",
           "subtitle": "Cerner orders and adhocs",
           "accent": "mint",
           "items": [
-            { "id": "t15", "label": "Order: FHMC Triage/outpatient orders" },
-            { "id": "t16", "label": "Order: Notification to admitting OB \"admit to Obs, room xzy\"" },
-            { "id": "t17", "label": "D/C or Admit order" },
-            { "id": "t18", "label": "Adhoc: OB triage/Obs/status plan" },
-            { "id": "t19", "label": "Adhoc: Antenatal testing NST" },
-            { "id": "t20", "label": "Check prenatal labs" },
-            { "id": "t21", "label": "Med rec" }
+            {
+              "id": "t15",
+              "label": "Order: FHMC Triage/outpatient orders"
+            },
+            {
+              "id": "t16",
+              "label": "Order: Notification to admitting OB \"admit to Obs, room xzy\""
+            },
+            {
+              "id": "t17",
+              "label": "D/C or Admit order"
+            },
+            {
+              "id": "t18",
+              "label": "Adhoc: OB triage/Obs/status plan"
+            },
+            {
+              "id": "t19",
+              "label": "Adhoc: Antenatal testing NST"
+            },
+            {
+              "id": "t20",
+              "label": "Check prenatal labs"
+            },
+            {
+              "id": "t21",
+              "label": "Med rec"
+            }
           ]
         },
         {
           "id": "ongoing-charting",
           "title": "Ongoing Charting",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "While patient is in triage",
           "accent": "peach",
           "items": [
-            { "id": "t22", "label": "Chart EFM q30min" },
-            { "id": "t23", "label": "VS x1 (or q15 for HTN)" },
-            { "id": "t24", "label": "Focused assessment" }
+            {
+              "id": "t22",
+              "label": "Chart EFM q30min"
+            },
+            {
+              "id": "t23",
+              "label": "VS x1 (or q15 for HTN)"
+            },
+            {
+              "id": "t24",
+              "label": "Focused assessment"
+            }
           ]
         },
         {
@@ -76,15 +148,42 @@
           "subtitle": "Wrap up & cleanup",
           "accent": "sky",
           "items": [
-            { "id": "t25", "label": "Papers: d/c education paper signed (give yellow page to patient)" },
-            { "id": "t26", "label": "Adhoc: OB undelivered" },
-            { "id": "t27", "label": "Discharge education: \"pt to keep all current appointments\"" },
-            { "id": "t28", "label": "Order: Notification to admitting OB \"Discharged home, undelivered, please create pre-reg account for when she returns\"" },
-            { "id": "t29", "label": "Charge sheet" },
-            { "id": "t30", "label": "Stickered FHR paper to manila and place in storage near SL" },
-            { "id": "t31", "label": "Fileclip papers (prenatals, signed documents, facesheet, charges) and place in medical records bin" },
-            { "id": "t32", "label": "Disassociate fetalink" },
-            { "id": "t33", "label": "Strip room, call EVS or text to clean 805-503-0871" }
+            {
+              "id": "t25",
+              "label": "Papers: d/c education paper signed (give yellow page to patient)"
+            },
+            {
+              "id": "t26",
+              "label": "Adhoc: OB undelivered"
+            },
+            {
+              "id": "t27",
+              "label": "Discharge education: \"pt to keep all current appointments\""
+            },
+            {
+              "id": "t28",
+              "label": "Order: Notification to admitting OB \"Discharged home, undelivered, please create pre-reg account for when she returns\""
+            },
+            {
+              "id": "t29",
+              "label": "Charge sheet"
+            },
+            {
+              "id": "t30",
+              "label": "Stickered FHR paper to manila and place in storage near SL"
+            },
+            {
+              "id": "t31",
+              "label": "Fileclip papers (prenatals, signed documents, facesheet, charges) and place in medical records bin"
+            },
+            {
+              "id": "t32",
+              "label": "Disassociate fetalink"
+            },
+            {
+              "id": "t33",
+              "label": "Strip room, call EVS or text to clean 805-503-0871"
+            }
           ]
         }
       ]
@@ -101,15 +200,30 @@
         {
           "id": "setup-orders",
           "title": "Setup & Orders",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Get the patient registered",
           "accent": "lavender",
           "items": [
-            { "id": "n1", "label": "Move pt to tracking shell from FHM MCH pre-reg" },
-            { "id": "n2", "label": "Call ED admitting if no account" },
-            { "id": "n3", "label": "Order: Fetal Nonstress test" },
-            { "id": "n4", "label": "Associate monitor" },
-            { "id": "n5", "label": "Print facesheet, wristband, stickers if needed" }
+            {
+              "id": "n1",
+              "label": "Move pt to tracking shell from FHM MCH pre-reg"
+            },
+            {
+              "id": "n2",
+              "label": "Call ED admitting if no account"
+            },
+            {
+              "id": "n3",
+              "label": "Order: Fetal Nonstress test"
+            },
+            {
+              "id": "n4",
+              "label": "Associate monitor"
+            },
+            {
+              "id": "n5",
+              "label": "Print facesheet, wristband, stickers if needed"
+            }
           ]
         },
         {
@@ -119,23 +233,47 @@
           "subtitle": "Monitor and document",
           "accent": "pink",
           "items": [
-            { "id": "n6", "label": "OB triage if first visit, otherwise document events: \"no changes to OB health, endorses +FM, no LOF, VB, or UC\"" },
-            { "id": "n7", "label": "Med rec" },
-            { "id": "n8", "label": "Doc VS" },
-            { "id": "n9", "label": "Doc FHR" },
-            { "id": "n10", "label": "Call OB" }
+            {
+              "id": "n6",
+              "label": "OB triage if first visit, otherwise document events: \"no changes to OB health, endorses +FM, no LOF, VB, or UC\""
+            },
+            {
+              "id": "n7",
+              "label": "Med rec"
+            },
+            {
+              "id": "n8",
+              "label": "Doc VS"
+            },
+            {
+              "id": "n9",
+              "label": "Doc FHR"
+            },
+            {
+              "id": "n10",
+              "label": "Call OB"
+            }
           ]
         },
         {
           "id": "wrap-up",
           "title": "Wrap Up",
-          "icon": "✅",
+          "icon": "solar:check-circle-bold-duotone",
           "subtitle": "Discharge from NST",
           "accent": "mint",
           "items": [
-            { "id": "n11", "label": "Place DC order" },
-            { "id": "n12", "label": "Adhoc: antenatal testing & charges" },
-            { "id": "n13", "label": "Move off tracker" }
+            {
+              "id": "n11",
+              "label": "Place DC order"
+            },
+            {
+              "id": "n12",
+              "label": "Adhoc: antenatal testing & charges"
+            },
+            {
+              "id": "n13",
+              "label": "Move off tracker"
+            }
           ]
         }
       ]
@@ -156,89 +294,230 @@
           "subtitle": "Set up the room",
           "accent": "pink",
           "items": [
-            { "id": "i1", "label": "Fill out whiteboard" },
-            { "id": "i2", "label": "Robe / vaginal delivery pack / orange bag in crib" },
-            { "id": "i3", "label": "Bring linens for support person & organize linen closet" },
-            { "id": "i4", "label": "Bring delivery meds & syringe / needles to room (locked box - 6686)" },
-            { "id": "i5", "label": "Bring IV supplies" },
-            { "id": "i6", "label": "Bring Cooks supplies (if ordered)" },
-            { "id": "i7", "label": "Prep warmer" }
+            {
+              "id": "i1",
+              "label": "Fill out whiteboard"
+            },
+            {
+              "id": "i2",
+              "label": "Robe / vaginal delivery pack / orange bag in crib"
+            },
+            {
+              "id": "i3",
+              "label": "Bring linens for support person & organize linen closet"
+            },
+            {
+              "id": "i4",
+              "label": "Bring delivery meds & syringe / needles to room (locked box - 6686)"
+            },
+            {
+              "id": "i5",
+              "label": "Bring IV supplies"
+            },
+            {
+              "id": "i6",
+              "label": "Bring Cooks supplies (if ordered)"
+            },
+            {
+              "id": "i7",
+              "label": "Prep warmer"
+            }
           ]
         },
         {
           "id": "first-hour",
           "title": "First Hour",
-          "icon": "⏰",
+          "icon": "solar:alarm-bold-duotone",
           "subtitle": "Hands-on patient care",
           "accent": "peach",
           "items": [
-            { "id": "i8", "label": "Gown / Orient to room" },
-            { "id": "i9", "label": "FHR / toco" },
-            { "id": "i10", "label": "VS per protocol" },
-            { "id": "i11", "label": "Head to toe assessment" },
-            { "id": "i12", "label": "IV and lab draw" },
-            { "id": "i13", "label": "Print, label & scan labs, then send to lab (\"specimen collection\" to scan)" },
-            { "id": "i14", "label": "SVE — confirm vertex" },
-            { "id": "i15", "label": "Call MD with update" },
-            { "id": "i16", "label": "Review booklet" }
+            {
+              "id": "i8",
+              "label": "Gown / Orient to room"
+            },
+            {
+              "id": "i9",
+              "label": "FHR / toco"
+            },
+            {
+              "id": "i10",
+              "label": "VS per protocol"
+            },
+            {
+              "id": "i11",
+              "label": "Head to toe assessment"
+            },
+            {
+              "id": "i12",
+              "label": "IV and lab draw"
+            },
+            {
+              "id": "i13",
+              "label": "Print, label & scan labs, then send to lab (\"specimen collection\" to scan)"
+            },
+            {
+              "id": "i14",
+              "label": "SVE — confirm vertex"
+            },
+            {
+              "id": "i15",
+              "label": "Call MD with update"
+            },
+            {
+              "id": "i16",
+              "label": "Review booklet"
+            }
           ]
         },
         {
           "id": "paper-forms",
           "title": "Paper Forms",
-          "icon": "📄",
+          "icon": "solar:document-bold-duotone",
           "subtitle": "Get these signed early",
           "accent": "lavender",
           "items": [
-            { "id": "i17", "label": "Blood consent" },
-            { "id": "i18", "label": "Car seat form" },
-            { "id": "i19", "label": "EDPS" },
-            { "id": "i20", "label": "Baby safety form" }
+            {
+              "id": "i17",
+              "label": "Blood consent"
+            },
+            {
+              "id": "i18",
+              "label": "Car seat form"
+            },
+            {
+              "id": "i19",
+              "label": "EDPS"
+            },
+            {
+              "id": "i20",
+              "label": "Baby safety form"
+            }
           ]
         },
         {
           "id": "orders-charting",
           "title": "Orders & Charting",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Initial Cerner work",
           "accent": "mint",
           "items": [
-            { "id": "i21", "label": "Orders: Provider favorites" },
-            { "id": "i22", "label": "Double check orders" },
-            { "id": "i23", "label": "Notification to admitting OB: \"Admit to Labor, room xyz, Dr xyz\"" },
-            { "id": "i24", "label": "Adhoc: OB triage" },
-            { "id": "i25", "label": "Adhoc: OB admission form" },
-            { "id": "i26", "label": "Confirm pt preferred pharmacy" },
-            { "id": "i27", "label": "Med reconciliation" },
-            { "id": "i28", "label": "Adhoc: Maternal Shift Screening" },
-            { "id": "i29", "label": "Adhoc: Maternal readiness for discharge" },
-            { "id": "i30", "label": "POC — initiate and document in plan" },
-            { "id": "i31", "label": "OB safety huddle (document — Events)" },
-            { "id": "i32", "label": "Document Assessment" },
-            { "id": "i33", "label": "Document IV — lines and tubes" },
-            { "id": "i34", "label": "Review labs" },
-            { "id": "i35", "label": "Document SVE" },
-            { "id": "i36", "label": "Document EDPS, iview" },
-            { "id": "i37", "label": "Clinician notification, iview under notifications" },
-            { "id": "i38", "label": "Adhoc: Oxytocin checklist (if applicable)" }
+            {
+              "id": "i21",
+              "label": "Orders: Provider favorites"
+            },
+            {
+              "id": "i22",
+              "label": "Double check orders"
+            },
+            {
+              "id": "i23",
+              "label": "Notification to admitting OB: \"Admit to Labor, room xyz, Dr xyz\""
+            },
+            {
+              "id": "i24",
+              "label": "Adhoc: OB triage"
+            },
+            {
+              "id": "i25",
+              "label": "Adhoc: OB admission form"
+            },
+            {
+              "id": "i26",
+              "label": "Confirm pt preferred pharmacy"
+            },
+            {
+              "id": "i27",
+              "label": "Med reconciliation"
+            },
+            {
+              "id": "i28",
+              "label": "Adhoc: Maternal Shift Screening"
+            },
+            {
+              "id": "i29",
+              "label": "Adhoc: Maternal readiness for discharge"
+            },
+            {
+              "id": "i30",
+              "label": "POC — initiate and document in plan"
+            },
+            {
+              "id": "i31",
+              "label": "OB safety huddle (document — Events)"
+            },
+            {
+              "id": "i32",
+              "label": "Document Assessment"
+            },
+            {
+              "id": "i33",
+              "label": "Document IV — lines and tubes"
+            },
+            {
+              "id": "i34",
+              "label": "Review labs"
+            },
+            {
+              "id": "i35",
+              "label": "Document SVE"
+            },
+            {
+              "id": "i36",
+              "label": "Document EDPS, iview"
+            },
+            {
+              "id": "i37",
+              "label": "Clinician notification, iview under notifications"
+            },
+            {
+              "id": "i38",
+              "label": "Adhoc: Oxytocin checklist (if applicable)"
+            }
           ]
         },
         {
           "id": "behind-the-scenes",
           "title": "Behind-the-Scenes",
-          "icon": "🗂",
+          "icon": "solar:folder-with-files-bold-duotone",
           "subtitle": "Misc setup tasks",
           "accent": "sky",
           "items": [
-            { "id": "i39", "label": "Register patient in Cerner" },
-            { "id": "i40", "label": "Review MFM binder to see if pt is in it" },
-            { "id": "i41", "label": "Print (MSI): wristband (%), stickers (enter), facesheet ($)" },
-            { "id": "i42", "label": "Associate fetal link" },
-            { "id": "i43", "label": "Grab specimen printer and print labs" },
-            { "id": "i44", "label": "Make binder" },
-            { "id": "i45", "label": "Print prenatals" },
-            { "id": "i46", "label": "Make kardex" },
-            { "id": "i47", "label": "Review charge sheet: qualifies for accommodation codes?" }
+            {
+              "id": "i39",
+              "label": "Register patient in Cerner"
+            },
+            {
+              "id": "i40",
+              "label": "Review MFM binder to see if pt is in it"
+            },
+            {
+              "id": "i41",
+              "label": "Print (MSI): wristband (%), stickers (enter), facesheet ($)"
+            },
+            {
+              "id": "i42",
+              "label": "Associate fetal link"
+            },
+            {
+              "id": "i43",
+              "label": "Grab specimen printer and print labs"
+            },
+            {
+              "id": "i44",
+              "label": "Make binder"
+            },
+            {
+              "id": "i45",
+              "label": "Print prenatals"
+            },
+            {
+              "id": "i46",
+              "label": "Make kardex"
+            },
+            {
+              "id": "i47",
+              "label": "Review charge sheet: qualifies for accommodation codes?"
+            }
           ]
         }
       ]
@@ -256,69 +535,143 @@
         {
           "id": "room-check",
           "title": "Room Check",
-          "icon": "🛏",
+          "icon": "solar:bed-bold-duotone",
           "subtitle": "Confirm setup is complete",
           "accent": "pink",
           "items": [
-            { "id": "ol1", "label": "Update whiteboard" },
-            { "id": "ol2", "label": "Robe / vaginal delivery pack / orange bag in crib?" },
-            { "id": "ol3", "label": "Bring delivery meds & syringe / needles to room (box - 6686)" },
-            { "id": "ol4", "label": "Warmer prepped?" },
-            { "id": "ol5", "label": "Paper forms (Blood, Car seat, EDPS, Baby safety) all signed in chart?" }
+            {
+              "id": "ol1",
+              "label": "Update whiteboard"
+            },
+            {
+              "id": "ol2",
+              "label": "Robe / vaginal delivery pack / orange bag in crib?"
+            },
+            {
+              "id": "ol3",
+              "label": "Bring delivery meds & syringe / needles to room (box - 6686)"
+            },
+            {
+              "id": "ol4",
+              "label": "Warmer prepped?"
+            },
+            {
+              "id": "ol5",
+              "label": "Paper forms (Blood, Car seat, EDPS, Baby safety) all signed in chart?"
+            }
           ]
         },
         {
           "id": "charting",
           "title": "Charting",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Stay current in Cerner",
           "accent": "lavender",
           "items": [
-            { "id": "ol6", "label": "Review orders" },
-            { "id": "ol7", "label": "Med reconciliation completed?" },
-            { "id": "ol8", "label": "Adhoc: Maternal Shift Screen" },
-            { "id": "ol9", "label": "Adhoc: Maternal readiness for discharge → MCHS – D/C – Modify" },
-            { "id": "ol10", "label": "POC — document in plan" },
-            { "id": "ol11", "label": "Contact MD prior to 9pm to discuss plan for night → OB safety huddle (iview Events)" },
-            { "id": "ol12", "label": "Clinician notification, iview under notifications" },
-            { "id": "ol13", "label": "Adhoc: Oxytocin checklist done?" }
+            {
+              "id": "ol6",
+              "label": "Review orders"
+            },
+            {
+              "id": "ol7",
+              "label": "Med reconciliation completed?"
+            },
+            {
+              "id": "ol8",
+              "label": "Adhoc: Maternal Shift Screen"
+            },
+            {
+              "id": "ol9",
+              "label": "Adhoc: Maternal readiness for discharge → MCHS – D/C – Modify"
+            },
+            {
+              "id": "ol10",
+              "label": "POC — document in plan"
+            },
+            {
+              "id": "ol11",
+              "label": "Contact MD prior to 9pm to discuss plan for night → OB safety huddle (iview Events)"
+            },
+            {
+              "id": "ol12",
+              "label": "Clinician notification, iview under notifications"
+            },
+            {
+              "id": "ol13",
+              "label": "Adhoc: Oxytocin checklist done?"
+            }
           ]
         },
         {
           "id": "hands-on-care",
           "title": "Hands On Care",
-          "icon": "🩺",
+          "icon": "solar:stethoscope-bold-duotone",
           "subtitle": "Patient assessments",
           "accent": "peach",
           "items": [
-            { "id": "ol14", "label": "Head to toe assessment" },
-            { "id": "ol15", "label": "IV assessed — lines and tubes" },
-            { "id": "ol16", "label": "Catheter assessed and peri care" },
-            { "id": "ol17", "label": "Epidural assessed (iview: reserve dose & pump med verify with two RN)" }
+            {
+              "id": "ol14",
+              "label": "Head to toe assessment"
+            },
+            {
+              "id": "ol15",
+              "label": "IV assessed — lines and tubes"
+            },
+            {
+              "id": "ol16",
+              "label": "Catheter assessed and peri care"
+            },
+            {
+              "id": "ol17",
+              "label": "Epidural assessed (iview: reserve dose & pump med verify with two RN)"
+            }
           ]
         },
         {
           "id": "vs-timing",
           "title": "VS Timing Reference",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "By patient type",
           "accent": "sky",
           "items": [
-            { "id": "ol18", "label": "**Cervidil/Cytotec:** Latent q4h · Active q1h · Temp Intact q4h · Ruptured q2h" },
-            { "id": "ol19", "label": "**FHR/Toco:** q30min" },
-            { "id": "ol20", "label": "**Pitocin VS:** q1h + with each increase · Temp Intact q4h, Ruptured q2h" },
-            { "id": "ol21", "label": "**Pitocin FHT:** q15min" },
-            { "id": "ol22", "label": "**Oxy Checklist:** q30min" },
-            { "id": "ol23", "label": "**IUPC:** q30 MVUs" }
+            {
+              "id": "ol18",
+              "label": "**Cervidil/Cytotec:** Latent q4h · Active q1h · Temp Intact q4h · Ruptured q2h"
+            },
+            {
+              "id": "ol19",
+              "label": "**FHR/Toco:** q30min"
+            },
+            {
+              "id": "ol20",
+              "label": "**Pitocin VS:** q1h + with each increase · Temp Intact q4h, Ruptured q2h"
+            },
+            {
+              "id": "ol21",
+              "label": "**Pitocin FHT:** q15min"
+            },
+            {
+              "id": "ol22",
+              "label": "**Oxy Checklist:** q30min"
+            },
+            {
+              "id": "ol23",
+              "label": "**IUPC:** q30 MVUs"
+            }
           ]
         },
         {
           "id": "check-times",
           "title": "Check Times",
-          "icon": "🕐",
+          "icon": "solar:clock-circle-bold-duotone",
           "subtitle": "Mark off the times you completed checks",
           "accent": "mint",
-          "items": [{ "id": "ol-check-times-help", "label": "Use the time grid below to log each check." }],
+          "items": [
+            {
+              "id": "ol-check-times-help",
+              "label": "Use the time grid below to log each check."
+            }
+          ],
           "widget": "time-grid"
         }
       ]
@@ -335,18 +688,42 @@
         {
           "id": "pre-procedure-setup",
           "title": "Pre-Procedure Setup",
-          "icon": "📞",
+          "icon": "solar:phone-bold-duotone",
           "subtitle": "Call & prep",
           "accent": "sky",
           "items": [
-            { "id": "e1", "label": "Call Anesthesiologist" },
-            { "id": "e2", "label": "IV fluid bolus" },
-            { "id": "e3", "label": "Review CBC — H/H: {{blank:H}} / {{blank:H2}} · PLT: {{blank:PLT}}" },
-            { "id": "e4", "label": "Grab Anesthesia consent form & cart, bring to room (window side of bed)" },
-            { "id": "e5", "label": "Epidural kit and consent / ans record on top of cart" },
-            { "id": "e6", "label": "Grab anesthesia meds" },
-            { "id": "e7", "label": "Prime the epidural tubing" },
-            { "id": "e8", "label": "Sign consent form" }
+            {
+              "id": "e1",
+              "label": "Call Anesthesiologist"
+            },
+            {
+              "id": "e2",
+              "label": "IV fluid bolus"
+            },
+            {
+              "id": "e3",
+              "label": "Review CBC — H/H: {{blank:H}} / {{blank:H2}} · PLT: {{blank:PLT}}"
+            },
+            {
+              "id": "e4",
+              "label": "Grab Anesthesia consent form & cart, bring to room (window side of bed)"
+            },
+            {
+              "id": "e5",
+              "label": "Epidural kit and consent / ans record on top of cart"
+            },
+            {
+              "id": "e6",
+              "label": "Grab anesthesia meds"
+            },
+            {
+              "id": "e7",
+              "label": "Prime the epidural tubing"
+            },
+            {
+              "id": "e8",
+              "label": "Sign consent form"
+            }
           ]
         },
         {
@@ -356,9 +733,18 @@
           "subtitle": "Patient positioning & monitoring",
           "accent": "lavender",
           "items": [
-            { "id": "e9", "label": "Have pt sit at edge of bed w/ BP cuff and O2 on" },
-            { "id": "e10", "label": "Perform time out @ {{blank:time}}" },
-            { "id": "e11", "label": "BP / O2 / RR q5min during procedure" }
+            {
+              "id": "e9",
+              "label": "Have pt sit at edge of bed w/ BP cuff and O2 on"
+            },
+            {
+              "id": "e10",
+              "label": "Perform time out @ {{blank:time}}"
+            },
+            {
+              "id": "e11",
+              "label": "BP / O2 / RR q5min during procedure"
+            }
           ]
         },
         {
@@ -368,40 +754,88 @@
           "subtitle": "Post-epidural care",
           "accent": "pink",
           "items": [
-            { "id": "e12", "label": "Assist pt to lay back down in bed" },
-            { "id": "e13", "label": "VS" },
-            { "id": "e14", "label": "Place foley catheter" }
+            {
+              "id": "e12",
+              "label": "Assist pt to lay back down in bed"
+            },
+            {
+              "id": "e13",
+              "label": "VS"
+            },
+            {
+              "id": "e14",
+              "label": "Place foley catheter"
+            }
           ]
         },
         {
           "id": "orders-charting",
           "title": "Orders & Charting",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Cerner documentation",
           "accent": "mint",
           "items": [
-            { "id": "e15", "label": "Orders: Tsau, Kang 1 CAMA OB Epidural (level) — most recent" },
-            { "id": "e16", "label": "Adhoc: Universal Protocol: Timeout" },
-            { "id": "e17", "label": "Section 1 — prior to procedure" },
-            { "id": "e18", "label": "Section 2 — just prior to procedure starting" },
-            { "id": "e19", "label": "Section 3 — after procedure complete" },
-            { "id": "e20", "label": "Scan meds into MAR and sign with anesthesia" },
-            { "id": "e21", "label": "Program pump per MD order, have second RN verify setting and witness" },
-            { "id": "e22", "label": "Chart Timeout" },
-            { "id": "e23", "label": "PCA / Epidural: chart all that applies" },
-            { "id": "e24", "label": "Chart foley catheter — lines and tubes" }
+            {
+              "id": "e15",
+              "label": "Orders: Tsau, Kang 1 CAMA OB Epidural (level) — most recent"
+            },
+            {
+              "id": "e16",
+              "label": "Adhoc: Universal Protocol: Timeout"
+            },
+            {
+              "id": "e17",
+              "label": "Section 1 — prior to procedure"
+            },
+            {
+              "id": "e18",
+              "label": "Section 2 — just prior to procedure starting"
+            },
+            {
+              "id": "e19",
+              "label": "Section 3 — after procedure complete"
+            },
+            {
+              "id": "e20",
+              "label": "Scan meds into MAR and sign with anesthesia"
+            },
+            {
+              "id": "e21",
+              "label": "Program pump per MD order, have second RN verify setting and witness"
+            },
+            {
+              "id": "e22",
+              "label": "Chart Timeout"
+            },
+            {
+              "id": "e23",
+              "label": "PCA / Epidural: chart all that applies"
+            },
+            {
+              "id": "e24",
+              "label": "Chart foley catheter — lines and tubes"
+            }
           ]
         },
         {
           "id": "vs-freq-post-epidural",
           "title": "VS Frequency Post-Epidural",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "Strict protocol",
           "accent": "peach",
           "items": [
-            { "id": "e25", "label": "q2min x5 (first 15min)" },
-            { "id": "e26", "label": "q5min x6 (next 30min)" },
-            { "id": "e27", "label": "Then q30min with continuous pulse oximetry" }
+            {
+              "id": "e25",
+              "label": "q2min x5 (first 15min)"
+            },
+            {
+              "id": "e26",
+              "label": "q5min x6 (next 30min)"
+            },
+            {
+              "id": "e27",
+              "label": "Then q30min with continuous pulse oximetry"
+            }
           ]
         }
       ]
@@ -422,89 +856,230 @@
           "subtitle": "Last-minute setup",
           "accent": "pink",
           "items": [
-            { "id": "v1", "label": "Grab delivery meds / syringe / needle kit" },
-            { "id": "v2", "label": "Call MD when complete @ {{blank:time}}" },
-            { "id": "v3", "label": "Remove foley prior to pushing @ {{blank:time}}" },
-            { "id": "v4", "label": "Table in the room / count with tech" },
-            { "id": "v5", "label": "Warmer set up" },
-            { "id": "v6", "label": "Pushing @ {{blank:time}}" },
-            { "id": "v7", "label": "Call SL to call MD when ready @ {{blank:time}}" },
-            { "id": "v8", "label": "Call nursery team" }
+            {
+              "id": "v1",
+              "label": "Grab delivery meds / syringe / needle kit"
+            },
+            {
+              "id": "v2",
+              "label": "Call MD when complete @ {{blank:time}}"
+            },
+            {
+              "id": "v3",
+              "label": "Remove foley prior to pushing @ {{blank:time}}"
+            },
+            {
+              "id": "v4",
+              "label": "Table in the room / count with tech"
+            },
+            {
+              "id": "v5",
+              "label": "Warmer set up"
+            },
+            {
+              "id": "v6",
+              "label": "Pushing @ {{blank:time}}"
+            },
+            {
+              "id": "v7",
+              "label": "Call SL to call MD when ready @ {{blank:time}}"
+            },
+            {
+              "id": "v8",
+              "label": "Call nursery team"
+            }
           ]
         },
         {
           "id": "orders-charting",
           "title": "Orders & Charting",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Transition labor → PP",
           "accent": "lavender",
           "items": [
-            { "id": "v9", "label": "D/C labor orders" },
-            { "id": "v10", "label": "D/C anesthesia orders" },
-            { "id": "v11", "label": "Document in plan labor POCs and then discontinue them" },
-            { "id": "v12", "label": "Initiate Postpartum orders" },
-            { "id": "v13", "label": "Initiate PP POC" },
-            { "id": "v14", "label": "QBL: {{blank:QBL}}" },
-            { "id": "v15", "label": "Laceration: {{blank:Laceration}}" },
-            { "id": "v16", "label": "Repair: {{blank:Repair}}" }
+            {
+              "id": "v9",
+              "label": "D/C labor orders"
+            },
+            {
+              "id": "v10",
+              "label": "D/C anesthesia orders"
+            },
+            {
+              "id": "v11",
+              "label": "Document in plan labor POCs and then discontinue them"
+            },
+            {
+              "id": "v12",
+              "label": "Initiate Postpartum orders"
+            },
+            {
+              "id": "v13",
+              "label": "Initiate PP POC"
+            },
+            {
+              "id": "v14",
+              "label": "QBL: {{blank:QBL}}"
+            },
+            {
+              "id": "v15",
+              "label": "Laceration: {{blank:Laceration}}"
+            },
+            {
+              "id": "v16",
+              "label": "Repair: {{blank:Repair}}"
+            }
           ]
         },
         {
           "id": "omnicell",
           "title": "Omnicell",
-          "icon": "📦",
+          "icon": "solar:box-bold-duotone",
           "subtitle": "Medications",
           "accent": "mint",
           "items": [
-            { "id": "v17", "label": "Waste epidural meds" },
-            { "id": "v18", "label": "Return any unused meds" },
-            { "id": "v19", "label": "Grab peri meds & motrin" }
+            {
+              "id": "v17",
+              "label": "Waste epidural meds"
+            },
+            {
+              "id": "v18",
+              "label": "Return any unused meds"
+            },
+            {
+              "id": "v19",
+              "label": "Grab peri meds & motrin"
+            }
           ]
         },
         {
           "id": "fundal-vs",
           "title": "Fundal Check & VS — q15min x 2hrs",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "Then q1h once · q4h to 24hr · q shift to d/c",
           "accent": "peach",
           "items": [
-            { "id": "v20", "label": "15min: {{blank:time}}" },
-            { "id": "v21", "label": "30min: {{blank:time}}" },
-            { "id": "v22", "label": "Water / mocktail" },
-            { "id": "v23", "label": "45min: {{blank:time}}" },
-            { "id": "v24", "label": "1hr: {{blank:time}}" },
-            { "id": "v25", "label": "Motrin / Tylenol" },
-            { "id": "v26", "label": "1hr 15m: {{blank:time}}" },
-            { "id": "v27", "label": "1hr 30m: {{blank:time}}" },
-            { "id": "v28", "label": "Up to BR & peri meds" },
-            { "id": "v29", "label": "Document urine output" },
-            { "id": "v30", "label": "Pull out epidural catheter" },
-            { "id": "v31", "label": "1hr 45m: {{blank:time}}" },
-            { "id": "v32", "label": "2hr: {{blank:time}}" },
-            { "id": "v33", "label": "Head to toe assessment" }
+            {
+              "id": "v20",
+              "label": "15min: {{blank:time}}"
+            },
+            {
+              "id": "v21",
+              "label": "30min: {{blank:time}}"
+            },
+            {
+              "id": "v22",
+              "label": "Water / mocktail"
+            },
+            {
+              "id": "v23",
+              "label": "45min: {{blank:time}}"
+            },
+            {
+              "id": "v24",
+              "label": "1hr: {{blank:time}}"
+            },
+            {
+              "id": "v25",
+              "label": "Motrin / Tylenol"
+            },
+            {
+              "id": "v26",
+              "label": "1hr 15m: {{blank:time}}"
+            },
+            {
+              "id": "v27",
+              "label": "1hr 30m: {{blank:time}}"
+            },
+            {
+              "id": "v28",
+              "label": "Up to BR & peri meds"
+            },
+            {
+              "id": "v29",
+              "label": "Document urine output"
+            },
+            {
+              "id": "v30",
+              "label": "Pull out epidural catheter"
+            },
+            {
+              "id": "v31",
+              "label": "1hr 45m: {{blank:time}}"
+            },
+            {
+              "id": "v32",
+              "label": "2hr: {{blank:time}}"
+            },
+            {
+              "id": "v33",
+              "label": "Head to toe assessment"
+            }
           ]
         },
         {
           "id": "documentation",
           "title": "Documentation",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Maternal delivery items",
           "accent": "sky",
           "items": [
-            { "id": "v34", "label": "Maternal Delivery PCM" },
-            { "id": "v35", "label": "Delivery — 5 elements" },
-            { "id": "v36", "label": "Full line at delivery time" },
-            { "id": "v37", "label": "Someone registers baby" },
-            { "id": "v38", "label": "Result copy / related records — link baby to mom" },
-            { "id": "v39", "label": "Write down the epidural amount administered in the MAR" },
-            { "id": "v40", "label": "Removal of epidural + radio tip intact" },
-            { "id": "v41", "label": "Adhoc: Sepsis screen" },
-            { "id": "v42", "label": "Adhoc: Fall risk / tylenol" },
-            { "id": "v43", "label": "Med response in MAR" },
-            { "id": "v44", "label": "Placenta save / discard" },
-            { "id": "v45", "label": "Rh negative? then order rhogam" },
-            { "id": "v46", "label": "Catch up on FHT charting & VS" },
-            { "id": "v47", "label": "Delivery book" }
+            {
+              "id": "v34",
+              "label": "Maternal Delivery PCM"
+            },
+            {
+              "id": "v35",
+              "label": "Delivery — 5 elements"
+            },
+            {
+              "id": "v36",
+              "label": "Full line at delivery time"
+            },
+            {
+              "id": "v37",
+              "label": "Someone registers baby"
+            },
+            {
+              "id": "v38",
+              "label": "Result copy / related records — link baby to mom"
+            },
+            {
+              "id": "v39",
+              "label": "Write down the epidural amount administered in the MAR"
+            },
+            {
+              "id": "v40",
+              "label": "Removal of epidural + radio tip intact"
+            },
+            {
+              "id": "v41",
+              "label": "Adhoc: Sepsis screen"
+            },
+            {
+              "id": "v42",
+              "label": "Adhoc: Fall risk / tylenol"
+            },
+            {
+              "id": "v43",
+              "label": "Med response in MAR"
+            },
+            {
+              "id": "v44",
+              "label": "Placenta save / discard"
+            },
+            {
+              "id": "v45",
+              "label": "Rh negative? then order rhogam"
+            },
+            {
+              "id": "v46",
+              "label": "Catch up on FHT charting & VS"
+            },
+            {
+              "id": "v47",
+              "label": "Delivery book"
+            }
           ]
         },
         {
@@ -514,8 +1089,14 @@
           "subtitle": "Delivery prep notes",
           "accent": "butter",
           "items": [
-            { "id": "v48", "label": "**Rasul:** Chlorhexidine in warm water" },
-            { "id": "v49", "label": "**Song:** Second cord clamp on table" }
+            {
+              "id": "v48",
+              "label": "**Rasul:** Chlorhexidine in warm water"
+            },
+            {
+              "id": "v49",
+              "label": "**Song:** Second cord clamp on table"
+            }
           ]
         }
       ]
@@ -536,12 +1117,30 @@
           "subtitle": "Birth time & immediate care",
           "accent": "butter",
           "items": [
-            { "id": "nb1", "label": "Delivery time @ {{blank:time}}" },
-            { "id": "nb2", "label": "APGARS assigned {{blank:1m}} / {{blank:5m}}" },
-            { "id": "nb3", "label": "VS @ birth {{blank:time}}" },
-            { "id": "nb4", "label": "Apply ID bands" },
-            { "id": "nb5", "label": "Apply security band" },
-            { "id": "nb6", "label": "Med label" }
+            {
+              "id": "nb1",
+              "label": "Delivery time @ {{blank:time}}"
+            },
+            {
+              "id": "nb2",
+              "label": "APGARS assigned {{blank:1m}} / {{blank:5m}}"
+            },
+            {
+              "id": "nb3",
+              "label": "VS @ birth {{blank:time}}"
+            },
+            {
+              "id": "nb4",
+              "label": "Apply ID bands"
+            },
+            {
+              "id": "nb5",
+              "label": "Apply security band"
+            },
+            {
+              "id": "nb6",
+              "label": "Med label"
+            }
           ]
         },
         {
@@ -551,75 +1150,174 @@
           "subtitle": "Continued newborn care",
           "accent": "pink",
           "items": [
-            { "id": "nb7", "label": "VS @ 1hr {{blank:time}}" },
-            { "id": "nb8", "label": "Breastfeeding" },
-            { "id": "nb9", "label": "VS @ 2hrs {{blank:time}}" },
-            { "id": "nb10", "label": "BP" },
-            { "id": "nb11", "label": "Head to toe assessment" },
-            { "id": "nb12", "label": "Measurements" },
-            { "id": "nb13", "label": "Give: Hep B, Vit K, erythromycin (refusal form if not)" },
-            { "id": "nb14", "label": "Footprints" },
-            { "id": "nb15", "label": "Bath?" },
-            { "id": "nb16", "label": "Check the ANC paper they fill out (checklist + measurements)" }
+            {
+              "id": "nb7",
+              "label": "VS @ 1hr {{blank:time}}"
+            },
+            {
+              "id": "nb8",
+              "label": "Breastfeeding"
+            },
+            {
+              "id": "nb9",
+              "label": "VS @ 2hrs {{blank:time}}"
+            },
+            {
+              "id": "nb10",
+              "label": "BP"
+            },
+            {
+              "id": "nb11",
+              "label": "Head to toe assessment"
+            },
+            {
+              "id": "nb12",
+              "label": "Measurements"
+            },
+            {
+              "id": "nb13",
+              "label": "Give: Hep B, Vit K, erythromycin (refusal form if not)"
+            },
+            {
+              "id": "nb14",
+              "label": "Footprints"
+            },
+            {
+              "id": "nb15",
+              "label": "Bath?"
+            },
+            {
+              "id": "nb16",
+              "label": "Check the ANC paper they fill out (checklist + measurements)"
+            }
           ]
         },
         {
           "id": "orders-adhocs",
           "title": "Orders & Adhocs",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Newborn Cerner setup",
           "accent": "lavender",
           "items": [
-            { "id": "nb17", "label": "Orders: FHMC newborn — routine care" },
-            { "id": "nb18", "label": "Newborn care plan POC" },
-            { "id": "nb19", "label": "Adhoc: Ballard" },
-            { "id": "nb20", "label": "Adhoc: Kaiser NEOS" },
-            { "id": "nb21", "label": "Adhoc: measurements" },
-            { "id": "nb22", "label": "Interdisciplinary readiness for D/C: MCHS → discharge workflow → int. Readiness" },
-            { "id": "nb23", "label": "Maternal PCM: newborn delivery data" }
+            {
+              "id": "nb17",
+              "label": "Orders: FHMC newborn — routine care"
+            },
+            {
+              "id": "nb18",
+              "label": "Newborn care plan POC"
+            },
+            {
+              "id": "nb19",
+              "label": "Adhoc: Ballard"
+            },
+            {
+              "id": "nb20",
+              "label": "Adhoc: Kaiser NEOS"
+            },
+            {
+              "id": "nb21",
+              "label": "Adhoc: measurements"
+            },
+            {
+              "id": "nb22",
+              "label": "Interdisciplinary readiness for D/C: MCHS → discharge workflow → int. Readiness"
+            },
+            {
+              "id": "nb23",
+              "label": "Maternal PCM: newborn delivery data"
+            }
           ]
         },
         {
           "id": "verification",
           "title": "Verification",
-          "icon": "📋",
+          "icon": "solar:clipboard-list-bold-duotone",
           "subtitle": "Double-check these",
           "accent": "mint",
           "items": [
-            { "id": "nb24", "label": "Verify correct ped was assigned" },
-            { "id": "nb25", "label": "Verify result copy was completed" },
-            { "id": "nb26", "label": "Verify cord blood was sent" },
-            { "id": "nb27", "label": "Initiate LGA / SGA protocol prn" },
-            { "id": "nb28", "label": "BS needed?" }
+            {
+              "id": "nb24",
+              "label": "Verify correct ped was assigned"
+            },
+            {
+              "id": "nb25",
+              "label": "Verify result copy was completed"
+            },
+            {
+              "id": "nb26",
+              "label": "Verify cord blood was sent"
+            },
+            {
+              "id": "nb27",
+              "label": "Initiate LGA / SGA protocol prn"
+            },
+            {
+              "id": "nb28",
+              "label": "BS needed?"
+            }
           ]
         },
         {
           "id": "call-ped-if",
           "title": "Call Pediatrician If",
-          "icon": "📞",
+          "icon": "solar:phone-bold-duotone",
           "subtitle": "Conditions requiring notification",
           "accent": "peach",
           "items": [
-            { "id": "nb29", "label": "Inadequate tx for GBS" },
-            { "id": "nb30", "label": "Maternal temp or chorio" },
-            { "id": "nb31", "label": "APGARS <6 at 5min" },
-            { "id": "nb32", "label": "Abd BS" },
-            { "id": "nb33", "label": "Urine tox if indicated" }
+            {
+              "id": "nb29",
+              "label": "Inadequate tx for GBS"
+            },
+            {
+              "id": "nb30",
+              "label": "Maternal temp or chorio"
+            },
+            {
+              "id": "nb31",
+              "label": "APGARS <6 at 5min"
+            },
+            {
+              "id": "nb32",
+              "label": "Abd BS"
+            },
+            {
+              "id": "nb33",
+              "label": "Urine tox if indicated"
+            }
           ]
         },
         {
           "id": "charting-recap",
           "title": "Charting Recap",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Don't forget",
           "accent": "sky",
           "items": [
-            { "id": "nb34", "label": "Chart three VS (T / RR / HR)" },
-            { "id": "nb35", "label": "Chart BP" },
-            { "id": "nb36", "label": "Chart assessment" },
-            { "id": "nb37", "label": "Chart skin to skin" },
-            { "id": "nb38", "label": "Chart feeds, void / stools" },
-            { "id": "nb39", "label": "Meds scanned in MAR" }
+            {
+              "id": "nb34",
+              "label": "Chart three VS (T / RR / HR)"
+            },
+            {
+              "id": "nb35",
+              "label": "Chart BP"
+            },
+            {
+              "id": "nb36",
+              "label": "Chart assessment"
+            },
+            {
+              "id": "nb37",
+              "label": "Chart skin to skin"
+            },
+            {
+              "id": "nb38",
+              "label": "Chart feeds, void / stools"
+            },
+            {
+              "id": "nb39",
+              "label": "Meds scanned in MAR"
+            }
           ]
         }
       ]
@@ -636,20 +1334,50 @@
         {
           "id": "room-prep",
           "title": "Room Prep",
-          "icon": "🛏",
+          "icon": "solar:bed-bold-duotone",
           "subtitle": "Get everything ready",
           "accent": "lavender",
           "items": [
-            { "id": "sc1", "label": "Register patient in Cerner" },
-            { "id": "sc2", "label": "Check prenatals / make chart" },
-            { "id": "sc3", "label": "Lights on / FHR straps on bed / plugged in" },
-            { "id": "sc4", "label": "Bring robe / delivery / orange bags and place in crib → crib in BR" },
-            { "id": "sc5", "label": "OR outfit for pt partner" },
-            { "id": "sc6", "label": "Print (MSI): wristband (%), stickers (enter), facesheet ($)" },
-            { "id": "sc7", "label": "Grab specimen printer for labs / urine" },
-            { "id": "sc8", "label": "Collect IV supplies / blood band" },
-            { "id": "sc9", "label": "Collect: razor with cartridge, 2nd tape, socks, SCDs, chlorhex wipes, urine sample cup" },
-            { "id": "sc10", "label": "Associate fetal link" }
+            {
+              "id": "sc1",
+              "label": "Register patient in Cerner"
+            },
+            {
+              "id": "sc2",
+              "label": "Check prenatals / make chart"
+            },
+            {
+              "id": "sc3",
+              "label": "Lights on / FHR straps on bed / plugged in"
+            },
+            {
+              "id": "sc4",
+              "label": "Bring robe / delivery / orange bags and place in crib → crib in BR"
+            },
+            {
+              "id": "sc5",
+              "label": "OR outfit for pt partner"
+            },
+            {
+              "id": "sc6",
+              "label": "Print (MSI): wristband (%), stickers (enter), facesheet ($)"
+            },
+            {
+              "id": "sc7",
+              "label": "Grab specimen printer for labs / urine"
+            },
+            {
+              "id": "sc8",
+              "label": "Collect IV supplies / blood band"
+            },
+            {
+              "id": "sc9",
+              "label": "Collect: razor with cartridge, 2nd tape, socks, SCDs, chlorhex wipes, urine sample cup"
+            },
+            {
+              "id": "sc10",
+              "label": "Associate fetal link"
+            }
           ]
         },
         {
@@ -659,54 +1387,144 @@
           "subtitle": "Patient prep",
           "accent": "pink",
           "items": [
-            { "id": "sc11", "label": "BR: Gown, void, chlorhexidine wipes" },
-            { "id": "sc12", "label": "Remove jewelry" },
-            { "id": "sc13", "label": "Place EFM on (off once you have a reactive NST)" },
-            { "id": "sc14", "label": "VS x1" },
-            { "id": "sc15", "label": "IV placement & lab draw" },
-            { "id": "sc16", "label": "Print, sign, scan! Send to lab" },
-            { "id": "sc17", "label": "Look at lab results: H/H, Plt" },
-            { "id": "sc18", "label": "Start fluid bolus" },
-            { "id": "sc19", "label": "Assessment" },
-            { "id": "sc20", "label": "Clip" },
-            { "id": "sc21", "label": "SCDs on" },
-            { "id": "sc22", "label": "Socks on" },
-            { "id": "sc23", "label": "Pull OR abx and pitocin → prime meds" },
-            { "id": "sc24", "label": "Anesthesia consent ready at bedside" }
+            {
+              "id": "sc11",
+              "label": "BR: Gown, void, chlorhexidine wipes"
+            },
+            {
+              "id": "sc12",
+              "label": "Remove jewelry"
+            },
+            {
+              "id": "sc13",
+              "label": "Place EFM on (off once you have a reactive NST)"
+            },
+            {
+              "id": "sc14",
+              "label": "VS x1"
+            },
+            {
+              "id": "sc15",
+              "label": "IV placement & lab draw"
+            },
+            {
+              "id": "sc16",
+              "label": "Print, sign, scan! Send to lab"
+            },
+            {
+              "id": "sc17",
+              "label": "Look at lab results: H/H, Plt"
+            },
+            {
+              "id": "sc18",
+              "label": "Start fluid bolus"
+            },
+            {
+              "id": "sc19",
+              "label": "Assessment"
+            },
+            {
+              "id": "sc20",
+              "label": "Clip"
+            },
+            {
+              "id": "sc21",
+              "label": "SCDs on"
+            },
+            {
+              "id": "sc22",
+              "label": "Socks on"
+            },
+            {
+              "id": "sc23",
+              "label": "Pull OR abx and pitocin → prime meds"
+            },
+            {
+              "id": "sc24",
+              "label": "Anesthesia consent ready at bedside"
+            }
           ]
         },
         {
           "id": "orders-consents",
           "title": "Orders & Consents",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Cerner & paperwork",
           "accent": "mint",
           "items": [
-            { "id": "sc25", "label": "Orders: IntraOp, PACU, Postpartum (search provider favorites)" },
-            { "id": "sc26", "label": "Confirm IV order in Cerner" },
-            { "id": "sc27", "label": "Notification to admitting OB: \"admit to inpatient for scheduled C/S\"" },
-            { "id": "sc28", "label": "Confirm H&P in Cerner or pink OB short form (within 24hrs)" },
-            { "id": "sc29", "label": "Adhoc: OB Triage form" },
-            { "id": "sc30", "label": "Adhoc: OB Admission form" },
-            { "id": "sc31", "label": "Adhoc: Pre-Op checklist and STOPBANG" },
-            { "id": "sc32", "label": "Adhoc: Maternal shifts screen" },
-            { "id": "sc33", "label": "POC — IntraOp & PP" },
-            { "id": "sc34", "label": "Sign C/S consent" },
-            { "id": "sc35", "label": "Confirm consent matches Cerner order and is witnessed" },
-            { "id": "sc36", "label": "If tubal: tubal consent printed in chart" }
+            {
+              "id": "sc25",
+              "label": "Orders: IntraOp, PACU, Postpartum (search provider favorites)"
+            },
+            {
+              "id": "sc26",
+              "label": "Confirm IV order in Cerner"
+            },
+            {
+              "id": "sc27",
+              "label": "Notification to admitting OB: \"admit to inpatient for scheduled C/S\""
+            },
+            {
+              "id": "sc28",
+              "label": "Confirm H&P in Cerner or pink OB short form (within 24hrs)"
+            },
+            {
+              "id": "sc29",
+              "label": "Adhoc: OB Triage form"
+            },
+            {
+              "id": "sc30",
+              "label": "Adhoc: OB Admission form"
+            },
+            {
+              "id": "sc31",
+              "label": "Adhoc: Pre-Op checklist and STOPBANG"
+            },
+            {
+              "id": "sc32",
+              "label": "Adhoc: Maternal shifts screen"
+            },
+            {
+              "id": "sc33",
+              "label": "POC — IntraOp & PP"
+            },
+            {
+              "id": "sc34",
+              "label": "Sign C/S consent"
+            },
+            {
+              "id": "sc35",
+              "label": "Confirm consent matches Cerner order and is witnessed"
+            },
+            {
+              "id": "sc36",
+              "label": "If tubal: tubal consent printed in chart"
+            }
           ]
         },
         {
           "id": "anesthesia",
           "title": "Anesthesia",
-          "icon": "💉",
+          "icon": "solar:syringe-bold-duotone",
           "subtitle": "Coordinate with anesthesia",
           "accent": "sky",
           "items": [
-            { "id": "sc37", "label": "Anesthesia at BS @ {{blank:time}}" },
-            { "id": "sc38", "label": "Sign anesthesia consent" },
-            { "id": "sc39", "label": "Orders: anesthesia orders in" },
-            { "id": "sc40", "label": "Pull anesthesia meds (bicitra etc.)" }
+            {
+              "id": "sc37",
+              "label": "Anesthesia at BS @ {{blank:time}}"
+            },
+            {
+              "id": "sc38",
+              "label": "Sign anesthesia consent"
+            },
+            {
+              "id": "sc39",
+              "label": "Orders: anesthesia orders in"
+            },
+            {
+              "id": "sc40",
+              "label": "Pull anesthesia meds (bicitra etc.)"
+            }
           ]
         }
       ]
@@ -724,122 +1542,323 @@
         {
           "id": "decision-calls",
           "title": "Decision & Calls",
-          "icon": "⚡",
+          "icon": "solar:bolt-bold-duotone",
           "subtitle": "First steps",
           "accent": "pink",
           "items": [
-            { "id": "ec1", "label": "Decision for C/S: {{blank:time}}" },
-            { "id": "ec2", "label": "Call main OR — for RNFA" },
-            { "id": "ec3", "label": "Call Anesthesia" },
-            { "id": "ec4", "label": "Orders: search provider favorites" },
-            { "id": "ec5", "label": "Order: anesthesia orders in" }
+            {
+              "id": "ec1",
+              "label": "Decision for C/S: {{blank:time}}"
+            },
+            {
+              "id": "ec2",
+              "label": "Call main OR — for RNFA"
+            },
+            {
+              "id": "ec3",
+              "label": "Call Anesthesia"
+            },
+            {
+              "id": "ec4",
+              "label": "Orders: search provider favorites"
+            },
+            {
+              "id": "ec5",
+              "label": "Order: anesthesia orders in"
+            }
           ]
         },
         {
           "id": "documentation",
           "title": "Documentation",
-          "icon": "📋",
+          "icon": "solar:clipboard-list-bold-duotone",
           "subtitle": "Adhocs & consents",
           "accent": "lavender",
           "items": [
-            { "id": "ec6", "label": "Adhoc: Pre-Op checklist and STOPBANG" },
-            { "id": "ec7", "label": "POC IntraOp & PP" },
-            { "id": "ec8", "label": "Sign C/S consent form" },
-            { "id": "ec9", "label": "NPO since {{blank:time}}" }
+            {
+              "id": "ec6",
+              "label": "Adhoc: Pre-Op checklist and STOPBANG"
+            },
+            {
+              "id": "ec7",
+              "label": "POC IntraOp & PP"
+            },
+            {
+              "id": "ec8",
+              "label": "Sign C/S consent form"
+            },
+            {
+              "id": "ec9",
+              "label": "NPO since {{blank:time}}"
+            }
           ]
         },
         {
           "id": "pre-surgery-prep",
           "title": "Pre-Surgery Prep",
-          "icon": "🩺",
+          "icon": "solar:stethoscope-bold-duotone",
           "subtitle": "Patient ready for OR",
           "accent": "peach",
           "items": [
-            { "id": "ec10", "label": "VS" },
-            { "id": "ec11", "label": "Clip" },
-            { "id": "ec12", "label": "Chlorhexidine wipes" },
-            { "id": "ec13", "label": "SCDs on" },
-            { "id": "ec14", "label": "Socks on" },
-            { "id": "ec15", "label": "Start fluid bolus" },
-            { "id": "ec16", "label": "Pull anesthesia meds" },
-            { "id": "ec17", "label": "Pull OR abx and pitocin → prime" },
-            { "id": "ec18", "label": "Anesthesia orders in?" },
-            { "id": "ec19", "label": "Anesthesia at BS @ {{blank:time}}" },
-            { "id": "ec20", "label": "Sign anesthesia consent" },
-            { "id": "ec21", "label": "Give Bicitra" },
-            { "id": "ec22", "label": "First instrument count (all)" },
-            { "id": "ec23", "label": "Turn on suction machine / prep" }
+            {
+              "id": "ec10",
+              "label": "VS"
+            },
+            {
+              "id": "ec11",
+              "label": "Clip"
+            },
+            {
+              "id": "ec12",
+              "label": "Chlorhexidine wipes"
+            },
+            {
+              "id": "ec13",
+              "label": "SCDs on"
+            },
+            {
+              "id": "ec14",
+              "label": "Socks on"
+            },
+            {
+              "id": "ec15",
+              "label": "Start fluid bolus"
+            },
+            {
+              "id": "ec16",
+              "label": "Pull anesthesia meds"
+            },
+            {
+              "id": "ec17",
+              "label": "Pull OR abx and pitocin → prime"
+            },
+            {
+              "id": "ec18",
+              "label": "Anesthesia orders in?"
+            },
+            {
+              "id": "ec19",
+              "label": "Anesthesia at BS @ {{blank:time}}"
+            },
+            {
+              "id": "ec20",
+              "label": "Sign anesthesia consent"
+            },
+            {
+              "id": "ec21",
+              "label": "Give Bicitra"
+            },
+            {
+              "id": "ec22",
+              "label": "First instrument count (all)"
+            },
+            {
+              "id": "ec23",
+              "label": "Turn on suction machine / prep"
+            }
           ]
         },
         {
           "id": "in-or-setup",
           "title": "In OR — Setup",
-          "icon": "🏥",
+          "icon": "solar:hospital-bold-duotone",
           "subtitle": "Once in operating room",
           "accent": "sky",
           "items": [
-            { "id": "ec24", "label": "BP / Pulse Ox / EKG on (pt sitting)" },
-            { "id": "ec25", "label": "Timeout for Spinal @ {{blank:time}}" },
-            { "id": "ec26", "label": "Lay down → wedge right hip!" },
-            { "id": "ec27", "label": "FHT" },
-            { "id": "ec28", "label": "Connect SCDs" },
-            { "id": "ec29", "label": "Place grounding pad (right thigh)" },
-            { "id": "ec30", "label": "Place Foley catheter" },
-            { "id": "ec31", "label": "Blanket & strap" },
-            { "id": "ec32", "label": "Clean abdomen: 1st sponge stick belly (30 sec over incision area) and then go up to just below chest. 2nd sponge over legs and then down perineum" },
-            { "id": "ec33", "label": "Set 3 min timer" },
-            { "id": "ec34", "label": "TIMEOUT at HOB" },
-            { "id": "ec35", "label": "Turn on ESU (bovii) & suction machine & plug in ESU and suction tubing" },
-            { "id": "ec36", "label": "Write info on white board (Surgeon, RNFA, Surgical tech, Nursery RN, NRT)" },
-            { "id": "ec37", "label": "Pour sterile water and sterile NS onto table" },
-            { "id": "ec38", "label": "Do Counts, sponges, and QBL — look at number right before placenta is delivered and make a note" }
+            {
+              "id": "ec24",
+              "label": "BP / Pulse Ox / EKG on (pt sitting)"
+            },
+            {
+              "id": "ec25",
+              "label": "Timeout for Spinal @ {{blank:time}}"
+            },
+            {
+              "id": "ec26",
+              "label": "Lay down → wedge right hip!"
+            },
+            {
+              "id": "ec27",
+              "label": "FHT"
+            },
+            {
+              "id": "ec28",
+              "label": "Connect SCDs"
+            },
+            {
+              "id": "ec29",
+              "label": "Place grounding pad (right thigh)"
+            },
+            {
+              "id": "ec30",
+              "label": "Place Foley catheter"
+            },
+            {
+              "id": "ec31",
+              "label": "Blanket & strap"
+            },
+            {
+              "id": "ec32",
+              "label": "Clean abdomen: 1st sponge stick belly (30 sec over incision area) and then go up to just below chest. 2nd sponge over legs and then down perineum"
+            },
+            {
+              "id": "ec33",
+              "label": "Set 3 min timer"
+            },
+            {
+              "id": "ec34",
+              "label": "TIMEOUT at HOB"
+            },
+            {
+              "id": "ec35",
+              "label": "Turn on ESU (bovii) & suction machine & plug in ESU and suction tubing"
+            },
+            {
+              "id": "ec36",
+              "label": "Write info on white board (Surgeon, RNFA, Surgical tech, Nursery RN, NRT)"
+            },
+            {
+              "id": "ec37",
+              "label": "Pour sterile water and sterile NS onto table"
+            },
+            {
+              "id": "ec38",
+              "label": "Do Counts, sponges, and QBL — look at number right before placenta is delivered and make a note"
+            }
           ]
         },
         {
           "id": "timing-charting",
           "title": "Timing & Charting",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "OR documentation",
           "accent": "mint",
           "items": [
-            { "id": "ec39", "label": "Initial Count (ALL) @ {{blank:time}}" },
-            { "id": "ec40", "label": "Packaging label: {{blank:label}}" },
-            { "id": "ec41", "label": "In OR @ {{blank:time}} (same as anesthesia start)" },
-            { "id": "ec42", "label": "Jilian Date / sterilizer load #: {{blank:load}}" },
-            { "id": "ec43", "label": "Grounding pad # (1059030): {{blank:pad}}" },
-            { "id": "ec44", "label": "Spinal time out @ {{blank:time}}" },
-            { "id": "ec45", "label": "FHT @ {{blank:time}}" },
-            { "id": "ec46", "label": "Foley @ {{blank:time}}" },
-            { "id": "ec47", "label": "C/S TIMEOUT @ {{blank:time}}" },
-            { "id": "ec48", "label": "Skin Incision @ {{blank:time}}" },
-            { "id": "ec49", "label": "Amniotomy @ {{blank:time}} — CLR / MEC" },
-            { "id": "ec50", "label": "Delivery time @ {{blank:time}}" },
-            { "id": "ec51", "label": "Placenta @ {{blank:time}}" },
-            { "id": "ec52", "label": "Count 2 (uterine closure - soft): {{blank:time}}" },
-            { "id": "ec53", "label": "Count 3 (uterus back in / fascia - ALL): {{blank:time}}" },
-            { "id": "ec54", "label": "Final count (skin closure - soft): {{blank:time}}" },
-            { "id": "ec55", "label": "Surgery end (dressing on) @ {{blank:time}}" },
-            { "id": "ec56", "label": "Universal protocol debrief — specimens, QBL, counts" },
-            { "id": "ec57", "label": "Urine output: {{blank:urine}}" },
-            { "id": "ec58", "label": "QBL: {{blank:QBL}}" },
-            { "id": "ec59", "label": "Out of OR @ {{blank:time}} (transfer time)" },
-            { "id": "ec60", "label": "Keep instrument packaging" },
-            { "id": "ec61", "label": "IntraOp flowsheet (in room time to chart at) → 5 elements + rest" },
-            { "id": "ec62", "label": "Result copy to baby record" },
-            { "id": "ec63", "label": "Med responses (MAR)" },
-            { "id": "ec64", "label": "Account for anesthesia meds in MAR" }
+            {
+              "id": "ec39",
+              "label": "Initial Count (ALL) @ {{blank:time}}"
+            },
+            {
+              "id": "ec40",
+              "label": "Packaging label: {{blank:label}}"
+            },
+            {
+              "id": "ec41",
+              "label": "In OR @ {{blank:time}} (same as anesthesia start)"
+            },
+            {
+              "id": "ec42",
+              "label": "Jilian Date / sterilizer load #: {{blank:load}}"
+            },
+            {
+              "id": "ec43",
+              "label": "Grounding pad # (1059030): {{blank:pad}}"
+            },
+            {
+              "id": "ec44",
+              "label": "Spinal time out @ {{blank:time}}"
+            },
+            {
+              "id": "ec45",
+              "label": "FHT @ {{blank:time}}"
+            },
+            {
+              "id": "ec46",
+              "label": "Foley @ {{blank:time}}"
+            },
+            {
+              "id": "ec47",
+              "label": "C/S TIMEOUT @ {{blank:time}}"
+            },
+            {
+              "id": "ec48",
+              "label": "Skin Incision @ {{blank:time}}"
+            },
+            {
+              "id": "ec49",
+              "label": "Amniotomy @ {{blank:time}} — CLR / MEC"
+            },
+            {
+              "id": "ec50",
+              "label": "Delivery time @ {{blank:time}}"
+            },
+            {
+              "id": "ec51",
+              "label": "Placenta @ {{blank:time}}"
+            },
+            {
+              "id": "ec52",
+              "label": "Count 2 (uterine closure - soft): {{blank:time}}"
+            },
+            {
+              "id": "ec53",
+              "label": "Count 3 (uterus back in / fascia - ALL): {{blank:time}}"
+            },
+            {
+              "id": "ec54",
+              "label": "Final count (skin closure - soft): {{blank:time}}"
+            },
+            {
+              "id": "ec55",
+              "label": "Surgery end (dressing on) @ {{blank:time}}"
+            },
+            {
+              "id": "ec56",
+              "label": "Universal protocol debrief — specimens, QBL, counts"
+            },
+            {
+              "id": "ec57",
+              "label": "Urine output: {{blank:urine}}"
+            },
+            {
+              "id": "ec58",
+              "label": "QBL: {{blank:QBL}}"
+            },
+            {
+              "id": "ec59",
+              "label": "Out of OR @ {{blank:time}} (transfer time)"
+            },
+            {
+              "id": "ec60",
+              "label": "Keep instrument packaging"
+            },
+            {
+              "id": "ec61",
+              "label": "IntraOp flowsheet (in room time to chart at) → 5 elements + rest"
+            },
+            {
+              "id": "ec62",
+              "label": "Result copy to baby record"
+            },
+            {
+              "id": "ec63",
+              "label": "Med responses (MAR)"
+            },
+            {
+              "id": "ec64",
+              "label": "Account for anesthesia meds in MAR"
+            }
           ]
         },
         {
           "id": "reference",
           "title": "Reference",
-          "icon": "📌",
+          "icon": "solar:pin-bold-duotone",
           "subtitle": "Quick facts",
           "accent": "butter",
           "items": [
-            { "id": "ec65", "label": "**OB OR:** 10509030" },
-            { "id": "ec66", "label": "**Dressings:** Primapore (white), Dermabond primeo (clear)" },
-            { "id": "ec67", "label": "**Soft stuff:** Laps, Sutures, Blades, Bovii, Syringe, CBT, Vacutainer, bulb syringe" }
+            {
+              "id": "ec65",
+              "label": "**OB OR:** 10509030"
+            },
+            {
+              "id": "ec66",
+              "label": "**Dressings:** Primapore (white), Dermabond primeo (clear)"
+            },
+            {
+              "id": "ec67",
+              "label": "**Soft stuff:** Laps, Sutures, Blades, Bovii, Syringe, CBT, Vacutainer, bulb syringe"
+            }
           ]
         }
       ]
@@ -861,90 +1880,234 @@
           "subtitle": "PACU arrival",
           "accent": "mint",
           "items": [
-            { "id": "p1", "label": "PACU arrival @ {{blank:time}}" },
-            { "id": "p2", "label": "PACU end @ {{blank:time}}" },
-            { "id": "p3", "label": "Anesthesia end @ {{blank:time}} (document times in same column for calculation)" },
-            { "id": "p4", "label": "Physician immediate post-op note in Cerner (if not, may not d/c from PACU — call MD)" },
-            { "id": "p5", "label": "Place EKG / VS (all) + cont pulse Ox" },
-            { "id": "p6", "label": "Check dermatome with ice glove" },
-            { "id": "p7", "label": "Print EKG strip and tape to pink piece of paper" }
+            {
+              "id": "p1",
+              "label": "PACU arrival @ {{blank:time}}"
+            },
+            {
+              "id": "p2",
+              "label": "PACU end @ {{blank:time}}"
+            },
+            {
+              "id": "p3",
+              "label": "Anesthesia end @ {{blank:time}} (document times in same column for calculation)"
+            },
+            {
+              "id": "p4",
+              "label": "Physician immediate post-op note in Cerner (if not, may not d/c from PACU — call MD)"
+            },
+            {
+              "id": "p5",
+              "label": "Place EKG / VS (all) + cont pulse Ox"
+            },
+            {
+              "id": "p6",
+              "label": "Check dermatome with ice glove"
+            },
+            {
+              "id": "p7",
+              "label": "Print EKG strip and tape to pink piece of paper"
+            }
           ]
         },
         {
           "id": "continued-care-freqs",
           "title": "Continued Care Frequencies",
-          "icon": "⏱",
+          "icon": "solar:stopwatch-bold-duotone",
           "subtitle": "Strict timing protocols",
           "accent": "pink",
           "items": [
-            { "id": "p8", "label": "**BP / pulse / RR / extremity movement:** q5min x4 → q15min for rest of stay" },
-            { "id": "p9", "label": "**Pain:** q15min" },
-            { "id": "p10", "label": "**Fundal / lochia:** q15min x8 (2hrs), q1h once, q4hrs to 24hr, q shift to d/c" },
-            { "id": "p11", "label": "**Check incision:** q15min" },
-            { "id": "p12", "label": "**Assess EKG strip:** q15min" }
+            {
+              "id": "p8",
+              "label": "**BP / pulse / RR / extremity movement:** q5min x4 → q15min for rest of stay"
+            },
+            {
+              "id": "p9",
+              "label": "**Pain:** q15min"
+            },
+            {
+              "id": "p10",
+              "label": "**Fundal / lochia:** q15min x8 (2hrs), q1h once, q4hrs to 24hr, q shift to d/c"
+            },
+            {
+              "id": "p11",
+              "label": "**Check incision:** q15min"
+            },
+            {
+              "id": "p12",
+              "label": "**Assess EKG strip:** q15min"
+            }
           ]
         },
         {
           "id": "assessment-times",
           "title": "Assessment Times",
-          "icon": "🕐",
+          "icon": "solar:clock-circle-bold-duotone",
           "subtitle": "Mark off as completed",
           "accent": "lavender",
           "items": [
-            { "id": "p13", "label": "Initial (ALL) @ {{blank:time}}" },
-            { "id": "p14", "label": "5min @ {{blank:time}}" },
-            { "id": "p15", "label": "10min @ {{blank:time}}" },
-            { "id": "p16", "label": "15min (ALL) @ {{blank:time}}" },
-            { "id": "p17", "label": "20min @ {{blank:time}}" },
-            { "id": "p18", "label": "30min + meds (ALL) @ {{blank:time}}" },
-            { "id": "p19", "label": "45min @ {{blank:time}}" },
-            { "id": "p20", "label": "Tylenol & Toradol" },
-            { "id": "p21", "label": "1hr @ {{blank:time}}" },
-            { "id": "p22", "label": "D/C assessment" }
+            {
+              "id": "p13",
+              "label": "Initial (ALL) @ {{blank:time}}"
+            },
+            {
+              "id": "p14",
+              "label": "5min @ {{blank:time}}"
+            },
+            {
+              "id": "p15",
+              "label": "10min @ {{blank:time}}"
+            },
+            {
+              "id": "p16",
+              "label": "15min (ALL) @ {{blank:time}}"
+            },
+            {
+              "id": "p17",
+              "label": "20min @ {{blank:time}}"
+            },
+            {
+              "id": "p18",
+              "label": "30min + meds (ALL) @ {{blank:time}}"
+            },
+            {
+              "id": "p19",
+              "label": "45min @ {{blank:time}}"
+            },
+            {
+              "id": "p20",
+              "label": "Tylenol & Toradol"
+            },
+            {
+              "id": "p21",
+              "label": "1hr @ {{blank:time}}"
+            },
+            {
+              "id": "p22",
+              "label": "D/C assessment"
+            }
           ]
         },
         {
           "id": "assessment-categories",
           "title": "Assessment Categories",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Chart these in PACU",
           "accent": "sky",
           "items": [
-            { "id": "p23", "label": "Pain (pain assess MCH)" },
-            { "id": "p24", "label": "Sedation & dermatome level (epidural neuro assessment)" },
-            { "id": "p25", "label": "Neuro assess & neuro s/s (neuro MCH)" },
-            { "id": "p26", "label": "Richmond scale & alderete (sedation delirium)" },
-            { "id": "p27", "label": "Cardiovascular assess, ECG, alarm parameters" },
-            { "id": "p28", "label": "RR rate and sounds (respiratory)" },
-            { "id": "p29", "label": "Musculoskeletal, SCD" },
-            { "id": "p30", "label": "GI s/s, sounds" },
-            { "id": "p31", "label": "GU color description, foley draining to gravity" },
-            { "id": "p32", "label": "Postpartum + QBL" },
-            { "id": "p33", "label": "Skin color, temp, turgor, incision (skin/wound care MCH)" },
-            { "id": "p34", "label": "Support person info (psychological)" }
+            {
+              "id": "p23",
+              "label": "Pain (pain assess MCH)"
+            },
+            {
+              "id": "p24",
+              "label": "Sedation & dermatome level (epidural neuro assessment)"
+            },
+            {
+              "id": "p25",
+              "label": "Neuro assess & neuro s/s (neuro MCH)"
+            },
+            {
+              "id": "p26",
+              "label": "Richmond scale & alderete (sedation delirium)"
+            },
+            {
+              "id": "p27",
+              "label": "Cardiovascular assess, ECG, alarm parameters"
+            },
+            {
+              "id": "p28",
+              "label": "RR rate and sounds (respiratory)"
+            },
+            {
+              "id": "p29",
+              "label": "Musculoskeletal, SCD"
+            },
+            {
+              "id": "p30",
+              "label": "GI s/s, sounds"
+            },
+            {
+              "id": "p31",
+              "label": "GU color description, foley draining to gravity"
+            },
+            {
+              "id": "p32",
+              "label": "Postpartum + QBL"
+            },
+            {
+              "id": "p33",
+              "label": "Skin color, temp, turgor, incision (skin/wound care MCH)"
+            },
+            {
+              "id": "p34",
+              "label": "Support person info (psychological)"
+            }
           ]
         },
         {
           "id": "orders-pocs",
           "title": "Orders & POCs",
-          "icon": "💻",
+          "icon": "solar:laptop-minimalistic-bold-duotone",
           "subtitle": "Cerner management",
           "accent": "peach",
           "items": [
-            { "id": "p35", "label": "Activate PACU orders" },
-            { "id": "p36", "label": "Activate POC" },
-            { "id": "p37", "label": "Chart ALL Fundus / lochia (postpartum)" },
-            { "id": "p38", "label": "Chart ALL incision, dressing & drainage (wounds)" },
-            { "id": "p39", "label": "Chart ALL VS" },
-            { "id": "p40", "label": "Chart ALL dermatome (epidural neuro assessment)" },
-            { "id": "p41", "label": "Chart ALL pain (pain assessment MCH)" },
-            { "id": "p42", "label": "EKG strip q15" },
-            { "id": "p43", "label": "Medication response in MAR" },
-            { "id": "p44", "label": "Document in plan C/S intra-op POC" },
-            { "id": "p45", "label": "Document in plan & d/c PACU POC" },
-            { "id": "p46", "label": "D/C Preop orders" },
-            { "id": "p47", "label": "D/C PACU orders" },
-            { "id": "p48", "label": "Keep neuraxial orders for 24hrs" }
+            {
+              "id": "p35",
+              "label": "Activate PACU orders"
+            },
+            {
+              "id": "p36",
+              "label": "Activate POC"
+            },
+            {
+              "id": "p37",
+              "label": "Chart ALL Fundus / lochia (postpartum)"
+            },
+            {
+              "id": "p38",
+              "label": "Chart ALL incision, dressing & drainage (wounds)"
+            },
+            {
+              "id": "p39",
+              "label": "Chart ALL VS"
+            },
+            {
+              "id": "p40",
+              "label": "Chart ALL dermatome (epidural neuro assessment)"
+            },
+            {
+              "id": "p41",
+              "label": "Chart ALL pain (pain assessment MCH)"
+            },
+            {
+              "id": "p42",
+              "label": "EKG strip q15"
+            },
+            {
+              "id": "p43",
+              "label": "Medication response in MAR"
+            },
+            {
+              "id": "p44",
+              "label": "Document in plan C/S intra-op POC"
+            },
+            {
+              "id": "p45",
+              "label": "Document in plan & d/c PACU POC"
+            },
+            {
+              "id": "p46",
+              "label": "D/C Preop orders"
+            },
+            {
+              "id": "p47",
+              "label": "D/C PACU orders"
+            },
+            {
+              "id": "p48",
+              "label": "Keep neuraxial orders for 24hrs"
+            }
           ]
         },
         {
@@ -954,10 +2117,22 @@
           "subtitle": "Final tasks",
           "accent": "butter",
           "items": [
-            { "id": "p49", "label": "Binder: top 4 tasks to do (binder checklist / correct documentation)" },
-            { "id": "p50", "label": "Delivery book" },
-            { "id": "p51", "label": "ADLs: pericare, bed locked, call light within reach, side rails up, alarms on, emergency equip available, ambu bag available, suction equip" },
-            { "id": "p52", "label": "Remember: do two assessments before d/c" }
+            {
+              "id": "p49",
+              "label": "Binder: top 4 tasks to do (binder checklist / correct documentation)"
+            },
+            {
+              "id": "p50",
+              "label": "Delivery book"
+            },
+            {
+              "id": "p51",
+              "label": "ADLs: pericare, bed locked, call light within reach, side rails up, alarms on, emergency equip available, ambu bag available, suction equip"
+            },
+            {
+              "id": "p52",
+              "label": "Remember: do two assessments before d/c"
+            }
           ]
         }
       ]
@@ -978,54 +2153,117 @@
           "subtitle": "Maternal care assumption",
           "accent": "pink",
           "items": [
-            { "id": "pp1", "label": "Care assumed" },
-            { "id": "pp2", "label": "Review pt pharmacy" },
-            { "id": "pp3", "label": "Check orders → d/c order in, if applicable" },
-            { "id": "pp4", "label": "POC — document in plan (initiate if needed)" },
-            { "id": "pp5", "label": "MAR (due and responses)" },
-            { "id": "pp6", "label": "Result copy" },
-            { "id": "pp7", "label": "Check IV" },
-            { "id": "pp8", "label": "Assessment" },
-            { "id": "pp9", "label": "Adhoc: Maternal shift screen adhoc" },
-            { "id": "pp10", "label": "Education (adhoc: Mat readiness for d/c, maternal)" }
+            {
+              "id": "pp1",
+              "label": "Care assumed"
+            },
+            {
+              "id": "pp2",
+              "label": "Review pt pharmacy"
+            },
+            {
+              "id": "pp3",
+              "label": "Check orders → d/c order in, if applicable"
+            },
+            {
+              "id": "pp4",
+              "label": "POC — document in plan (initiate if needed)"
+            },
+            {
+              "id": "pp5",
+              "label": "MAR (due and responses)"
+            },
+            {
+              "id": "pp6",
+              "label": "Result copy"
+            },
+            {
+              "id": "pp7",
+              "label": "Check IV"
+            },
+            {
+              "id": "pp8",
+              "label": "Assessment"
+            },
+            {
+              "id": "pp9",
+              "label": "Adhoc: Maternal shift screen adhoc"
+            },
+            {
+              "id": "pp10",
+              "label": "Education (adhoc: Mat readiness for d/c, maternal)"
+            }
           ]
         },
         {
           "id": "mom-meds",
           "title": "Mom — Meds",
-          "icon": "💊",
+          "icon": "solar:pills-bold-duotone",
           "subtitle": "MAR responses",
           "accent": "lavender",
           "items": [
-            { "id": "pp13", "label": "{{blank:med name:170}} (MAR response)" },
-            { "id": "pp14", "label": "{{blank:med name:170}} (MAR response)" },
-            { "id": "pp15", "label": "{{blank:med name:170}} (MAR response)" },
-            { "id": "pp16", "label": "{{blank:med name:170}} (MAR response)" }
+            {
+              "id": "pp13",
+              "label": "{{blank:med name:170}} (MAR response)"
+            },
+            {
+              "id": "pp14",
+              "label": "{{blank:med name:170}} (MAR response)"
+            },
+            {
+              "id": "pp15",
+              "label": "{{blank:med name:170}} (MAR response)"
+            },
+            {
+              "id": "pp16",
+              "label": "{{blank:med name:170}} (MAR response)"
+            }
           ]
         },
         {
           "id": "mom-vs-fundals",
           "title": "Mom — VS & Fundals Q4H",
-          "icon": "📊",
+          "icon": "solar:chart-square-bold-duotone",
           "subtitle": "Check orders for after 24hrs",
           "accent": "peach",
           "items": [
-            { "id": "pp17", "label": "{{blank:time:120}}" },
-            { "id": "pp18", "label": "{{blank:time:120}}" },
-            { "id": "pp19", "label": "{{blank:time:120}}" },
-            { "id": "pp20", "label": "{{blank:time:120}}" }
+            {
+              "id": "pp17",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp18",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp19",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp20",
+              "label": "{{blank:time:120}}"
+            }
           ]
         },
         {
           "id": "mom-misc",
           "title": "Mom — Misc",
-          "icon": "📝",
+          "icon": "solar:notes-bold-duotone",
           "subtitle": "Ongoing tasks",
           "accent": "mint",
           "items": [
-            { "id": "pp21", "label": "BF / pumping times" },
-            { "id": "pp22", "label": "Stool / void" },
-            { "id": "pp23", "label": "SCDs, Dangle (6-8hrs), Ambulation, Foley (BR independently), pulse ox 24hrs after C/S" }
+            {
+              "id": "pp21",
+              "label": "BF / pumping times"
+            },
+            {
+              "id": "pp22",
+              "label": "Stool / void"
+            },
+            {
+              "id": "pp23",
+              "label": "SCDs, Dangle (6-8hrs), Ambulation, Foley (BR independently), pulse ox 24hrs after C/S"
+            }
           ]
         },
         {
@@ -1035,17 +2273,50 @@
           "subtitle": "Newborn care assumption",
           "accent": "butter",
           "items": [
-            { "id": "pp24", "label": "Care assumed" },
-            { "id": "pp25", "label": "Check orders — d/c order in?" },
-            { "id": "pp26", "label": "POC — document in plan" },
-            { "id": "pp27", "label": "Result copy" },
-            { "id": "pp28", "label": "Weights (2-6am)" },
-            { "id": "pp29", "label": "TCB (2-6am)" },
-            { "id": "pp30", "label": "TCB 4hr prior to d/c" },
-            { "id": "pp31", "label": "Jaundice graph / risk zone" },
-            { "id": "pp32", "label": "Education (adhoc: Mat readiness for d/c, infant / nicu)" },
-            { "id": "pp33", "label": "Facesheet out for ped" },
-            { "id": "pp34", "label": "Newborn assessment" }
+            {
+              "id": "pp24",
+              "label": "Care assumed"
+            },
+            {
+              "id": "pp25",
+              "label": "Check orders — d/c order in?"
+            },
+            {
+              "id": "pp26",
+              "label": "POC — document in plan"
+            },
+            {
+              "id": "pp27",
+              "label": "Result copy"
+            },
+            {
+              "id": "pp28",
+              "label": "Weights (2-6am)"
+            },
+            {
+              "id": "pp29",
+              "label": "TCB (2-6am)"
+            },
+            {
+              "id": "pp30",
+              "label": "TCB 4hr prior to d/c"
+            },
+            {
+              "id": "pp31",
+              "label": "Jaundice graph / risk zone"
+            },
+            {
+              "id": "pp32",
+              "label": "Education (adhoc: Mat readiness for d/c, infant / nicu)"
+            },
+            {
+              "id": "pp33",
+              "label": "Facesheet out for ped"
+            },
+            {
+              "id": "pp34",
+              "label": "Newborn assessment"
+            }
           ]
         },
         {
@@ -1055,10 +2326,22 @@
           "subtitle": "At 4hrs, then Q4H x24hrs, then q shift",
           "accent": "sky",
           "items": [
-            { "id": "pp35", "label": "{{blank:time:120}}" },
-            { "id": "pp36", "label": "{{blank:time:120}}" },
-            { "id": "pp37", "label": "{{blank:time:120}}" },
-            { "id": "pp38", "label": "{{blank:time:120}}" }
+            {
+              "id": "pp35",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp36",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp37",
+              "label": "{{blank:time:120}}"
+            },
+            {
+              "id": "pp38",
+              "label": "{{blank:time:120}}"
+            }
           ]
         },
         {
@@ -1068,24 +2351,51 @@
           "subtitle": "Track all feeds",
           "accent": "pink",
           "items": [
-            { "id": "pp39", "label": "Feed: {{blank:time:120}}" },
-            { "id": "pp40", "label": "Feed: {{blank:time:120}}" },
-            { "id": "pp41", "label": "Feed: {{blank:time:120}}" },
-            { "id": "pp42", "label": "Feed: {{blank:time:120}}" },
-            { "id": "pp43", "label": "Voids: {{blank:count}}" },
-            { "id": "pp44", "label": "Stools: {{blank:count}}" }
+            {
+              "id": "pp39",
+              "label": "Feed: {{blank:time:120}}"
+            },
+            {
+              "id": "pp40",
+              "label": "Feed: {{blank:time:120}}"
+            },
+            {
+              "id": "pp41",
+              "label": "Feed: {{blank:time:120}}"
+            },
+            {
+              "id": "pp42",
+              "label": "Feed: {{blank:time:120}}"
+            },
+            {
+              "id": "pp43",
+              "label": "Voids: {{blank:count}}"
+            },
+            {
+              "id": "pp44",
+              "label": "Stools: {{blank:count}}"
+            }
           ]
         },
         {
           "id": "24-36-hr",
           "title": "24-36hr Care",
-          "icon": "📋",
+          "icon": "solar:clipboard-list-bold-duotone",
           "subtitle": "Brain sheet + check orders",
           "accent": "lavender",
           "items": [
-            { "id": "pp45", "label": "PKU newborn screen completed" },
-            { "id": "pp46", "label": "CCHD — R wrist / R foot" },
-            { "id": "pp47", "label": "Hearing screen" }
+            {
+              "id": "pp45",
+              "label": "PKU newborn screen completed"
+            },
+            {
+              "id": "pp46",
+              "label": "CCHD — R wrist / R foot"
+            },
+            {
+              "id": "pp47",
+              "label": "Hearing screen"
+            }
           ]
         }
       ]
@@ -1106,29 +2416,71 @@
           "subtitle": "Cerner items to complete",
           "accent": "pink",
           "items": [
-            { "id": "d1", "label": "Discharge order (2 wk f/u EDPS ≥10 & 3-7 day f/u for HTN patients)" },
-            { "id": "d2", "label": "EPDS score, check it is charted in iview" },
-            { "id": "d3", "label": "Interdisciplinary readiness for discharge" },
-            { "id": "d4", "label": "Adhoc: Maternal sepsis screen (within 2hrs of d/c)" },
-            { "id": "d5", "label": "Discharge workflow" },
-            { "id": "d6", "label": "Follow up appt documented (2 wk for EDPS ≥10 & 3-7 day for HTN)" },
-            { "id": "d7", "label": "Nursing discharge summary" },
-            { "id": "d8", "label": "Discharge teaching (why to call MD / when to go to ED)" },
-            { "id": "d9", "label": "Depart forms signed" }
+            {
+              "id": "d1",
+              "label": "Discharge order (2 wk f/u EDPS ≥10 & 3-7 day f/u for HTN patients)"
+            },
+            {
+              "id": "d2",
+              "label": "EPDS score, check it is charted in iview"
+            },
+            {
+              "id": "d3",
+              "label": "Interdisciplinary readiness for discharge"
+            },
+            {
+              "id": "d4",
+              "label": "Adhoc: Maternal sepsis screen (within 2hrs of d/c)"
+            },
+            {
+              "id": "d5",
+              "label": "Discharge workflow"
+            },
+            {
+              "id": "d6",
+              "label": "Follow up appt documented (2 wk for EDPS ≥10 & 3-7 day for HTN)"
+            },
+            {
+              "id": "d7",
+              "label": "Nursing discharge summary"
+            },
+            {
+              "id": "d8",
+              "label": "Discharge teaching (why to call MD / when to go to ED)"
+            },
+            {
+              "id": "d9",
+              "label": "Depart forms signed"
+            }
           ]
         },
         {
           "id": "maternal-patient-care",
           "title": "Maternal — Patient Care",
-          "icon": "🩺",
+          "icon": "solar:stethoscope-bold-duotone",
           "subtitle": "Before they leave",
           "accent": "lavender",
           "items": [
-            { "id": "d10", "label": "Immunizations (if applicable)" },
-            { "id": "d11", "label": "Birth certificate" },
-            { "id": "d12", "label": "Teaching videos" },
-            { "id": "d13", "label": "Paper booklet for home" },
-            { "id": "d14", "label": "VS (within 2hrs of d/c)" }
+            {
+              "id": "d10",
+              "label": "Immunizations (if applicable)"
+            },
+            {
+              "id": "d11",
+              "label": "Birth certificate"
+            },
+            {
+              "id": "d12",
+              "label": "Teaching videos"
+            },
+            {
+              "id": "d13",
+              "label": "Paper booklet for home"
+            },
+            {
+              "id": "d14",
+              "label": "VS (within 2hrs of d/c)"
+            }
           ]
         },
         {
@@ -1138,11 +2490,26 @@
           "subtitle": "Wrap-up tasks",
           "accent": "mint",
           "items": [
-            { "id": "d15", "label": "Result copy mom info into baby chart" },
-            { "id": "d16", "label": "Close pregnancy: MCHS - triage - close pregnancy" },
-            { "id": "d17", "label": "Break relationship: 1. Mom click → 2. two people: WH manage fam relation → 3. Click baby, \"okay\"" },
-            { "id": "d18", "label": "Order notification to Admitting OB, discharge date / time" },
-            { "id": "d19", "label": "Papers clipped together and placed in medical records bin" }
+            {
+              "id": "d15",
+              "label": "Result copy mom info into baby chart"
+            },
+            {
+              "id": "d16",
+              "label": "Close pregnancy: MCHS - triage - close pregnancy"
+            },
+            {
+              "id": "d17",
+              "label": "Break relationship: 1. Mom click → 2. two people: WH manage fam relation → 3. Click baby, \"okay\""
+            },
+            {
+              "id": "d18",
+              "label": "Order notification to Admitting OB, discharge date / time"
+            },
+            {
+              "id": "d19",
+              "label": "Papers clipped together and placed in medical records bin"
+            }
           ]
         },
         {
@@ -1152,21 +2519,66 @@
           "subtitle": "Verify completion",
           "accent": "butter",
           "items": [
-            { "id": "d20", "label": "Discharge orders" },
-            { "id": "d21", "label": "B/P" },
-            { "id": "d22", "label": "Hearing Screen" },
-            { "id": "d23", "label": "NBS — PKU" },
-            { "id": "d24", "label": "CCHD Screen" },
-            { "id": "d25", "label": "Car seat challenge as needed" },
-            { "id": "d26", "label": "Interdisciplinary readiness for discharge" },
-            { "id": "d27", "label": "Topic: jaundice teaching method (printed & verbal)" },
-            { "id": "d28", "label": "Newborn screening tracking (date PKU completed)" },
-            { "id": "d29", "label": "CCHD screening date & results" },
-            { "id": "d30", "label": "Nursing discharge summary" },
-            { "id": "d31", "label": "Follow up appt documented" },
-            { "id": "d32", "label": "Patient education (bulb syringe, hyperbillirubinemia)" },
-            { "id": "d33", "label": "Discharge teaching" },
-            { "id": "d34", "label": "Depart forms signed" }
+            {
+              "id": "d20",
+              "label": "Discharge orders"
+            },
+            {
+              "id": "d21",
+              "label": "B/P"
+            },
+            {
+              "id": "d22",
+              "label": "Hearing Screen"
+            },
+            {
+              "id": "d23",
+              "label": "NBS — PKU"
+            },
+            {
+              "id": "d24",
+              "label": "CCHD Screen"
+            },
+            {
+              "id": "d25",
+              "label": "Car seat challenge as needed"
+            },
+            {
+              "id": "d26",
+              "label": "Interdisciplinary readiness for discharge"
+            },
+            {
+              "id": "d27",
+              "label": "Topic: jaundice teaching method (printed & verbal)"
+            },
+            {
+              "id": "d28",
+              "label": "Newborn screening tracking (date PKU completed)"
+            },
+            {
+              "id": "d29",
+              "label": "CCHD screening date & results"
+            },
+            {
+              "id": "d30",
+              "label": "Nursing discharge summary"
+            },
+            {
+              "id": "d31",
+              "label": "Follow up appt documented"
+            },
+            {
+              "id": "d32",
+              "label": "Patient education (bulb syringe, hyperbillirubinemia)"
+            },
+            {
+              "id": "d33",
+              "label": "Discharge teaching"
+            },
+            {
+              "id": "d34",
+              "label": "Depart forms signed"
+            }
           ]
         },
         {
@@ -1176,26 +2588,59 @@
           "subtitle": "Final hands-on items",
           "accent": "peach",
           "items": [
-            { "id": "d35", "label": "Cord clamp removed" },
-            { "id": "d36", "label": "Security tag (& bands) removed" },
-            { "id": "d37", "label": "TCB / TSB with risk zone (within 4hrs of d/c)" },
-            { "id": "d38", "label": "After d/c: Order notification to admitting OB with date / time" }
+            {
+              "id": "d35",
+              "label": "Cord clamp removed"
+            },
+            {
+              "id": "d36",
+              "label": "Security tag (& bands) removed"
+            },
+            {
+              "id": "d37",
+              "label": "TCB / TSB with risk zone (within 4hrs of d/c)"
+            },
+            {
+              "id": "d38",
+              "label": "After d/c: Order notification to admitting OB with date / time"
+            }
           ]
         },
         {
           "id": "every-shift-charting",
           "title": "Every Shift Charting",
-          "icon": "📓",
+          "icon": "solar:notebook-minimalistic-bold-duotone",
           "subtitle": "Ongoing while admitted",
           "accent": "sky",
           "items": [
-            { "id": "d39", "label": "i-View: Assessment (click light grey lines to open sections)" },
-            { "id": "d40", "label": "i-View: VS" },
-            { "id": "d41", "label": "i-View: EFM" },
-            { "id": "d42", "label": "i-View: Lines and tubes (IV / foley)" },
-            { "id": "d43", "label": "Adhoc: Maternal shift screen adult" },
-            { "id": "d44", "label": "Add discharge education (MCHS → discharge workflow → int. Readiness → maternal general)" },
-            { "id": "d45", "label": "\"Document in plan\" for initiated Careplans, or create new POC" }
+            {
+              "id": "d39",
+              "label": "i-View: Assessment (click light grey lines to open sections)"
+            },
+            {
+              "id": "d40",
+              "label": "i-View: VS"
+            },
+            {
+              "id": "d41",
+              "label": "i-View: EFM"
+            },
+            {
+              "id": "d42",
+              "label": "i-View: Lines and tubes (IV / foley)"
+            },
+            {
+              "id": "d43",
+              "label": "Adhoc: Maternal shift screen adult"
+            },
+            {
+              "id": "d44",
+              "label": "Add discharge education (MCHS → discharge workflow → int. Readiness → maternal general)"
+            },
+            {
+              "id": "d45",
+              "label": "\"Document in plan\" for initiated Careplans, or create new POC"
+            }
           ]
         }
       ]
@@ -1211,135 +2656,263 @@
       "refBlocks": [
         {
           "id": "msi-shortcuts",
-          "title": "🖨 MSI Printer Shortcuts",
+          "title": "MSI Printer Shortcuts",
           "accent": "pink",
           "items": [
-            { "name": "Print armband:", "path": "1 \"%\"" },
-            { "name": "Print facesheet:", "path": "11 \"$\"" },
-            { "name": "Print patient stickers:", "path": "pre-reg tab \"enter\"" }
-          ]
+            {
+              "name": "Print armband:",
+              "path": "1 \"%\""
+            },
+            {
+              "name": "Print facesheet:",
+              "path": "11 \"$\""
+            },
+            {
+              "name": "Print patient stickers:",
+              "path": "pre-reg tab \"enter\""
+            }
+          ],
+          "icon": "solar:printer-2-bold-duotone"
         },
         {
           "id": "specimen-labs",
-          "title": "🧪 Specimen Labs Process",
+          "title": "Specimen Labs Process",
           "accent": "mint",
           "items": [
-            { "text": "Handheld printer at the nurse station" },
-            { "text": "Click \"Specimen collection\" in Cerner toolbar" },
-            { "text": "Checkmark the lab you are drawing" },
-            { "text": "Scan patient wristband" },
-            { "text": "Print" },
-            { "text": "Place label on drawn specimen and write initials, date, time" }
-          ]
+            {
+              "text": "Handheld printer at the nurse station"
+            },
+            {
+              "text": "Click \"Specimen collection\" in Cerner toolbar"
+            },
+            {
+              "text": "Checkmark the lab you are drawing"
+            },
+            {
+              "text": "Scan patient wristband"
+            },
+            {
+              "text": "Print"
+            },
+            {
+              "text": "Place label on drawn specimen and write initials, date, time"
+            }
+          ],
+          "icon": "solar:test-tube-minimalistic-bold-duotone"
         },
         {
           "id": "fetalink",
-          "title": "🔗 Connecting FetaLink to Patient Bed",
+          "title": "Connecting FetaLink to Patient Bed",
           "accent": "lavender",
           "items": [
-            { "text": "Click the box to the left of room number to open up that strip" },
-            { "text": "Click \"associate\"" },
-            { "text": "Scan patient wristband" },
-            { "text": "Backtime the start time to when the patient came into the room" }
-          ]
+            {
+              "text": "Click the box to the left of room number to open up that strip"
+            },
+            {
+              "text": "Click \"associate\""
+            },
+            {
+              "text": "Scan patient wristband"
+            },
+            {
+              "text": "Backtime the start time to when the patient came into the room"
+            }
+          ],
+          "icon": "solar:link-circle-bold-duotone"
         },
         {
           "id": "placenta-pathology",
-          "title": "🧬 Placenta to Pathology",
+          "title": "Placenta to Pathology",
           "accent": "peach",
           "items": [
-            { "text": "Label on the side and top of the white container" },
-            { "text": "Order: placenta tissue" },
-            { "text": "Print order: right click → select print" },
-            { "text": "Facesheet and order inside biohazard bag (clear bag w/ red rim) with placenta inside" },
-            { "text": "Walk placenta to pathology" }
-          ]
+            {
+              "text": "Label on the side and top of the white container"
+            },
+            {
+              "text": "Order: placenta tissue"
+            },
+            {
+              "text": "Print order: right click → select print"
+            },
+            {
+              "text": "Facesheet and order inside biohazard bag (clear bag w/ red rim) with placenta inside"
+            },
+            {
+              "text": "Walk placenta to pathology"
+            }
+          ],
+          "icon": "solar:dna-bold-duotone"
         },
         {
           "id": "placing-orders-path",
-          "title": "📂 Placing Orders — Path",
+          "title": "Placing Orders — Path",
           "accent": "sky",
           "items": [
-            { "text": "MCHS → Inpatient summary → order entry / new order → shared → Langlais, Beth → green button" }
-          ]
+            {
+              "text": "MCHS → Inpatient summary → order entry / new order → shared → Langlais, Beth → green button"
+            }
+          ],
+          "icon": "solar:folder-open-bold-duotone"
         },
         {
           "id": "ordersets-triage",
-          "title": "🌸 Order Sets — Triage",
+          "title": "Order Sets — Triage",
           "accent": "pink",
-          "items": [{ "name": "Triage:", "path": "Langlais, Beth → Favorites → FHMC Triage / Outpatient orders" }]
+          "items": [
+            {
+              "name": "Triage:",
+              "path": "Langlais, Beth → Favorites → FHMC Triage / Outpatient orders"
+            }
+          ],
+          "icon": "🌸"
         },
         {
           "id": "ordersets-admit",
-          "title": "🤰 Order Sets — Maternal Admit",
+          "title": "Order Sets — Maternal Admit",
           "accent": "peach",
           "items": [
-            { "name": "Labor admit:", "path": "search for provider favorites" },
-            { "name": "C/S admit:", "path": "search for provider favorites" },
-            { "name": "Admit to Obs:", "path": "n/a → keep as triage for up to 24hrs" },
-            { "name": "Antepartum admission:", "path": "search for provider favorites" }
-          ]
+            {
+              "name": "Labor admit:",
+              "path": "search for provider favorites"
+            },
+            {
+              "name": "C/S admit:",
+              "path": "search for provider favorites"
+            },
+            {
+              "name": "Admit to Obs:",
+              "path": "n/a → keep as triage for up to 24hrs"
+            },
+            {
+              "name": "Antepartum admission:",
+              "path": "search for provider favorites"
+            }
+          ],
+          "icon": "🤰"
         },
         {
           "id": "ordersets-diabetes",
-          "title": "🩸 Order Sets — Diabetes / Hypoglycemia",
+          "title": "Order Sets — Diabetes / Hypoglycemia",
           "accent": "mint",
           "items": [
-            { "name": "Maternal hypoglycemia:", "path": "Langlais, Beth → Favorites → FHMC Diabetes: OB hypoglycemia treatment" },
-            { "name": "Antepartum / Postpartum SQ insulin:", "path": "Langlais, Beth → Favorites → FHMC Diabetes: antepartum/postpartum SQ insulin" },
-            { "name": "Labor SQ insulin:", "path": "Langlais, Beth → Favorites → FHMC diabetes: Labor SQ insulin" },
-            { "name": "Labor IV insulin:", "path": "Langlais, Beth → Favorites → FHMC diabetes: OB IV insulin" }
-          ]
+            {
+              "name": "Maternal hypoglycemia:",
+              "path": "Langlais, Beth → Favorites → FHMC Diabetes: OB hypoglycemia treatment"
+            },
+            {
+              "name": "Antepartum / Postpartum SQ insulin:",
+              "path": "Langlais, Beth → Favorites → FHMC Diabetes: antepartum/postpartum SQ insulin"
+            },
+            {
+              "name": "Labor SQ insulin:",
+              "path": "Langlais, Beth → Favorites → FHMC diabetes: Labor SQ insulin"
+            },
+            {
+              "name": "Labor IV insulin:",
+              "path": "Langlais, Beth → Favorites → FHMC diabetes: OB IV insulin"
+            }
+          ],
+          "icon": "solar:test-tube-minimalistic-bold-duotone"
         },
         {
           "id": "ordersets-preeclampsia",
-          "title": "⚠️ Order Sets — Preeclampsia",
+          "title": "Order Sets — Preeclampsia",
           "accent": "lavender",
           "items": [
-            { "name": "Preeclampsia / GHTN:", "path": "add order → OB preeclampsia and other hypertensive disorders of pregnancy" },
-            { "name": "Additional preeclampsia BP meds:", "path": "suborder → OB preeclampsia anti-hypertensive acute control" },
-            { "name": "Eclampsia:", "path": "add order → OB eclamptic seizure orders" }
-          ]
+            {
+              "name": "Preeclampsia / GHTN:",
+              "path": "add order → OB preeclampsia and other hypertensive disorders of pregnancy"
+            },
+            {
+              "name": "Additional preeclampsia BP meds:",
+              "path": "suborder → OB preeclampsia anti-hypertensive acute control"
+            },
+            {
+              "name": "Eclampsia:",
+              "path": "add order → OB eclamptic seizure orders"
+            }
+          ],
+          "icon": "solar:danger-triangle-bold-duotone"
         },
         {
           "id": "ordersets-hemorrhage",
-          "title": "🆘 Order Sets — Maternal Hemorrhage",
+          "title": "Order Sets — Maternal Hemorrhage",
           "accent": "pink",
           "items": [
-            { "name": "MOH:", "path": "add order → OB hemorrhage multiphase powerplan" },
-            { "name": "MOH PP recovery:", "path": "Langlais, Beth → Favorites → FHMC OB modified postpartum care: stage 2 (3)" }
-          ]
+            {
+              "name": "MOH:",
+              "path": "add order → OB hemorrhage multiphase powerplan"
+            },
+            {
+              "name": "MOH PP recovery:",
+              "path": "Langlais, Beth → Favorites → FHMC OB modified postpartum care: stage 2 (3)"
+            }
+          ],
+          "icon": "solar:bell-bing-bold-duotone"
         },
         {
           "id": "ordersets-infection",
-          "title": "🦠 Order Sets — Maternal Infection",
+          "title": "Order Sets — Maternal Infection",
           "accent": "sky",
           "items": [
-            { "name": "Chorio antibiotics / labs:", "path": "add order → OB chorioamnionitis / endometritis" },
-            { "name": "Maternal sepsis:", "path": "Langlais, Beth → Favorites → Sepsis maternal orderset" },
-            { "name": "Severe maternal sepsis:", "path": "Langlais, Beth → Favorites → Severe Sepsis maternal orderset" }
-          ]
+            {
+              "name": "Chorio antibiotics / labs:",
+              "path": "add order → OB chorioamnionitis / endometritis"
+            },
+            {
+              "name": "Maternal sepsis:",
+              "path": "Langlais, Beth → Favorites → Sepsis maternal orderset"
+            },
+            {
+              "name": "Severe maternal sepsis:",
+              "path": "Langlais, Beth → Favorites → Severe Sepsis maternal orderset"
+            }
+          ],
+          "icon": "solar:virus-bold-duotone"
         },
         {
           "id": "ordersets-misc",
-          "title": "💉 Order Sets — Maternal Misc",
+          "title": "Order Sets — Maternal Misc",
           "accent": "peach",
           "items": [
-            { "name": "Amnioinfusion:", "path": "add order → OB amnioinfusion" },
-            { "name": "Increase Pit to 30:", "path": "Langlais, Beth → Favorites → FHMC OB increased upper limit oxytocin orders" },
-            { "name": "Delivery medication, delivered PTA:", "path": "Langlais, Beth → Favorites → FHMC post delivery medications" },
-            { "name": "Epidural:", "path": "Tsau, Kang → 1 cama OB epidural (level) most recent" }
-          ]
+            {
+              "name": "Amnioinfusion:",
+              "path": "add order → OB amnioinfusion"
+            },
+            {
+              "name": "Increase Pit to 30:",
+              "path": "Langlais, Beth → Favorites → FHMC OB increased upper limit oxytocin orders"
+            },
+            {
+              "name": "Delivery medication, delivered PTA:",
+              "path": "Langlais, Beth → Favorites → FHMC post delivery medications"
+            },
+            {
+              "name": "Epidural:",
+              "path": "Tsau, Kang → 1 cama OB epidural (level) most recent"
+            }
+          ],
+          "icon": "solar:syringe-bold-duotone"
         },
         {
           "id": "ordersets-newborn",
-          "title": "👶 Order Sets — Newborn",
+          "title": "Order Sets — Newborn",
           "accent": "butter",
           "items": [
-            { "name": "Newborn admit:", "path": "Langlais, Beth → Favorites → FHMC newborn: routine care" },
-            { "name": "Late preterm newborn (35.1-36.6w):", "path": "Langlais, Beth → Favorites → FHMC newborn: late preterm pathway" },
-            { "name": "Newborn Hypoglycemia:", "path": "Langlais, Beth → Favorites → FHMC newborn hypoglycemia glucose gel treatment" }
-          ]
+            {
+              "name": "Newborn admit:",
+              "path": "Langlais, Beth → Favorites → FHMC newborn: routine care"
+            },
+            {
+              "name": "Late preterm newborn (35.1-36.6w):",
+              "path": "Langlais, Beth → Favorites → FHMC newborn: late preterm pathway"
+            },
+            {
+              "name": "Newborn Hypoglycemia:",
+              "path": "Langlais, Beth → Favorites → FHMC newborn hypoglycemia glucose gel treatment"
+            }
+          ],
+          "icon": "👶"
         }
       ]
     }

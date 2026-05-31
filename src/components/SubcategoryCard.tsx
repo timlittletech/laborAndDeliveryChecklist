@@ -1,6 +1,7 @@
 import type { Subcategory, Accent } from '../types/checklist';
 import { ChecklistItem } from './ChecklistItem';
 import { TimeGrid } from './widgets/TimeGrid';
+import { CardIcon } from './CardIcon';
 
 const ACCENT_BORDER: Record<Accent, string> = {
   pink: 'border-t-pink-300',
@@ -22,7 +23,7 @@ export function SubcategoryCard({ sub }: { sub: Subcategory }) {
       ].join(' ')}
     >
       <h3 className="font-display font-semibold text-[1.15rem] text-ink mb-1 flex items-center gap-2">
-        {sub.icon && <span className="text-[1.1rem] opacity-90">{sub.icon}</span>}
+        <CardIcon icon={sub.icon} size={20} />
         {sub.title}
       </h3>
       {sub.subtitle && (

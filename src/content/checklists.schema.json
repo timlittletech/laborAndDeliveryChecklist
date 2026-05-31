@@ -83,7 +83,7 @@
         "title": { "type": "string", "minLength": 1 },
         "icon": {
           "type": "string",
-          "description": "Emoji or short text rendered as the card icon."
+          "description": "L&D-fun emoji (🌸 🌷 👶 🍼 💗 etc.) OR a Solar Iconify name prefixed `solar:` (e.g. solar:notes-bold-duotone) rendered as a vector icon. See CardIcon component."
         },
         "subtitle": { "type": "string" },
         "accent": { "$ref": "#/definitions/Accent" },
@@ -127,6 +127,10 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "title": { "type": "string", "minLength": 1 },
+        "icon": {
+          "type": "string",
+          "description": "L&D-fun emoji OR Solar Iconify name (`solar:...-bold-duotone`). Rendered to the left of the title."
+        },
         "accent": { "$ref": "#/definitions/Accent" },
         "items": {
           "type": "array",

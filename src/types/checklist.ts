@@ -31,6 +31,7 @@ export type RefItem = {
 export type RefBlock = {
   id: string;
   title: string;
+  icon?: string;
   accent: Accent;
   items: RefItem[];
 };

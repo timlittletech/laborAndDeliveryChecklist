@@ -5,6 +5,7 @@ import type { Category, Item, RefBlock, Subcategory } from '../types/checklist';
 import { blankKey, useRoom } from '../context/RoomContext';
 import { parseLabel } from '../lib/parseLabel';
 import { ROOMS } from '../data/rooms';
+import { CardIcon } from './CardIcon';
 
 type Props = {
   categories: Category[];
@@ -74,7 +75,10 @@ function PrintRefBlock({ block }: { block: RefBlock }) {
       className="border border-[#f0dfe6] border-l-[3px] rounded-lg px-3.5 py-2 mb-1.5 break-inside-avoid"
       style={{ borderLeftColor: { pink: '#e879a0', lavender: '#9b8cd4', mint: '#6cc9a0', peach: '#f0a878', sky: '#6ca3d4', butter: '#e6c850' }[block.accent] }}
     >
-      <h3 className="font-display font-semibold text-[10.5pt] m-0 mb-1">{block.title}</h3>
+      <h3 className="font-display font-semibold text-[10.5pt] m-0 mb-1 flex items-center gap-1.5">
+        <CardIcon icon={block.icon} size={14} />
+        {block.title}
+      </h3>
       <ul className="list-none p-0 m-0 text-[8.5pt] leading-[1.5]">
         {block.items.map((it, i) => (
           <li key={i} className="py-0.5 before:content-['◇_'] before:text-pink-300">
@@ -173,7 +177,7 @@ export function PrintOverlay({ categories, mode, currentCategoryId, onClose }: P
           onClick={() => window.print()}
           className="font-body font-bold text-[0.9rem] px-5 py-2.5 border-none rounded-full bg-pink-500 text-white cursor-pointer shadow-[0_2px_6px_rgba(184,69,110,0.2)] inline-flex items-center gap-2"
         >
-          <Icon icon="solar:printer-bold-duotone" width={20} aria-hidden="true" />
+          <Icon icon="solar:printer-2-bold-duotone" width={22} aria-hidden="true" />
           Print / Save as PDF
         </button>
         <button

@@ -1,4 +1,5 @@
 import type { RefBlock, Accent } from '../types/checklist';
+import { CardIcon } from './CardIcon';
 
 const ACCENT_BORDER: Record<Accent, string> = {
   pink: 'border-l-pink-500',
@@ -19,7 +20,10 @@ export function ReferenceBlock({ block }: { block: RefBlock }) {
         ACCENT_BORDER[block.accent],
       ].join(' ')}
     >
-      <h3 className="font-display font-semibold text-[1.1rem] text-ink mb-3">{block.title}</h3>
+      <h3 className="font-display font-semibold text-[1.1rem] text-ink mb-3 flex items-center gap-2">
+        <CardIcon icon={block.icon} size={20} />
+        {block.title}
+      </h3>
       <ul className="list-none text-[0.9rem] leading-[1.7]">
         {block.items.map((item, i) => (
           <li key={i} className="py-0.5 text-ink before:content-['◇'] before:text-pink-300 before:mr-2 before:text-[0.7rem]">
