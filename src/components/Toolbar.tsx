@@ -12,7 +12,7 @@ export function Toolbar({ onPrintSection, onPrintAll, onReset }: Props) {
       <button
         type="button"
         onClick={onPrintSection}
-        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-pink-500 rounded-[10px] bg-pink-500 text-white cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-pink-700 hover:border-pink-700 flex-1 max-w-[200px] inline-flex items-center gap-1.5 justify-center"
+        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-pink-500 rounded-[10px] bg-pink-500 text-white cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-pink-700 hover:border-pink-700 flex-1 max-w-[200px] min-h-[52px] inline-flex items-center gap-1.5 justify-center"
       >
         <Icon icon="solar:printer-2-bold-duotone" width={20} aria-hidden="true" />
         Print Section
@@ -20,7 +20,7 @@ export function Toolbar({ onPrintSection, onPrintAll, onReset }: Props) {
       <button
         type="button"
         onClick={onPrintAll}
-        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-lavender-200 rounded-[10px] bg-lavender-100 text-lavender-700 cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-lavender-200 flex-1 max-w-[200px] inline-flex items-center gap-1.5 justify-center"
+        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-lavender-200 rounded-[10px] bg-lavender-100 text-lavender-700 cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-lavender-200 flex-1 max-w-[200px] min-h-[52px] inline-flex items-center gap-1.5 justify-center"
       >
         <Icon icon="solar:printer-2-bold-duotone" width={20} aria-hidden="true" />
         Print All
@@ -28,9 +28,9 @@ export function Toolbar({ onPrintSection, onPrintAll, onReset }: Props) {
       <button
         type="button"
         onClick={onReset}
-        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-line rounded-[10px] bg-white text-ink-soft cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-paper-warm hover:text-ink flex-1 max-w-[200px] inline-flex items-center gap-1.5 justify-center"
+        className="font-body font-bold text-[0.78rem] uppercase tracking-[0.06em] px-4 py-2 border-[1.5px] border-line rounded-[10px] bg-white text-ink-soft cursor-pointer shadow-sm transition-all hover:-translate-y-px hover:shadow-md hover:bg-paper-warm hover:text-ink flex-1 max-w-[200px] min-h-[52px] inline-flex items-center gap-1.5 justify-center"
       >
-        <Icon icon="solar:restart-bold-duotone" width={18} aria-hidden="true" />
+        <Icon icon="solar:restart-bold-duotone" width={20} aria-hidden="true" />
         Reset
       </button>
     </div>
