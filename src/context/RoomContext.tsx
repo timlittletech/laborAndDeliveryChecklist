@@ -10,11 +10,25 @@ export type TimeGridState = {
   rows: Record<string, { checked: boolean; note: string }>; // key = "HHMM"
 };
 
+export type ShiftTimelineRow = {
+  momChecked: boolean;
+  momNote: string;
+  babyChecked: boolean;
+  babyNote: string;
+};
+
+export type ShiftTimelineState = {
+  momName: string;
+  babyName: string;
+  rows: Record<string, ShiftTimelineRow>; // key = "HHMM" (1800 … 0600)
+};
+
 export type RoomState = {
   checks: Record<string, boolean>;             // itemId -> checked
   blanks: Record<string, string>;              // `${itemId}:${blankLabel}` -> value
   customItems: Record<string, CustomItem[]>;   // categoryId -> items
   timeGrid: TimeGridState;
+  shiftTimeline: ShiftTimelineState;
 };
 
 export const blankKey = (itemId: string, label: string) => `${itemId}:${label}`;
@@ -24,6 +38,14 @@ const EMPTY_ROOM: RoomState = {
   blanks: {},
   customItems: {},
   timeGrid: { interval: 30, startTime: '18:30', rows: {} },
+  shiftTimeline: { momName: '', babyName: '', rows: {} },
+};
+
+const EMPTY_TIMELINE_ROW: ShiftTimelineRow = {
+  momChecked: false,
+  momNote: '',
+  babyChecked: false,
+  babyNote: '',
 };
 
 type Ctx = {
@@ -38,6 +60,8 @@ type Ctx = {
   setTimeGridInterval: (i: 15 | 30) => void;
   setTimeGridStartTime: (t: string) => void;
   setTimeRow: (hhmm: string, patch: Partial<{ checked: boolean; note: string }>) => void;
+  setShiftTimelineName: (field: 'momName' | 'babyName', value: string) => void;
+  setShiftTimelineRow: (hhmm: string, patch: Partial<ShiftTimelineRow>) => void;
   resetCurrentRoom: () => void;
   hasAnyData: (roomId: string) => boolean;
 };
@@ -137,6 +161,27 @@ export function RoomProvider({ children, initialRoomId }: { children: ReactNode;
     [patchCurrent],
   );
 
+  const setShiftTimelineName = useCallback(
+    (field: 'momName' | 'babyName', value: string) =>
+      patchCurrent((s) => ({ ...s, shiftTimeline: { ...s.shiftTimeline, [field]: value } })),
+    [patchCurrent],
+  );
+
+  const setShiftTimelineRow = useCallback(
+    (hhmm: string, patch: Partial<ShiftTimelineRow>) =>
+      patchCurrent((s) => {
+        const prev = s.shiftTimeline.rows[hhmm] ?? EMPTY_TIMELINE_ROW;
+        return {
+          ...s,
+          shiftTimeline: {
+            ...s.shiftTimeline,
+            rows: { ...s.shiftTimeline.rows, [hhmm]: { ...prev, ...patch } },
+          },
+        };
+      }),
+    [patchCurrent],
+  );
+
   const resetCurrentRoom = useCallback(() => {
     setRooms((prev) => ({ ...prev, [currentRoomId]: EMPTY_ROOM }));
   }, [currentRoomId]);
@@ -149,7 +194,12 @@ export function RoomProvider({ children, initialRoomId }: { children: ReactNode;
         Object.values(s.checks).some(Boolean) ||
         Object.values(s.blanks).some((v) => v.length > 0) ||
         Object.values(s.customItems).some((arr) => arr.length > 0) ||
-        Object.values(s.timeGrid.rows).some((r) => r.checked || r.note.length > 0)
+        Object.values(s.timeGrid.rows).some((r) => r.checked || r.note.length > 0) ||
+        s.shiftTimeline.momName.length > 0 ||
+        s.shiftTimeline.babyName.length > 0 ||
+        Object.values(s.shiftTimeline.rows).some(
+          (r) => r.momChecked || r.babyChecked || r.momNote.length > 0 || r.babyNote.length > 0,
+        )
       );
     },
     [rooms],
@@ -173,6 +223,8 @@ export function RoomProvider({ children, initialRoomId }: { children: ReactNode;
       setTimeGridInterval,
       setTimeGridStartTime,
       setTimeRow,
+      setShiftTimelineName,
+      setShiftTimelineRow,
       resetCurrentRoom,
       hasAnyData,
     }),
@@ -188,6 +240,8 @@ export function RoomProvider({ children, initialRoomId }: { children: ReactNode;
       setTimeGridInterval,
       setTimeGridStartTime,
       setTimeRow,
+      setShiftTimelineName,
+      setShiftTimelineRow,
       resetCurrentRoom,
       hasAnyData,
     ],
