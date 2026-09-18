@@ -107,10 +107,6 @@
               "label": "Adhoc: OB triage/Obs/status plan"
             },
             {
-              "id": "t19",
-              "label": "Adhoc: Antenatal testing NST"
-            },
-            {
               "id": "t20",
               "label": "Check prenatal labs"
             },
@@ -780,22 +776,6 @@
               "label": "Orders: Tsau, Kang 1 CAMA OB Epidural (level) — most recent"
             },
             {
-              "id": "e16",
-              "label": "Adhoc: Universal Protocol: Timeout"
-            },
-            {
-              "id": "e17",
-              "label": "Section 1 — prior to procedure"
-            },
-            {
-              "id": "e18",
-              "label": "Section 2 — just prior to procedure starting"
-            },
-            {
-              "id": "e19",
-              "label": "Section 3 — after procedure complete"
-            },
-            {
               "id": "e20",
               "label": "Scan meds into MAR and sign with anesthesia"
             },
@@ -805,7 +785,7 @@
             },
             {
               "id": "e22",
-              "label": "Chart Timeout"
+              "label": "Chart Timeout — Universal Protocol"
             },
             {
               "id": "e23",
