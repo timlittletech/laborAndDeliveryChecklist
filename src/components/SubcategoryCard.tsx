@@ -1,6 +1,7 @@
 import type { Subcategory, Accent } from '../types/checklist';
 import { ChecklistItem } from './ChecklistItem';
 import { TimeGrid } from './widgets/TimeGrid';
+import { ShiftTimeline } from './widgets/ShiftTimeline';
 import { CardIcon } from './CardIcon';
 
 const ACCENT_BORDER: Record<Accent, string> = {
@@ -20,6 +21,8 @@ export function SubcategoryCard({ sub }: { sub: Subcategory }) {
         'relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow',
         'border-t-4',
         ACCENT_BORDER[sub.accent],
+        // The shift timeline is a wide table; let its card span the whole grid row.
+        sub.widget === 'shift-timeline' ? '[grid-column:1/-1]' : '',
       ].join(' ')}
     >
       <h3 className="font-display font-semibold text-[1.15rem] text-ink mb-1 flex items-center gap-2">
@@ -37,6 +40,7 @@ export function SubcategoryCard({ sub }: { sub: Subcategory }) {
         ))}
       </ul>
       {sub.widget === 'time-grid' && <TimeGrid />}
+      {sub.widget === 'shift-timeline' && <ShiftTimeline />}
     </div>
   );
 }

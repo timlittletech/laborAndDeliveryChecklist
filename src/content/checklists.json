@@ -2144,236 +2144,140 @@
       "kind": "checklist",
       "sectionLabel": "Postpartum",
       "titleEmphasis": "care",
-      "description": "Mom & baby ongoing care",
+      "description": "Mom & baby couplet — 12-hour shift care timeline",
       "subcategories": [
         {
-          "id": "mom",
-          "title": "Mom",
+          "id": "shift-timeline",
+          "title": "12-Hour Shift Care Timeline",
+          "icon": "solar:clock-circle-bold-duotone",
+          "subtitle": "Couplet · 1800 – 0600 · what to get done each hour",
+          "accent": "peach",
+          "items": [],
+          "widget": "shift-timeline"
+        },
+        {
+          "id": "mom-tasks",
+          "title": "Mom Tasks",
           "icon": "💗",
-          "subtitle": "Maternal care assumption",
-          "accent": "pink",
+          "subtitle": "Shift task checklist",
+          "accent": "mint",
           "items": [
             {
-              "id": "pp1",
+              "id": "ppm1",
+              "label": "Fundal checks"
+            },
+            {
+              "id": "ppm2",
+              "label": "Vital sign checks"
+            },
+            {
+              "id": "ppm3",
               "label": "Care assumed"
             },
             {
-              "id": "pp2",
+              "id": "ppm4",
               "label": "Review pt pharmacy"
             },
             {
-              "id": "pp3",
+              "id": "ppm5",
               "label": "Check orders → d/c order in, if applicable"
             },
             {
-              "id": "pp4",
+              "id": "ppm6",
               "label": "POC — document in plan (initiate if needed)"
             },
             {
-              "id": "pp5",
+              "id": "ppm7",
               "label": "MAR (due and responses)"
             },
             {
-              "id": "pp6",
+              "id": "ppm8",
               "label": "Result copy"
             },
             {
-              "id": "pp7",
+              "id": "ppm9",
               "label": "Check IV"
             },
             {
-              "id": "pp8",
+              "id": "ppm10",
               "label": "Assessment"
             },
             {
-              "id": "pp9",
+              "id": "ppm11",
+              "label": "BF / pumping times"
+            },
+            {
+              "id": "ppm12",
+              "label": "Stool / void"
+            },
+            {
+              "id": "ppm13",
+              "label": "SCDs, Dangle (6-8hrs), Ambulation, Foley (BR independently), pulse ox 24hrs after C/S"
+            },
+            {
+              "id": "ppm14",
               "label": "Adhoc: Maternal shift screen adhoc"
             },
             {
-              "id": "pp10",
+              "id": "ppm15",
               "label": "Education (adhoc: Mat readiness for d/c, maternal)"
             }
           ]
         },
         {
-          "id": "mom-meds",
-          "title": "Mom — Meds",
-          "icon": "solar:pills-bold-duotone",
-          "subtitle": "MAR responses",
-          "accent": "lavender",
-          "items": [
-            {
-              "id": "pp13",
-              "label": "{{blank:med name:170}} (MAR response)"
-            },
-            {
-              "id": "pp14",
-              "label": "{{blank:med name:170}} (MAR response)"
-            },
-            {
-              "id": "pp15",
-              "label": "{{blank:med name:170}} (MAR response)"
-            },
-            {
-              "id": "pp16",
-              "label": "{{blank:med name:170}} (MAR response)"
-            }
-          ]
-        },
-        {
-          "id": "mom-vs-fundals",
-          "title": "Mom — VS & Fundals Q4H",
-          "icon": "solar:chart-square-bold-duotone",
-          "subtitle": "Check orders for after 24hrs",
-          "accent": "peach",
-          "items": [
-            {
-              "id": "pp17",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp18",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp19",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp20",
-              "label": "{{blank:time:120}}"
-            }
-          ]
-        },
-        {
-          "id": "mom-misc",
-          "title": "Mom — Misc",
-          "icon": "solar:notes-bold-duotone",
-          "subtitle": "Ongoing tasks",
-          "accent": "mint",
-          "items": [
-            {
-              "id": "pp21",
-              "label": "BF / pumping times"
-            },
-            {
-              "id": "pp22",
-              "label": "Stool / void"
-            },
-            {
-              "id": "pp23",
-              "label": "SCDs, Dangle (6-8hrs), Ambulation, Foley (BR independently), pulse ox 24hrs after C/S"
-            }
-          ]
-        },
-        {
-          "id": "baby",
-          "title": "Baby",
+          "id": "baby-tasks",
+          "title": "Baby Tasks",
           "icon": "👶",
-          "subtitle": "Newborn care assumption",
-          "accent": "butter",
-          "items": [
-            {
-              "id": "pp24",
-              "label": "Care assumed"
-            },
-            {
-              "id": "pp25",
-              "label": "Check orders — d/c order in?"
-            },
-            {
-              "id": "pp26",
-              "label": "POC — document in plan"
-            },
-            {
-              "id": "pp27",
-              "label": "Result copy"
-            },
-            {
-              "id": "pp28",
-              "label": "Weights (2-6am)"
-            },
-            {
-              "id": "pp29",
-              "label": "TCB (2-6am)"
-            },
-            {
-              "id": "pp30",
-              "label": "TCB 4hr prior to d/c"
-            },
-            {
-              "id": "pp31",
-              "label": "Jaundice graph / risk zone"
-            },
-            {
-              "id": "pp32",
-              "label": "Education (adhoc: Mat readiness for d/c, infant / nicu)"
-            },
-            {
-              "id": "pp33",
-              "label": "Facesheet out for ped"
-            },
-            {
-              "id": "pp34",
-              "label": "Newborn assessment"
-            }
-          ]
-        },
-        {
-          "id": "baby-vs",
-          "title": "Baby — VS",
-          "icon": "🌟",
-          "subtitle": "At 4hrs, then Q4H x24hrs, then q shift",
-          "accent": "sky",
-          "items": [
-            {
-              "id": "pp35",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp36",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp37",
-              "label": "{{blank:time:120}}"
-            },
-            {
-              "id": "pp38",
-              "label": "{{blank:time:120}}"
-            }
-          ]
-        },
-        {
-          "id": "baby-feeds",
-          "title": "Baby — Feeds & Output",
-          "icon": "🍼",
-          "subtitle": "Track all feeds",
+          "subtitle": "Shift task checklist",
           "accent": "pink",
           "items": [
             {
-              "id": "pp39",
-              "label": "Feed: {{blank:time:120}}"
+              "id": "ppb1",
+              "label": "Vital sign checks"
             },
             {
-              "id": "pp40",
-              "label": "Feed: {{blank:time:120}}"
+              "id": "ppb2",
+              "label": "Care assumed"
             },
             {
-              "id": "pp41",
-              "label": "Feed: {{blank:time:120}}"
+              "id": "ppb3",
+              "label": "Check orders — d/c order in?"
             },
             {
-              "id": "pp42",
-              "label": "Feed: {{blank:time:120}}"
+              "id": "ppb4",
+              "label": "POC — document in plan"
             },
             {
-              "id": "pp43",
-              "label": "Voids: {{blank:count}}"
+              "id": "ppb5",
+              "label": "Result copy"
             },
             {
-              "id": "pp44",
-              "label": "Stools: {{blank:count}}"
+              "id": "ppb6",
+              "label": "Weights (2-6am)"
+            },
+            {
+              "id": "ppb7",
+              "label": "TCB (2-6am)"
+            },
+            {
+              "id": "ppb8",
+              "label": "TCB 4hr prior to d/c"
+            },
+            {
+              "id": "ppb9",
+              "label": "Jaundice graph / risk zone"
+            },
+            {
+              "id": "ppb10",
+              "label": "Education (adhoc: Mat readiness for d/c, infant / nicu)"
+            },
+            {
+              "id": "ppb11",
+              "label": "Facesheet out for ped"
+            },
+            {
+              "id": "ppb12",
+              "label": "Newborn assessment"
             }
           ]
         },

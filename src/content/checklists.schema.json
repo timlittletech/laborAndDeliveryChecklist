@@ -89,12 +89,13 @@
         "accent": { "$ref": "#/definitions/Accent" },
         "items": {
           "type": "array",
-          "minItems": 1,
+          "minItems": 0,
+          "description": "Checklist items. May be empty when the card is widget-only.",
           "items": { "$ref": "#/definitions/Item" }
         },
         "widget": {
           "type": "string",
-          "enum": ["time-grid"],
+          "enum": ["time-grid", "shift-timeline"],
           "description": "Optional widget rendered after the items."
         }
       }

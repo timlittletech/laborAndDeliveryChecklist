@@ -4,7 +4,7 @@
 
 export type TabColor = 'pink' | 'lavender' | 'mint' | 'peach' | 'sky' | 'butter';
 export type Accent = TabColor;
-export type WidgetKind = 'time-grid';
+export type WidgetKind = 'time-grid' | 'shift-timeline';
 
 export type Item = {
   id: string;
